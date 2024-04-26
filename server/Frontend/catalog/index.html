@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../source/images/icon/favicon.svg">
+    
+    <link rel="stylesheet" type="text/css" href="./styles/null-stile.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width:320px)" href="./styles/320_style.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:321px) and (max-width:480px)" href="./styles/480_style.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:481px) and (max-width:768px)" href="./styles/768_style.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:769px) and (max-width:1000px)" href="./styles/1000_style.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:1001px)" href="./styles/1600_style.css">
+    <title>EXPERT - Каталог</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="top-bar">
+                <div style="cursor: pointer; width: 26px; height: 26px" onclick="window.location.replace('/')">
+                    <img src="../source/images/icon/favicon.svg" style="cursor: pointer" onclick="window.location.replace('/')" alt="mini-logo">
+                </div>
+                <div class="nav-panel" >
+                    <div class="item-list">
+                        <a href="/catalog">Каталог</a>
+                        <div class="accordion"><div class="triangle"><a>Сервис</a></div></div>
+                        <a href="#">Акции</a>
+                        <a href="#">О производителе</a>
+                        <a href="#">Контакты</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="burger-menu">
+                <div class="burger-button">
+                    <span>Меню</span>
+                </div>
+                <div class="burger-list-container">
+                    <div class="close"></div>
+                    <ul class="item-list">
+                        <li><a href="/catalog">Каталог</a></li>
+                        <li class="accordion">
+                            <span id="burger-menu-show-btn">Сервис</span>
+                            <div class="accordion-list-items">
+                                <ul>
+                                    <li><span>Как выбрать двери</span></li>
+                                    <li><span>Доставка и установка</span></li>
+                                    <li><span>Порядок оплаты</span></li>
+                                    <li><span>Гарантии</span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Акции</a></li>
+                        <li><a href="#">О производителе</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li>
+                            <a href="#">Получить консультацию</a>
+                            <div class="main-arrow-item">
+                                <div class="circle"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bread">
+                <span class="bread"><a href="/" class="bread pointer">EXPERT</a>&nbsp;  /  &nbsp;<a href="/catalog/" class="bread pointer">Каталог</a>&nbsp;  /  &nbsp;<a class="bread" id="bread-str">Двери в Дом</a></span> 
+            </div>
+        </header>
+        <div class=" main-content container">
+            <div class="filters">
+                <div class="filter-navigation">
+                    <div class="switcher">
+                    <div id="for-home" class="switch active"><a>Expert | В дом</a></div>
+                    <div id="for-flat" class="switch"><a>Expert | В квартиру</a></div>
+                </div>
+                    <div class="filter-button">
+                    <div class="filter-drop-down-btn-holder">
+                        <span id="filter-drop-down-button">Фильтры</span>
+                        <div id="filter-icon"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.1321 5.49185H9.97681C9.67012 4.58096 8.80855 3.92285 7.79556 3.92285C6.78257 3.92285 5.921 4.58096 5.61431 5.49185H3.87305C3.46855 5.49185 3.14062 5.81978 3.14062 6.22427C3.14062 6.62876 3.46855 6.95669 3.87305 6.95669H5.61436C5.92104 7.86758 6.78262 8.52568 7.79561 8.52568C8.80859 8.52568 9.67017 7.86758 9.97685 6.95669H21.1322C21.5367 6.95669 21.8646 6.62876 21.8646 6.22427C21.8646 5.81978 21.5367 5.49185 21.1321 5.49185ZM7.79556 7.06084C7.33428 7.06084 6.95898 6.68555 6.95898 6.22427C6.95898 5.76299 7.33428 5.3877 7.79556 5.3877C8.25684 5.3877 8.63213 5.76299 8.63213 6.22427C8.63213 6.68555 8.25684 7.06084 7.79556 7.06084Z" fill="white" fill-opacity="0.5" />
+                            <path d="M21.1321 11.7677H19.3908C19.0841 10.8568 18.2225 10.1987 17.2096 10.1987C16.1966 10.1987 15.3351 10.8568 15.0284 11.7677H3.87305C3.46855 11.7677 3.14062 12.0957 3.14062 12.5001C3.14062 12.9046 3.46855 13.2326 3.87305 13.2326H15.0284C15.3351 14.1435 16.1967 14.8016 17.2096 14.8016C18.2226 14.8016 19.0842 14.1435 19.3909 13.2326H21.1322C21.5367 13.2326 21.8646 12.9046 21.8646 12.5001C21.8646 12.0957 21.5367 11.7677 21.1321 11.7677ZM17.2096 13.3367C16.7483 13.3367 16.373 12.9614 16.373 12.5001C16.373 12.0389 16.7483 11.6636 17.2096 11.6636C17.6709 11.6636 18.0462 12.0389 18.0462 12.5001C18.0462 12.9614 17.6709 13.3367 17.2096 13.3367Z" fill="white" fill-opacity="0.5" />
+                            <path d="M21.1321 18.0438H13.1148C12.8082 17.133 11.9466 16.4749 10.9336 16.4749C9.92061 16.4749 9.05903 17.133 8.75234 18.0438H3.87305C3.46855 18.0438 3.14062 18.3718 3.14062 18.7763C3.14062 19.1808 3.46855 19.5087 3.87305 19.5087H8.75234C9.05903 20.4196 9.92061 21.0777 10.9336 21.0777C11.9466 21.0777 12.8082 20.4196 13.1148 19.5087H21.1322C21.5367 19.5087 21.8646 19.1808 21.8646 18.7763C21.8646 18.3718 21.5367 18.0438 21.1321 18.0438ZM10.9336 19.6129C10.4723 19.6129 10.097 19.2376 10.097 18.7763C10.097 18.315 10.4723 17.9397 10.9336 17.9397C11.3949 17.9397 11.7702 18.315 11.7702 18.7763C11.7702 19.2375 11.3949 19.6129 10.9336 19.6129Z" fill="white" fill-opacity="0.5" />
+                        </svg></div>
+                    </div>
+                    <div class="filter-drop-down">
+                        <div class="filters-top-bar">
+                            <span class="name">Фильтры</span>
+                            <div id="filter-close-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_744_13913)">
+                                        <path d="M11.1049 9.99924L19.7712 18.6655C20.0763 18.9707 20.0763 19.4654 19.7712 19.7704C19.4661 20.0755 18.9714 20.0755 18.6663 19.7704L9.99999 11.1041L1.33372 19.7704C1.0286 20.0755 0.533915 20.0755 0.228837 19.7704C-0.0762401 19.4653 -0.0762792 18.9706 0.228837 18.6655L8.89511 9.99928L0.228837 1.33297C-0.0762792 1.02785 -0.0762792 0.533163 0.228837 0.228086C0.381376 0.0755482 0.581337 -0.000701904 0.781297 -0.000701904C0.981258 -0.000701904 1.18118 0.0755482 1.33376 0.228086L9.99999 8.89436L18.6663 0.228086C18.8188 0.0755482 19.0188 -0.000701904 19.2187 -0.000701904C19.4187 -0.000701904 19.6186 0.0755482 19.7712 0.228086C20.0763 0.533203 20.0763 1.02789 19.7712 1.33297L11.1049 9.99924Z" fill="#727272" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_744_13913">
+                                            <rect width="20" height="20" fill="white" transform="matrix(1 0 0 -1 0 20)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="filters-accordion">
+                            
+                            <h3>Цена</h3>
+                            <div class="container">
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">30 000₽ - 50 000₽</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">70 000₽ - 90 000₽</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">90 000₽ - 100 000₽</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">130 000₽ и больше</span>
+                                </label>
+                            </div>
+                            <h3>Отделка</h3>
+                            <div class="container"> 
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Массив</span>
+                                    <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                    </span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Накладка из МДФ</span>
+                                    <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                    </span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Ламинированная ДСП</span>
+                                    <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                    </span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Со стеклом и с зеркалом</span>
+                                    <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                    </span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">С ковкой</span>
+                                    <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                    </span>
+                                </label>
+                            </div>
+                            <h3>Цвет</h3>
+                            <div class="container">
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Венге</span>
+                                    
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Белые</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Чёрные</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Тёмные</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Светлые</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Красные</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span class="filter info">Зелёные</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="radio-btns">
+                            <label>
+                                <input type="radio" name="bottom-radio"/>
+                                <span class="filter info">С терморазрывом</span>
+                                <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                    </span>
+                            </label>
+                            <label>
+                                <input type="radio" name="bottom-radio"/>
+                                <span class="filter info">Взломостойкие</span>
+                                <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                    </span>
+                            </label>
+                            <label>
+                                <input type="radio" name="bottom-radio"/>
+                                <span class="filter info">Бронированные</span>
+                                <span class="info-icon">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.70079 6.2998H6.30078V10.4998H7.70079V6.2998Z" fill="#C7C7C7" />
+                                            <path d="M6.99998 0C3.13251 0 0 3.13251 0 6.99998C0 10.8675 3.13251 14 6.99998 14C10.8675 14 14 10.8675 14 6.99998C14 3.13248 10.8675 0 6.99998 0ZM6.99998 12.6C3.91299 12.6 1.39998 10.087 1.39998 6.99998C1.39998 3.91299 3.91299 1.40001 6.99998 1.40001C10.087 1.40001 12.6 3.91299 12.6 6.99998C12.6 10.087 10.087 12.6 6.99998 12.6Z" fill="#C7C7C7" />
+                                            <path d="M7.70079 3.5H6.30078V4.90001H7.70079V3.5Z" fill="#C7C7C7" />
+                                        </svg>
+                                </span>
+                            </label>
+                        </div>
+                        <div id="activity-filters"></div>
+                        <div class="consult-but">
+                            <span class="consult-but text">Получить консультацию</span>
+                            <div class="main-arrow-item">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="sorting-filters">
+                    <label>
+                        <input name="filter-radio" type="radio" value="ASC">
+                        <span>По возрастанию</span>
+                    </label>
+                    <label>
+                        <input name="filter-radio" type="radio" value="DESC">
+                        <span>По убыванию</span>
+                    </label>
+                </div>
+            </div>
+            <div id="catalog">
+
+            </div>
+        </div>
+        <footer>
+            <div class="content">
+                <div class="f">
+                    <div class="company-name">EXPERT</div>
+                    <div class="mobile-phone">
+                        8(800)666-66-66
+                        <span>Бесплатный звонок</span>
+                    </div>
+                </div>
+                <div class="footer-navigation">
+                    <ul>
+                        <li><a href="#">Каталог</a></li>
+                        <li><a href="#">Как выбрать двери</a></li>
+                        <li><a href="#">Акции</a></li>
+                        <li><a href="#">О производстве</a></li>
+                        <li><a href="#">Карта сайта</a></li>
+                    </ul>
+                </div>
+                <div class="documentation">
+                    <a href="#">Обработка персональных данных</a>
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+                <div class="f">
+                    <div class="social-club" onclick="window.location.replace('https://www.youtube.com/watch?v=dQw4w9WgXcQ')"> <a href="#">Instagram</a></div>
+                    <div class="copyright">© Expert 2021 все права защищены</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="module"  src="./scripts/animations.js"></script>
+    <script type="module"  src="./scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿{
+  "main": {
+    "creator": "IKEA",
+    "product_name": "взрывная дверь",
+    "open_direction": "внутрь",
+    "open_side": "правая",
+    "door_width": "40мм",
+    "doorBox_type": "нормальная",
+    "denoising_parameter": "-20dB",
+    "individual_width": "от 1000мм до 1500мм",
+    "individual_height": "от 2000мм до 2500мм",
+    "door_mass": "от 90кг"
+  },
+  "door_security": {
+    "metal_list_count": "от 2 до 4",
+    "list_width": "2мм",
+    "stiffeners_count": "5",
+    "crossbars_count": "3",
+    "locks_count": "2",
+    "locks_mark": "Iron Man",
+    "locks_class": "A",
+    "armor_lining":"нет",
+    "armor_package":"нет",
+    "night_crossbar": "есть"
+  },
+  "decor": {
+    "door_coating": "порошковая краска",
+    "coating_color": "чёрный",
+    "coating_inside": "порошковая краска",
+    "coating_outside": "порошковая краска",
+    "doorstep": "есть"
+  },
+  "furniture": {
+    "furniture_color": "чёрный",
+    "handle": "рычаг",
+    "closer": "нет",
+    "doorstep": "есть",
+    "hinges_decoration": "нет"
+  },
+  "isolations":{
+    "filler":"нет",
+    "filler_width":"нет",
+    "filler_fire_class":"нет",
+    "filler_using_temperature":"нет",
+    "filler_tumperature_save":"нет"
+  },
+  "tightness":{
+    "tightness_count":"1",
+    "tightness_material":"силикон"
+  },
+  "ease_of_use":{
+    "hinges_type":"накладные",
+    "hinges_count":"2",
+    "opening_angle":"120 градусов",
+    "removable_angels":"нет",
+    "functional_lock":"нет",
+    "invisible_lock":"нет",
+    "electric_lock":"нет",
+    "lock_regulation":"нет",
+    "closer":"нет",
+    "eye_height":"165см",
+    "eye_vision_angle":"90 градусов"
+  }
+  
+}

@@ -1,0 +1,148 @@
+﻿@font-face {
+    font-family: "Robodron";
+    src: url('../../source/fonts/logo-font/RobodronMedium.ttf');
+}
+/*@font-face {*/
+/*    font-family: "SF Pro Display";*/
+/*    src: url(/EXPERT.ru/source/fonts/main-font/SFPRODISPLAYMEDIU.otf);*/
+/*}*/
+
+@font-face {
+    font-family: "SF Pro Display 300";
+    src : url("../../source/fonts/main-font/SF Pro Display/SF-Pro-Display-Light.otf ");
+}
+@font-face {
+    font-family: "SF Pro Display 400";
+    src : url("../../source/fonts/main-font/SF Pro Display/SF-Pro-Display-Regular.otf");
+}
+@font-face {
+    font-family: "SF Pro Display 100";
+    src : url("../../source/fonts/main-font/SF Pro Display/SF-Pro-Display-Thin.otf");
+}
+
+
+/* Reset and base styles  */
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+    text-decoration: none;
+    color: #222;
+    font-family: "SF Pro Display 400";
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: "SF Pro Display 400";
+}
+span{
+    font-family: "SF Pro Display 400";
+}
+
+ul, ul li {
+    list-style: none;
+    font-family: "SF Pro Display 400";
+}
+
+img {
+    vertical-align: top;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+address {
+    font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background: transparent none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+label {
+    cursor: pointer;
+}
+
+legend {
+    display: block;
+}
+
+
+body::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    margin: 0;
+}
+
+body::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+
+.bread span, .bread span a{
+    color: #9a9a9a
+}
+#bread-str{
+    color: #222
+}
+input[type=radio]{
+    height: 15px;
+    width: 15px;
+    accent-color: #010101;
+}
