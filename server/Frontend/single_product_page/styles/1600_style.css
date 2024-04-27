@@ -1,0 +1,429 @@
+﻿header, .main-content.container{
+    padding: 0 200px;
+}
+.nav-panel{
+    display: block;
+}
+.nav-panel .item-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 50px;
+}
+.nav-panel .item-list .triangle{
+    position: relative;
+}
+.nav-panel .item-list .triangle:after{
+    content: '';
+    position: absolute;
+    right: -17px;
+    bottom: 0;
+    border: 4px solid transparent;
+    border-top: 8px solid #010101;
+}
+
+.burger-menu{
+    display: none;
+}
+.burger-button{
+    position: relative;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.burger-button:before{
+    content:"";
+    display: block;
+    width: 118px;
+    height: 118px;
+    background-color: #f2f2f2;
+    position: relative;
+    border-radius: 50%;
+    transition: all 0.1s ease-in;
+
+}
+
+.burger-menu:active{
+    .burger-button:before{
+        width: 100px;
+        height: 100px;
+    }
+    .burger-button span{
+        font-size: 15px;
+    }
+}
+.burger-button span {
+    color: #222;
+    font-size: 14px;
+    position: absolute;
+    transition: all 0.1s ease-in;
+
+}
+.close {
+    width: 26.87px;
+    height: 26.87px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    right: -65%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+.close:before,
+.close:after {
+    content: '';
+    display: block;
+    width: 37px;
+    height: 1px;
+    background-color: #c7c7c7;
+    position: relative;
+    cursor: pointer;
+}
+.close:before{
+    transform: rotate(-45deg);
+    top: 0;
+    left: 0;
+}
+.close:after{
+    transform: rotate(45deg);*
+top: 100%;
+    left: 0;
+}
+.burger-list-container{
+    left: 100%;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    background-color: #fefefe;
+    transition: all 0.5s ease;
+}
+.burger-list-container.active{
+    left: 20%;
+}
+
+.burger-list-container .item-list li{
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    margin-left: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    width: 95%;
+    cursor: pointer;
+}
+.burger-list-container .item-list li.accordion{
+    position: relative;
+    transition: all 0.5s ease;
+}
+.burger-list-container .item-list li.accordion:before{
+    content:"";
+    position:absolute;
+    left: 65px;
+    top: 4px;
+    width:8px;
+    height: 8px;
+    transform: rotate(45deg);
+    border-bottom: 1px solid #222;
+    border-right: 1px solid #222;
+}
+.accordion-list-items{
+    height: 0;
+    overflow: auto;
+    transition: all 0.5s ease;
+}
+.accordion-list-items li{
+    margin-bottom: 5px;
+}
+.accordion-list-items.active{
+    padding-top: 15px;
+    overflow: hidden;
+    height: 210px;
+    .accordion:before{
+        transform: rotate(-45deg)
+    }
+}
+.burger-list-container .item-list li:last-child{
+    padding-top: 12px;
+}
+.burger-list-container .item-list li:last-child,
+.burger-list-container .item-list li:nth-child(5){
+    border: none;
+}
+
+.burger-list-container .item-list li:last-child a{
+    color: #0222A5;
+
+    /* Txt / extra small light */
+    font-family: "SF Pro Display 300";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 18.2px */
+    letter-spacing: 0.56px;
+}
+.item-list{
+    position: relative;
+}
+.burger-list-container .item-list li .main-arrow-item{
+    border-bottom: 1px solid #0222A5;
+    height: 1px;
+    width: 95%;
+    left:0;
+    position: relative;
+    transition: all 0.4s ease-in;
+
+}
+.burger-list-container .main-arrow-item:before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    right: 0;
+    top: -2.5px;
+    transform: rotate(-45deg);
+    border-bottom: 1px solid #0222A5;
+    border-right: 1px solid #0222A5;
+    z-index: 0;
+}
+.burger-list-container .main-arrow-item .circle{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+.burger-list-container .main-arrow-item .circle:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border:1px solid #0222A5;
+    border-radius: 50%;
+}
+
+
+
+.consult-but {
+    display: none;
+}
+
+.consult-but.text {
+    font-size: 14px;
+    letter-spacing: 0.56px;
+    font-family: "SF Pro Display 300";
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-bottom: 13px;
+}
+.main-arrow-item{
+    border-bottom: 1px solid #0222A5;
+    height: 1px;
+    width: 97%;
+    right: 20px;
+    position: absolute;
+    transition: all 0.4s ease-in;
+
+}
+.main-arrow-item:before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    right: 0;
+    top: -2.5px;
+    transform: rotate(-45deg);
+    border-bottom: 1px solid #0222A5;
+    border-right: 1px solid #0222A5;
+    z-index: 0;
+}
+.main-arrow-item .circle{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    right: -25px;
+}
+.main-arrow-item .circle:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border:1px solid #0222A5;
+    border-radius: 50%;
+}
+.consult-but:hover {
+    .main-arrow-item{
+        width: 60%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    background:#010101;
+    margin-top: 50px;
+    position: relative;
+}
+footer .content{
+    padding: 30px 10px 0 10px;
+}
+footer .content .company-name{
+    color: #222;
+    font-family: 'Robodron', serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 14px */
+    letter-spacing: 1.4px;
+
+}
+footer .content .mobile-phone{
+    color: #FEFEFE;
+
+    /* Txt / extra small light */
+    font-family: "SF Pro Display 300", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 18.2px */
+    letter-spacing: 0.56px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+footer .content .mobile-phone span{
+    color: #727272;
+
+    /* Txt / 12 */
+    font-family: "SF Pro Display 400";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 15.6px */
+    letter-spacing: 0.48px;
+    margin-top: 5px;
+}
+.footer-navigation a{
+    color: #C7C7C7;
+    font-family: "SF Pro Display 100";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 15.6px */
+    letter-spacing: 0.48px;
+}
+.footer-navigation ul{
+    margin-top: 55px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.footer-navigation li{
+    margin-bottom: 10px;
+}
+.documentation{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    column-gap: 30px;
+    left: 250px;
+}
+.documentation a{
+    color: #727272;
+    text-align: center;
+    font-family: "SF Pro Display 400";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 13px */
+    letter-spacing: 0.4px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.social-club{
+    position: relative;
+    margin-right: 30px;
+}
+
+.social-club a{
+    color: #F64646;
+
+    /* Txt / extra small light */
+    font-family: "SF Pro Display 300";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 18.2px */
+    letter-spacing: 0.56px;
+    position: relative;
+    width: max-content;
+}
+.social-club:before{
+    content: '';
+    position: absolute;
+    height: 16px;
+    right: -17px;
+    bottom: 0;
+    border-right: 1px solid #F64646;
+    transform: rotate(38deg);
+}
+
+.social-club:after{
+    content: '';
+    position: absolute;
+    height: 11px;
+    width: 11px;
+    right: -22px;
+    bottom: 4px;
+    border-bottom: 1px solid #F64646;
+    border-right: 1px solid #F64646;
+    transform: rotate(270deg);
+}
+.copyright{
+    color: #727272;
+    font-family: "SF Pro Display 400";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 11.7px */
+    letter-spacing: 0.36px;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+.f{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.f:last-child{
+    flex-direction: row-reverse;
+}

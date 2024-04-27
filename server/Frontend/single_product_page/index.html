@@ -5,15 +5,375 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="../../source/images/icon/favicon.svg">
+    <link rel="stylesheet" href="./styles/null-stile.css">
+    <link rel="stylesheet" media="screen and (min-width:1001px)" href="./styles/1600_style.css">
+    <link rel="icon" href="../source/images/icon/favicon.svg">
     <title></title>
 </head>
 <body>
     <header>
-        <div class="container">
-            
+        <div class="top-bar">
+            <div style="cursor: pointer; width: 26px; height: 26px" onclick="window.location.replace('/')">
+                <img src="../../source/images/icon/favicon.svg" style="cursor: pointer" onclick="window.location.replace('/')" alt="mini-logo">
+            </div>
+            <div class="nav-panel" >
+                <div class="item-list">
+                    <a href="/catalog">Каталог</a>
+                    <div class="accordion"><div class="triangle"><a>Сервис</a></div></div>
+                    <a href="#">Акции</a>
+                    <a href="#">О производителе</a>
+                    <a href="#">Контакты</a>
+    
+                </div>
+            </div>
+        </div>
+        <div class="burger-menu">
+            <div class="burger-button">
+                <span>Меню</span>
+            </div>
+            <div class="burger-list-container">
+                <div class="close"></div>
+                <ul class="item-list">
+                    <li><a href="/catalog">Каталог</a></li>
+                    <li class="accordion">
+                        <span id="burger-menu-show-btn">Сервис</span>
+                        <div class="accordion-list-items">
+                            <ul>
+                                <li><span>Как выбрать двери</span></li>
+                                <li><span>Доставка и установка</span></li>
+                                <li><span>Порядок оплаты</span></li>
+                                <li><span>Гарантии</span></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">О производителе</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li>
+                        <a href="#">Получить консультацию</a>
+                        <div class="main-arrow-item">
+                            <div class="circle"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bread">
+            <span class="bread"><a href="/" class="bread pointer">EXPERT</a>&nbsp;  /  &nbsp;<a href="/catalog/" class="bread pointer">Каталог</a>&nbsp;  /  &nbsp;<a class="bread" id="bread-str">Двери в Дом</a>  /  <span id="product-name-for-bread"></span></span>
         </div>
     </header>
+    <div class="main-container">
+        <div class="preview-container">
+            <div class="main-info">
+                <div class="main-name">
+                    <span id="name"></span>
+                    <span id="material"></span>
+                </div>
+                <div class="main-price">
+                    <span id="price"></span>
+                    <span id="sale"></span>
+                </div>
+                <div class="sale-banner">
+                    <div class="banner">
+                        <span id="sale-price-count"></span>
+                    </div>
+                    <span id="time-left"></span>
+                </div>
+                <div class="sizing-button-container">
+                    <div class="button-text">
+                        <span>Заказать бесплатный замер</span>
+                    </div>
+                    <div class="button"></div>
+                </div>
+                <div class="consult-button-container">
+                    <span>Получить консультацию</span>
+                    <div class="consult-button"></div>
+                </div>
+            </div>
+            <div class="image-carousel-container">
+                
+            </div>
+            <div class="road-map">
+                <div class="road-map-item">
+                    <span class="number">01</span>
+                    <span class="item-text">Бесплатная доставка и установка</span>
+                </div>
+                <div class="road-map-item">
+                    <span class="number">02</span>
+                    <span class="item-text">Бесплатный выезд мастера</span>
+                </div>
+                <div class="road-map-item">
+                    <span class="number">03</span>
+                    <span class="item-text">Демонтаж и вывоз мусора бесплатно</span>
+                </div>
+                <div class="road-map-item">
+                    <span class="number">04</span>
+                    <span class="item-text">Срок получение с 03.05 - 07.05</span>
+                </div>
+            </div>
+        </div>
+        <div class="privileges">
+            <div class="bread">
+                <span class="bread">Заказывая двери Expert вы получаете</span>
+            </div>
+            <div class="privileges-container">
+                <div class="privileges-item">
+                    <div class="description">
+                        <span class="item-title">Техническое обслуживание</span>
+                        <span class="item-description">Компания Expert произведет замену уплотнительных резинок через год</span>
+                    </div>
+                    <div class="image-holder">
+                        <img src="../../source/images/privileges(1).png" alt="privileges">
+                    </div>
+                </div>
+                <div class="privileges-item">
+                    <div class="description">
+                        <span class="item-title" id="sale-privileges"></span>
+                        <span class="item-description">При заказе дверей в компании Expert вы получаете пожизненную скидку на последующие двери</span>
+                    </div>
+                    <div class="image-holder">
+                        <img src="../../source/images/privileges(2).png" alt="privileges">
+                    </div>
+                </div>
+                <div class="privileges-item">
+                    <div class="description">
+                        <span class="item-title">Средство по уходу</span>
+                        <span class="item-description">Любой замок входной двери может легко выйти из строя, если не осуществлять за ним минимальный уход. Лучший способ избежать ремонта и больших трат – это своевременная профилактика, которая продлит службу вашего замка.</span>
+                    </div>
+                    <div class="image-holder">
+                        <img src="../../source/images/privileges(3).png" alt="privileges">
+                    </div>
+                </div>
+            </div>
+            <div class="so-hard-menu-container"></div>
+            <div class="extensions-container">
+                <span class="extensions-title">Дополнительные опции</span>
+                <div class="extensions-catalogs">
+                <div class="extensions-catalog-item">
+                    <div class="locks-catalog">
+                        <span class="title">Каталог замков</span>
+                        <div class="catalog-btn">
+                            <img src="../../source/images/extentions(1).png" alt="extensions">
+                            <div class="decor-btn"></div>
+                        </div>
+                    </div>
+                </div><div class="extensions-catalog-item">
+                    <div class="locks-catalog">
+                        <span class="title">Броненакладки</span>
+                        <div class="catalog-btn">
+                            <img src="../../source/images/extentions(2).png" alt="extensions">
+                            <div class="decor-btn"></div>
+                        </div>
+                    </div>
+                </div><div class="extensions-catalog-item">
+                    <div class="locks-catalog">
+                        <span class="title">Каталог ручек</span>
+                        <div class="catalog-btn">
+                            <img src="../../source/images/extentions(3).png" alt="extensions">
+                            <div class="decor-btn"></div>
+                        </div>
+                    </div>
+                </div><div class="extensions-catalog-item">
+                    <div class="locks-catalog">
+                        <span class="title">Системы видеонаблюдения</span>
+                        <div class="catalog-btn">
+                            <img src="../../source/images/extentions(4).png" alt="extensions">
+                            <div class="decor-btn"></div>
+                        </div>
+                    </div>
+                </div><div class="extensions-catalog-item">
+                    <div class="locks-catalog">
+                        <span class="title">Каталог глазков</span>
+                        <div class="catalog-btn">
+                            <img src="../../source/images/extentions(5).png" alt="extensions">
+                            <div class="decor-btn"></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="more-extensions">
+                    <span class="title">Вам так же доступно:</span>
+                    <div class="more-extensions-container">
+                        <div class="left-side">
+                            <div class="item">
+                                <span class="extension-name">Дополнительное утепление</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Дополнительные петли</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Повышенная толщина металла</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Скрытые петли</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Петли «Барк»</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Видезвонок</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Биометрический замок</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Отбойник из нержавеющей стали</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Антикоррозийная обработка</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Водоотталкивающая пропитка</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                        </div>
+                        <div class="right-side">
+                            <div class="item">
+                                <span class="extension-name">Вызывная панель</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Ночная задвижка</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Доводчик</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Водоотводчик</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Порог</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Порог с подсветкой</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Регулятор защелки</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Регулятор защелки</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Кнокер (кольцо-колотушка)</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                            <div class="item">
+                                <span class="extension-name">Установка фурнитуры клиента</span>
+                                <span class="extension-price">1000₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="road-map how-work">
+                    <div class="road-map-item">
+                        <span class="number">01</span>
+                        <div class="container">
+                            <span class="title">Вы оставляете заявку на сайте или по телефону</span>
+                            <span class="item-text">Выбирайте модели в каталоге или проконсультируйтесь с оператором</span>
+                        </div>
+                    </div>
+                    <div class="road-map-item">
+                        <span class="number">02</span>
+                        <div class="container">
+                            <span class="title">Замер и заключения договора</span>
+                            <span class="item-text">Снятие замеров, ознакомление с печатными каталогами, выбор отделки. Заключени договра с техническим специалистом и внесение предоплаты.</span>
+                        </div>
+                    </div>
+                    <div class="road-map-item">
+                        <span class="number">03</span>
+                        <div class="container">
+                            <span class="title">Изготовление входной двери</span>
+                            <span class="item-text">Срок изготовления зависит от сложности выполняемой работы. В среднем это до 5 дней. Наши специалисты оповестят вас о готовности.</span>
+                        </div>
+                    </div>
+                    <div class="road-map-item">
+                        <span class="number">04</span>
+                        <div class="container">
+                            <span class="title">Доставка и установка </span>
+                            <span class="item-text">Доставка, демонтаж старой двери и установка новой — бесплатно</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="visualization">
+                    <div class="visualisation-container">
+                        <div class="visualisation-text">
+                            <span class="title">Бесплатная визуализация двери в вашем интерьере</span>
+                            <span class="text">Выбрать теперь проще! Наши дизайнеры бесплатно сделают визуализацию двери, которая вам понравилась, в вашем интерьере.</span>
+                            <div class="visualization-consult-btn">
+                                <span class="consult-but text">Заказать визуализацию</span>
+                                <div class="main-arrow-item">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="visualization-image-holder">
+                            <img src="../../source/images/visualisation.png" alt="visualisation">
+                        </div>
+                    </div>
+                </div>
+                <div class="road-map-payment">
+                    <span class="title">Как оплатить двери в Expert?</span>
+                    <div class="road-map-item">
+                        <span class="number">01</span>
+                        <span class="item-text">Доставка и установка осуществляется после частичной предоплаты (10-30% в зависимости от категории и стоимости изделия, подробную информацию можно уточнить у менеджера)</span>
+                    </div>
+                    <div class="road-map-item">
+                        <span class="number">02</span>
+                        <span class="item-text">После доставки погашается остальная часть стоимости дверных комплектов, фурнитуры и других материалов</span>
+                    </div>
+                    <div class="road-map-item">
+                        <span class="number">03</span>
+                        <span class="item-text">Установка дверей оплачивается по факту после приема работы</span>
+                    </div>
+                </div>
+                <div class="wish-maybe"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="content">
+            <div class="f">
+                <div class="company-name">EXPERT</div>
+                <div class="mobile-phone">
+                    8(800)666-66-66
+                    <span>Бесплатный звонок</span>
+                </div>
+            </div>
+            <div class="footer-navigation">
+                <ul>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">Как выбрать двери</a></li>
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">О производстве</a></li>
+                    <li><a href="#">Карта сайта</a></li>
+                </ul>
+            </div>
+            <div class="documentation">
+                <a href="#">Обработка персональных данных</a>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+            <div class="f">
+                <div class="social-club" onclick="window.location.replace('https://www.youtube.com/watch?v=dQw4w9WgXcQ')"> <a href="#">Instagram</a></div>
+                <div class="copyright">© Expert 2021 все права защищены</div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
