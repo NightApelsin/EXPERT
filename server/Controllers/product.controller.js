@@ -14,6 +14,9 @@ class ProductController{
         res.json(products.rows);
     }
     async getOneProduct(req, res){
+        
+        //доработать обработчик, чтобы не крашился сервак
+        
         try{
             const product = await db.query(`SELECT id, name, description, image, price, filters, parameters FROM product_table where id = $1`, [req.params.id]);
             res.json(product.rows);
