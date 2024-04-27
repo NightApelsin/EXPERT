@@ -1,14 +1,16 @@
 import {getSingleProduct} from "./requests.js";
 
 document.addEventListener('DOMContentLoaded',()=>{
-    createInterface()
+     createInterface()
+  
+    
 })
 
-function createInterface(){
+async function createInterface() {
     let productID = window.location.pathname.split('/');
     productID.pop();
+    let prodFromBack = await getSingleProduct(productID.pop())
+    document.title = `EXPERT - ${prodFromBack[0].name}`
     
     
-    let prodFromBack = getSingleProduct(productID.pop())
-    console.log(prodFromBack)
 }
