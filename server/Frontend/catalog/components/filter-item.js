@@ -8,10 +8,10 @@
  * 
  **/
 function DynamicFiltersController(filter_name, endpointBox, inputElement){
-    console.log(inputElement)
+    
     if(endpointBox.querySelector(`[id="${filter_name}"]`)) {
         endpointBox.querySelector(`[id="${filter_name}"]`).remove();
-        console.log("DynamicFiltersController")
+        
     }
     else{
         let item = document.createElement('div');
@@ -26,6 +26,8 @@ function DynamicFiltersController(filter_name, endpointBox, inputElement){
         let clearIcon = document.createElement('div');
         clearIcon.addEventListener('click', () => {
             inputElement.checked = false;
+            var event = new Event('change');
+            inputElement.dispatchEvent(event);
             item.remove()
         })
 
@@ -76,6 +78,8 @@ export function creationFiltersElements(filter_name, endpointBox, inputElement, 
         clearIcon.addEventListener('click', () => {
             for (let i = 0; i <inputCheckboxes.length; i++){
                  inputCheckboxes[i].checked = false;
+                var event = new Event('change');
+                inputElement.dispatchEvent(event);
             }
             endpointBox.innerHTML = '';
             deleteItem.remove()

@@ -105,26 +105,26 @@
                             <h3>Цена</h3>
                             <div class="container">
                                 <label>
-                                    <input type="checkbox" value="50000"/>
+                                    <input class="price-filter" type="checkbox" value="30000-50000"/>
                                     <span class="filter info">30 000₽ - 50 000₽</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="price-filter" type="checkbox" value="70000-90000"/>
                                     <span class="filter info">70 000₽ - 90 000₽</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="price-filter" type="checkbox" value="90000-100000"/>
                                     <span class="filter info">90 000₽ - 100 000₽</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" value="130000"/>
+                                    <input class="price-filter" type="checkbox" value="130000-Infinity"/>
                                     <span class="filter info">130 000₽ и больше</span>
                                 </label>
                             </div>
                             <h3>Отделка</h3>
                             <div class="container"> 
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="material-filter" type="checkbox" value="Массив"/>
                                     <span class="filter info">Массив</span>
                                     <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +135,7 @@
                                     </span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="material-filter" type="checkbox" value="Накладка из МДФ"/>
                                     <span class="filter info">Накладка из МДФ</span>
                                     <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,7 +146,7 @@
                                     </span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="material-filter" type="checkbox" value="Ламинированная ДСП"/>
                                     <span class="filter info">Ламинированная ДСП</span>
                                     <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +157,7 @@
                                     </span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="material-filter" type="checkbox" value="Со стеклом и с зеркалом"/>
                                     <span class="filter info">Со стеклом и с зеркалом</span>
                                     <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +168,7 @@
                                     </span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="material-filter" type="checkbox" value="С ковкой"/>
                                     <span class="filter info">С ковкой</span>
                                     <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,39 +182,39 @@
                             <h3>Цвет</h3>
                             <div class="container">
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="color-filter" type="checkbox" value="Венге"/>
                                     <span class="filter info">Венге</span>
                                     
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="color-filter" type="checkbox" value="Белый"/>
                                     <span class="filter info">Белые</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="color-filter" type="checkbox" value="Чёрный"/>
                                     <span class="filter info">Чёрные</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="color-filter" type="checkbox" value="Тёмный"/>
                                     <span class="filter info">Тёмные</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="color-filter" type="checkbox" value="Светлый"/>
                                     <span class="filter info">Светлые</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="color-filter" type="checkbox" value="Красный"/>
                                     <span class="filter info">Красные</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox"/>
+                                    <input class="color-filter" type="checkbox" value="Зелёный"/>
                                     <span class="filter info">Зелёные</span>
                                 </label>
                             </div>
                         </div>
                         <div class="radio-btns">
                             <label>
-                                <input type="radio" name="bottom-radio"/>
+                                <input class="special-filter" type="radio" name="bottom-radio" value="С терморазрывом"/>
                                 <span class="filter info">С терморазрывом</span>
                                 <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +225,7 @@
                                     </span>
                             </label>
                             <label>
-                                <input type="radio" name="bottom-radio"/>
+                                <input class="special-filter" type="radio" name="bottom-radio" value="Взломостойкие"/>
                                 <span class="filter info">Взломостойкие</span>
                                 <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,7 +236,7 @@
                                     </span>
                             </label>
                             <label>
-                                <input type="radio" name="bottom-radio"/>
+                                <input class="special-filter" type="radio" name="bottom-radio" value="Бронированные"/>
                                 <span class="filter info">Бронированные</span>
                                 <span class="info-icon">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
