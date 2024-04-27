@@ -1,6 +1,6 @@
 ﻿export async function getSingleProduct(id){
     try{
-        const response = await fetch(`/catalog/:${id}`,{
+        const response = await fetch(`/api/catalog/${id}`,{
             method: 'GET'
         })
         if(!response.ok){

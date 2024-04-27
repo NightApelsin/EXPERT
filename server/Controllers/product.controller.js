@@ -14,7 +14,7 @@ class ProductController{
         res.json(products.rows);
     }
     async getOneProduct(req, res){
-        const product = await db.query(`SELECT name, description, images, price, filters FROM product_table where id = $1`, [req.params.id]);
+        const product = await db.query(`SELECT * FROM product_table where id = $1`, [req.params.id]);
         res.json(product.rows);
     }
     async updateProduct(req, res){

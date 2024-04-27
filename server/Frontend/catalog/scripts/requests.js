@@ -1,6 +1,6 @@
 ﻿export async function getAllProducts() {
     try {
-        const response = await fetch('/api/catalog', {
+        const response = await fetch('/api/catalog/', {
             method: 'GET',
         });
 

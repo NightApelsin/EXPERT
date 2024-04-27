@@ -18,7 +18,7 @@ async function getProducts() {
             element.image, element.filters.sale)
         mainContainer.append(createdItem)
         createdItem.addEventListener('click',(target)=>{
-            window.location.replace(`/catalog/:${element.id}`)
+            window.location.replace('/catalog/'+element.id)
         })
     })
     

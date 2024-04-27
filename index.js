@@ -24,6 +24,7 @@ app.use(express.static(FrontendPages));
 app.use('/source', express.static(path.join(FrontendPages, '/source')));
 app.use('/', express.static(path.join(FrontendPages, '/index')));
 app.use('/catalog', express.static(path.join(FrontendPages, '/catalog')));
+app.use('/catalog/:id', express.static(path.join(FrontendPages, '/single_product_page')));
 app.use('/api/', router);
 
 // Обработчики GET запросов
