@@ -10,7 +10,7 @@ class ProductController{
         console.log(newProduct);
     }
     async getAllProducts(req, res){
-        const products = await db.query(`SELECT id, name, description, image, price, filters FROM product_table order by id`);
+        const products = await db.query(`SELECT id, name, description, image, price, filters, parameters FROM product_table order by price desc `);
         res.json(products.rows);
     }
     async getOneProduct(req, res){

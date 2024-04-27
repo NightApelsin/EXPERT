@@ -3,9 +3,17 @@ import {getAllProducts} from "./requests.js";
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+
+    const res = await getProducts()
     
-    const res = getProducts()
+    let ASCDESCFilters = document.querySelectorAll('input[name="filter-radio"]')
+    console.log(ASCDESCFilters)
+    ASCDESCFilters.forEach((elem)=>{
+        elem.addEventListener('change', () => {
+            console.log(elem)
+        })
+    })
     
 })
     
@@ -21,5 +29,5 @@ async function getProducts() {
             window.location.replace('/catalog/'+element.id)
         })
     })
-    
+    return doorsProducts
 }
