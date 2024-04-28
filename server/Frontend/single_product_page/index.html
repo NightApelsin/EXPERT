@@ -63,7 +63,8 @@
         </div>
     </header>
     <div class="main-container">
-        <div class="preview-container">
+        <div id="preview-container">
+            <div class="invalid">
             <div class="main-info">
                 <div class="main-name">
                     <span id="name"></span>
@@ -83,15 +84,28 @@
                     <div class="button-text">
                         <span>Заказать бесплатный замер</span>
                     </div>
-                    <div class="button"></div>
+                    <svg
+                            id="ring"
+                            width="180"
+                            height="180">
+                        <circle
+                                id="ring__circle"
+                                stroke="#0222A5"
+                                stroke-width="1"
+                                fill="transparent"
+                                r="90"
+                                cx="90"
+                                cy="90"/>
+                    </svg>
+                    <div id="arrow"></div>
                 </div>
                 <div class="consult-button-container">
                     <span>Получить консультацию</span>
-                    <div class="consult-button"></div>
                 </div>
             </div>
-            <div class="image-carousel-container">
+            <div id="image-carousel-container">
                 
+            </div>
             </div>
             <div class="road-map">
                 <div class="road-map-item">
@@ -145,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="so-hard-menu-container"></div>
+            <div id="so-hard-menu-container"></div>
             <div class="extensions-container">
                 <span class="extensions-title">Дополнительные опции</span>
                 <div class="extensions-catalogs">

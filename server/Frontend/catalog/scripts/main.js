@@ -28,7 +28,7 @@ function FilterProduct(products){
     filteredProduct.forEach(element=>{
 
         let createdItem = CreateCatalogItem(element.name, element.filters.material, element.price,
-            element.image, element.filters.sale)
+            element.image.mainImage, element.filters.sale)
         mainContainer.append(createdItem)
         createdItem.addEventListener('click',(target)=>{
             window.location.replace('/catalog/'+element.id)
@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         elem.addEventListener('change', ()=>{FilterProduct(products)})
     })
 
+    
+    
+    
 })
 function getProducts(func) {  
     const doorsProducts = func
@@ -64,7 +67,7 @@ function getProducts(func) {
     doorsProducts.forEach(element=>{
         
         let createdItem = CreateCatalogItem(element.name, element.filters.material, element.price, 
-            element.image, element.filters.sale)
+            element.image.mainImage, element.filters.sale)
         mainContainer.append(createdItem)
         createdItem.addEventListener('click',(target)=>{
             window.location.replace('/catalog/'+element.id)

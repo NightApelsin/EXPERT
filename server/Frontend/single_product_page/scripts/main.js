@@ -1,9 +1,9 @@
 import {getSingleProduct} from "./requests.js";
+import {insertParameters} from "./insertParameters.js";
 
-document.addEventListener('DOMContentLoaded',()=>{
-     createInterface()
-  
-    
+document.addEventListener('DOMContentLoaded',async () => {
+    await createInterface()
+
 })
 
 async function createInterface() {
@@ -12,4 +12,7 @@ async function createInterface() {
     let prodFromBack = await getSingleProduct(productID.pop())
     document.title = `EXPERT - ${prodFromBack[0].name}`
     document.querySelector('#product-name-for-bread').innerText = prodFromBack[0].name
+    
+    insertParameters(prodFromBack, document.querySelector('#preview-container', document.querySelector('#so-hard-menu-container')))
+    
 }

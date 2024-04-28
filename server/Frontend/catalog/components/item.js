@@ -37,7 +37,7 @@
 
     if (filters) {
         const saleSpan = document.createElement('span');
-        saleSpan.textContent = `${price - ((filters / 100) * price)}₽`;
+        saleSpan.textContent = `${Math.ceil(price - ((filters / 100) * price))}₽`;
         const saleContainer = document.createElement('div');
         saleContainer.classList.add('catalog-item-sale');
         priceContainer.classList.add('sale')
