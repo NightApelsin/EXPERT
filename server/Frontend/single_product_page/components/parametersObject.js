@@ -1,4 +1,4 @@
-﻿export class HardMenuBuilder{
+﻿export class ParametersObject{
     constructor(parameters) {
         //main parameters
         this.creator = parameters.main.creator;
@@ -62,5 +62,6 @@
         this.eye_height = parameters.ease_of_use.eye_height
         this.eye_vision_angle = parameters.ease_of_use.eye_vision_angle
         
+        console.log(this)
     }
 }

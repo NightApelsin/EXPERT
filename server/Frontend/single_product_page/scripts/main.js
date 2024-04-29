@@ -1,6 +1,6 @@
 import {getSingleProduct} from "./requests.js";
-import {insertParameters} from "./insertParameters.js";
-import {soHardMenuBuilder} from "./soHardMenuBuilder.js";
+import {insertParameters} from "../components/insertParameters.js";
+import {soHardMenuBuilder} from "../components/soHardMenuBuilder.js";
 
 document.addEventListener('DOMContentLoaded',async () => {
     await createInterface()
