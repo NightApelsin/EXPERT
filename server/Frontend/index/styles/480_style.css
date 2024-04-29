@@ -1,5 +1,5 @@
 ﻿header{
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("/source/images/main-background/main-background.png"), lightgray 50% / cover no-repeat;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("/source/images/main-background/main-background.jpeg"), lightgray 50% / cover no-repeat;
     background-size: cover;
     background-position: center center;
     height: 400px;

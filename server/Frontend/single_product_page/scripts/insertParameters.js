@@ -14,6 +14,8 @@ export function insertParameters(promise, previewContainer) {
     const sale = previewContainer.querySelector('#sale')
     const salePriceCount = previewContainer.querySelector('#sale-price-count')
     const timeLeft = previewContainer.querySelector('#time-left')
+    const salePrivileges = document.querySelector('.privileges-item:nth-child(2)') 
+    console.log(salePrivileges)
     
     name.textContent = promise[0].name
     material.textContent = promise[0].filters.material
@@ -24,8 +26,13 @@ export function insertParameters(promise, previewContainer) {
         price.classList.add('sale')
         salePriceCount.textContent = `Вы сэкономите ${Math.ceil((promise[0].filters.sale / 100) * promise[0].price)}₽`
         timeLeft.textContent = "* Срок действия акции до 20.06"
+        let salePrivilege = document.querySelector('#sale-privileges')
+        salePrivilege.textContent = `Вы сэкономите ${promise[0].filters.sale}%`
     }
-
+    else{
+        salePrivileges.style.display = "none";
+        previewContainer.querySelector('.sale-banner').style.display = "none"
+    }
 
     const imageCarousel = document.querySelector("#image-carousel-container");
 
