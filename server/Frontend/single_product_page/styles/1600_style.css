@@ -2,7 +2,11 @@
 #preview-container, 
 .privileges-container,
 .extensions-container,
-#so-hard-menu-container,
+#so-hard-menu-container .main-hard-menu-container .top-bar-btn,
+#so-hard-menu-container .main-hard-menu-container #parameters,
+#so-hard-menu-container .main-hard-menu-container #warranty,
+#so-hard-menu-container .main-hard-menu-container #reviews,
+#so-hard-menu-container .main-hard-menu-container #refund,
 .privileges span.bread,
 .how-work,
 .visualization,
@@ -506,8 +510,184 @@ div.bread{
 /*---------------------------------------*/
 
 #so-hard-menu-container{
-    height: 500px;
+    padding-bottom: 200px;
     background-color: #fff;
+}
+.main-hard-menu-container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 200px;
+}
+.main-hard-menu-container .top-bar-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.main-hard-menu-container .top-bar-btn .btn-primary{
+    flex: 1 1 auto;
+    padding: 20px 30px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #222;
+    border-left: 1px solid #222;
+    border-right: 1px solid #222;
+    text-align: center;
+    cursor: pointer;
+    width: -webkit-fill-available;
+
+    font-family: 'SF Pro Display 400', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+    color: #222;
+}
+.main-hard-menu-container .top-bar-btn .btn-primary.active{
+    background-color: #010101;
+    color: #fefefe;
+
+}
+.main-hard-menu-container .top-bar-btn .btn-primary:hover{
+    color: #727272;
+}
+
+.hard-item{
+    display: none;
+}
+.hard-item.hard-active{
+    display: block;
+}
+
+.warranty-container .title-container{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    row-gap: 10px;
+}
+.warranty-container .title-container .title{
+    font-size: 24px;
+}
+.warranty-container .title-container .title-text{
+    font-size: 16px;
+    color: #424242;
+    width: 50%;
+}
+
+.warranty-description{
+    display: flex;
+    flex-direction: row;
+    column-gap: 60px;
+}
+
+.warranty-description .description-item{
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 40px;
+}
+
+.warranty-description .description-item .title{
+    color: #0222A5;
+    font-size: 22px;
+}
+.warranty-description .description-item .items-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    & .item {
+        & span{
+            font-size: 18px;
+        }
+        padding-bottom: 20px;
+        border-bottom: 1px solid #C7C7C7;
+    }
+    & .item:last-child{
+        border: none;
+    }
+}
+
+.delivery-top-container{
+    background-color: #010101;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 200px;
+    margin-top: 40px;
+}
+.delivery-top-container .text-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.delivery-top-container .text-info .title{
+    color: #fefefe;
+    font-size: 24px;
+    width: 60%;
+}
+.delivery-top-container .text-info .description{
+    font-size: 16px;
+    color:#727272;
+    width: 40%;
+    margin-top: 20px;
+}  
+.delivery-top-container .text-info .consult-btn{
+    position: relative;
+    color: #fefefe;
+    width: fit-content;
+    font-size: 18px;
+    margin-top: 40px;
+    cursor: pointer;
+    & .main-arrow{
+        position: absolute;
+        border-bottom: 1px solid #C7C7C7;
+        width: 230%;
+        margin-top: 20px;
+    }
+    & .main-arrow:after{
+        content:'';
+        display: block;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #C7C7C7;
+        border-radius: 50%;
+        position: absolute;
+        right: -25px;
+        top: -25px;
+    }
+    & .main-arrow:before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-bottom: 1px solid #C7C7C7;
+        border-right: 1px solid #C7C7C7;
+        right: 0;
+        top: -4px;
+        transform:rotateZ(-45deg);
+    }
+}
+
+
+
+
+
+
+
+.refund-container{
+    display: flex;
+    flex-direction: row;
+}
+.refund-container .titles{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & span{
+        color: #0222A5;
+        font-size: 20px;
+    }
 }
 
 /*---------------------------------------*/
@@ -683,6 +863,12 @@ div.bread{
     justify-content: normal;
     row-gap: 45px;
 }
+
+
+
+
+
+
 
 footer{
     background:#010101;
