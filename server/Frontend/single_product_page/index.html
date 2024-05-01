@@ -163,13 +163,13 @@
             <div id="so-hard-menu-container">
                 <div class="main-hard-menu-container">
                     <div class="top-bar-btn">
-                        <div class="btn-primary " onclick="soHardMenuTopBarSwitch(event, '#parameters')">
+                        <div class="btn-primary active" onclick="soHardMenuTopBarSwitch(event, '#parameters')">
                             Характеристики
                         </div>
                         <div class="btn-primary " onclick="soHardMenuTopBarSwitch(event, '#warranty')">
                             Гарантии
                         </div>
-                        <div class="btn-primary active" onclick="soHardMenuTopBarSwitch(event, '#delivery')">
+                        <div class="btn-primary" onclick="soHardMenuTopBarSwitch(event, '#delivery')">
                             Доставка и установка
                         </div>
                         <div class="btn-primary" onclick="soHardMenuTopBarSwitch(event, '#reviews')">
@@ -180,9 +180,237 @@
                         </div>
                     </div>
                     <div class="menu-display">
-                        <div id="parameters" class="hard-item ">
-                            
-                            
+                        <div id="parameters" class="hard-item hard-active">
+                            <div class="links-buttons">
+                                <div class="param-category-link active" onclick="subHardMenuSwitcher(event, 'main-parameters')">Общие характеристики</div>
+                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'security-parameters')">Защита от взлома и вскрытия</div>
+                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'decor-parameters')">Декоративная отделка</div>
+                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'furniture-parameters')">Фурнитура</div>
+                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'sound-and-temp-isolation-parameters')">Тепло - и звукоизоляция</div>
+                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'isolation-parameters')">Герметичность</div>
+                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'easy-of-use-parameters')">Удобство эксплуатации</div>
+                            </div>
+                            <div class="context-display">
+                                <div class="param-category-display" id="main-parameters">
+                                    <ul>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="creator"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="product_name"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="open_direction"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="open_side"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="door_width"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="door_box_type"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="sound_insulation"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="individual_width_range"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="individual_height_range"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="door_weight_min"></span>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div class="param-category-display" id="security-parameters">
+                                    <ul>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="metal_sheet_count"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="metal_sheet_thickness"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="stiffness_rib_count"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="static_locks_count"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="locks_count"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="locks_mark"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="locks_class"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="armor_lining"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="armor_package"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="night_crossbar"></span>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div class="param-category-display" id="decor-parameters">
+                                    <ul>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="coating_type"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="coating_color"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="exterior_finish"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="interior_finish"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="decorative_threshold"></span>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div class="param-category-display" id="furniture-parameters">
+                                    <ul>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="furniture_color"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="handle_type"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="closer"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="doorstep"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="handle_decoration"></span>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div class="param-category-display" id="sound-and-temp-isolation-parameters">
+                                    <ul>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="filler_type"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="filler_thickness"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="filler_fire_class"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="filler_using_temperature"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="door_frame_insulation"></span>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div class="param-category-display" id="isolation-parameters">
+                                    <ul>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="seal_count"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="seal_material"></span>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div class="param-category-display" id="easy-of-use-parameters">
+                                    <ul>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="hinge_type"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="hinge_count"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="opening_angle"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span id="removable_panel_angles"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="functional_lock"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="invisible_lock"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="electronic_lock"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="lock_regulation"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="night_latch"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="eye_height"></span>
+                                        </div></li>
+                                        <li><div class="item-container">
+                                            <span></span>
+                                            <span id="eye_vision_angle"></span>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div id="warranty" class="hard-item">
                             <div class="warranty-container">
@@ -249,7 +477,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="delivery" class="hard-item hard-active">
+                        <div id="delivery" class="hard-item">
                             <div class="delivery-top-container">
                                 <div class="text-info">
                                     <span class="title">Доставка и установка входных дверей Expert осуществяется в Мосвке и МО</span>
@@ -264,7 +492,25 @@
                                 </div>
                             </div>
                             <div class="delivery-bottom-container">
-                                
+                                <div class="content">
+                                    <div class="title">
+                                        <span>В стоимость продукции от завода "Expert" входит доставка и установка до вашего места (не далее 30 км от МКАД).</span>
+                                    </div>
+                                    <div class="info">
+                                        <span>Доставка осуществляется на специализированном транспорте, водителями, прошедшими специальную подготовку.</span>
+                                    </div>
+                                    <div class="price-for-km">
+                                        <div class="price-info">
+                                            <span>Если место установки расположено далее 30-ти км от МКАД, то стоимость доставки расчитывается по специальному тарифу.</span>
+                                        </div>
+                                        <div class="price-btn">
+                                            <span>1км / 25₽</span>
+                                        </div>
+                                        <div class="info-delivery">
+                                            <span>Бесплатная доставка распространяется при установке входных дверей!</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div id="reviews" class="hard-item">

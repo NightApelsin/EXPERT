@@ -11,5 +11,7 @@ function soHardMenuTopBarSwitch(event, tabId) {
         tabs[i].className = tabs[i].className.replace(" hard-active", "");
     }
     document.querySelector(`${tabId}`).classList.toggle('hard-active');
+}
+function subHardMenuSwitcher(event, tabId){
     
 }

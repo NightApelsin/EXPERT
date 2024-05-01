@@ -671,26 +671,105 @@ div.bread{
 }
 
 
-
-
-
+.delivery-bottom-container .content{
+    display:flex;
+    flex-direction: column;
+    padding-left: 200px;
+    margin-top: 70px;
+    width: 50%;
+    & div{
+        border-bottom: 1px solid #e6e6e6;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    & .price-for-km, .price-for-km *{
+        border: none;
+    }
+}
+.delivery-bottom-container .content .title{
+    font-size: 24px;
+}
+.delivery-bottom-container .content .info{
+    font-size: 16px;
+}
+.delivery-bottom-container .content .info span{
+    display: block;
+    width: 65%;
+}
+.delivery-bottom-container .content .price-for-km{
+    margin-bottom: 0;
+}
+.delivery-bottom-container .content .price-for-km .price-info{
+    display: block;
+    width: 65%;
+    margin-bottom: 0;
+    color: #212121;
+    font-size: 14px;
+}
+.delivery-bottom-container .content .price-for-km .price-btn{
+    background-color: #e6e6e6;
+    text-align: center;
+    padding:10px 0;
+    width:65%;
+}
+.delivery-bottom-container .content .price-for-km .info-delivery{
+    color:#0222A5;
+}
 
 
 .refund-container{
     display: flex;
     flex-direction: row;
+    margin-top: 70px;
 }
 .refund-container .titles{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex: 1;
     & span{
         color: #0222A5;
         font-size: 20px;
+        &:first-child{
+            display: block;
+            width: 52%;
+        }
+    }
+}
+.refund-container .description{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    flex: 1;
+}
+.refund-container .description .info{
+    display: flex;
+    flex-direction: column;
+    & .item{
+        border-bottom: 1px solid #e6e6e6;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        &:last-child {
+            border: none;
+            & span {
+                display: block;
+                width: 90%;
+            }
+        }
     }
 }
 
-/*---------------------------------------*/
+
+.refund-container .description .contact{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    & .item {
+        font-size: 14px;
+    }
+}
+
+    /*---------------------------------------*/
 
 .extensions-container{
     margin-top: 100px;
