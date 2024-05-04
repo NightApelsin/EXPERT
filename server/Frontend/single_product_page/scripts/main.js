@@ -13,8 +13,29 @@ async function createInterface() {
     let prodFromBack = await getSingleProduct(productID.pop())
     document.title = `EXPERT - ${prodFromBack[0].name}`
     document.querySelector('#product-name-for-bread').innerText = prodFromBack[0].name
-    
-    insertParameters(prodFromBack, document.querySelector('#preview-container', document.querySelector('#so-hard-menu-container')))
-    
+    insertParameters(prodFromBack, document.querySelector('#preview-container', 
+        document.querySelector('#so-hard-menu-container')))
+    soHardMenuInsert(prodFromBack)
+    console.log(prodFromBack)
 }
 
+
+/**
+* @param {Object} prodFromBack 
+* */
+function soHardMenuInsert(prodFromBack) {
+    const parameters = document.querySelectorAll('.param-category-display .item-container')
+    parameters.forEach(elem=>{
+        
+        if(prodFromBack[0][elem.id]===null || prodFromBack[0][elem.id]===false){
+            document.querySelector(`#${elem.id} span:nth-child(2)`).textContent = '-'
+        }else if(prodFromBack[0][elem.id]===true){
+            document.querySelector(`#${elem.id} span:nth-child(2)`).textContent = 'есть'
+        }
+        else{
+            document.querySelector(`#${elem.id} span:nth-child(2)`).textContent = `${prodFromBack[0][elem.id]}`
+        }
+        
+    })
+    
+}

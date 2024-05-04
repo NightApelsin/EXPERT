@@ -2107,8 +2107,33 @@ div.bread{
     justify-content: normal;
     row-gap: 45px;
 }
-
-
+.context-display{
+    width: 80%;
+    margin-top: 20px;
+}
+.param-category-display{
+    display: none;
+}
+.param-category-display.active{
+    display: block;
+}
+.param-category-display ul{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    & li{
+        padding: 5px 25px;
+        & .item-container{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        &:nth-child(odd) {
+            background-color: #e6e6e6;
+        }
+    }
+}
 
 
 

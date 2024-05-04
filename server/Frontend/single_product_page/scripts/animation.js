@@ -24,5 +24,5 @@ function subHardMenuSwitcher(event, tabId){
     for (let i = 0; i < tabs.length; i++){
         tabs[i].className = tabs[i].className.replace(" active", "");
     }
-    document.querySelector(`${tabId}`).classList.toggle('active');
+    document.querySelector(`#${tabId}`).classList.toggle('active');
 }
