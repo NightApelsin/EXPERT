@@ -4,7 +4,18 @@ import {soHardMenuBuilder} from "../components/soHardMenuBuilder.js";
 
 document.addEventListener('DOMContentLoaded',async () => {
     await createInterface()
-
+    
+    const response = await fetch('/api/cookie/history', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({path: new Array(window.location.pathname.toString())})
+        }
+    )
+    const result = await response.text();
+    console.log(result)
+    
 })
 
 async function createInterface() {

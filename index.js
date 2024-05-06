@@ -2,6 +2,7 @@
 const cors = require('cors');
 const path = require('path');
 const router = require('./server/Routers/router.js')
+const cookieParser = require('cookie-parser');
 
 
 const PORT = process.env.PORT || 5480;
@@ -11,6 +12,8 @@ const FrontendPages = path.join(server,'/Frontend');
 
 const app = express();
 
+
+app.use(cookieParser());
 // Используем CORS middleware
 app.use(cors());
 
@@ -53,5 +56,5 @@ app.use((err, req, res, next) => {
 
 // Запуск сервера
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+    console.log(`Server started on port ${PORT}\nsite link http://localhost:5480`);
 }); 
