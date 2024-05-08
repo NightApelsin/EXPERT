@@ -3,9 +3,10 @@ const cors = require('cors');
 const path = require('path');
 const router = require('./server/Routers/router.js')
 const cookieParser = require('cookie-parser');
+const fs = require('fs')
+const https = require('https')
 
-
-const PORT = process.env.PORT || 5480;
+const PORT = process.env.PORT || 5001;
 const server = path.join(__dirname, '/server')
 const FrontendPages = path.join(server,'/Frontend');
 
@@ -54,7 +55,8 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
-// Запуск сервера
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}\nsite link http://localhost:5480`);
-}); 
+const httpsOptions = {
+    key: fs.readFileSync('./cert.key'),
+    cert: fs.readFileSync('./cert.pem')
+}
+https.createServer(httpsOptions, app).listen(PORT)

@@ -9,6 +9,8 @@ function FilterProduct(products){
     const priceRange = Array.from(document.querySelectorAll('.price-filter:checked')).map(checkbox => checkbox.value);
     const specialParam = Array.from(document.querySelectorAll('.special-filter:checked')).map(checkbox => checkbox.value);
     
+    //TODO: реализовать фильтрацию по возрастанию и убыванию
+    //TODO: добавить в вёрстку контейнеры со специальным предложением на основе данных из БД и/или на основе cookie 
     
     let filteredProduct = products.filter(product =>{
         if (colors.length > 0 && !colors.includes(product.filters.filters.color)){

@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded',async () => {
     await createHistoryCookie()
     
 })
-
+    //TODO: сделать динамичную подборку рекомендуемых на основе cookie и принимаемых параметров из запросов на их основе 
+     
 async function createInterface() {
     let productID = window.location.pathname.split('/');
     productID.pop()
@@ -21,6 +22,7 @@ async function createInterface() {
 }
 
 
+    //TODO: реализовать систему комментариев и их отображение у конкретного товара 
 /**
 * @param {Object} prodFromBack 
 * */
