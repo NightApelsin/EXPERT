@@ -1,20 +1,10 @@
-import {getSingleProduct} from "./requests.js";
+import {createHistoryCookie, getSingleProduct} from "./requests.js";
 import {insertParameters} from "../components/insertParameters.js";
-import {soHardMenuBuilder} from "../components/soHardMenuBuilder.js";
+
 
 document.addEventListener('DOMContentLoaded',async () => {
     await createInterface()
-    
-    const response = await fetch('/api/cookie/history', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({path: new Array(window.location.pathname.toString())})
-        }
-    )
-    const result = await response.text();
-    console.log(result)
+    await createHistoryCookie()
     
 })
 
