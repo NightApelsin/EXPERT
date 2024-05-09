@@ -301,7 +301,7 @@ div.bread{
     margin-top: 40px;
 }
 #name{
-    font-size: 36px;
+    font-size: 30px;
 }
 #material{
     font-size:14px;
@@ -350,15 +350,33 @@ div.bread{
 .invalid{
     display: flex;
     column-gap: 180px;
+    @media (max-width: 1020px) {
+        column-gap: 80px;
+    }
 }
 #image-carousel-holder{
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
     column-gap: 20px;
 }
-#main-image{
+#main-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 313px;
     height: 550px;
+    overflow: hidden;
 }
 #main-image img{
-    height: 100%;
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 #source-images{
     row-gap: 20px
@@ -368,6 +386,7 @@ div.bread{
     height: 110px;
     background: #f2f2f2;
     padding: 20px;
+    align-self: center;
 }
 .source-image-holder img{
     height: 100%
@@ -490,6 +509,7 @@ div.bread{
     justify-content: space-between;
     border-bottom: 1px solid #c7c7c7;
     padding-bottom: 50px;
+    
 }
 .privileges-item:last-child{
     border: none;
@@ -503,7 +523,7 @@ div.bread{
     }
     & .item-description{
         font-size: 14px;
-        width: 19vw;
+        width: 30vw;
     }
 }
 
@@ -608,7 +628,7 @@ div.bread{
         border: none;
     }
 }
-/*TODO: придумать как сдулать так чтобы изображение не уезжало */
+/*TODO: придумать как сделать так чтобы изображение не уезжало */
 .delivery-top-container{
     background-color: #010101;
     display: flex;
@@ -785,6 +805,7 @@ div.bread{
     border-bottom: 1px solid #727272;
     cursor: pointer;
     width: 80%;
+    overflow: scroll;
     & .param-category-link{
         font-size: 14px;
         text-align: center;
@@ -793,6 +814,8 @@ div.bread{
         padding: 20px 10px;
         @media (max-width: 950px) {
             font-size: 11px;
+            width: 250px;
+            
         }
     }
     & .param-category-link:hover{

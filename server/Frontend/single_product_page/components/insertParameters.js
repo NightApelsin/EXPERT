@@ -15,7 +15,7 @@ export function insertParameters(promise, previewContainer) {
     const salePriceCount = previewContainer.querySelector('#sale-price-count')
     const timeLeft = previewContainer.querySelector('#time-left')
     const salePrivileges = document.querySelector('.privileges-item:nth-child(2)') 
-    console.log(salePrivileges)
+    
     
     name.textContent = promise[0].name
     material.textContent = promise[0].filters.material
@@ -38,16 +38,14 @@ export function insertParameters(promise, previewContainer) {
 
     let imageCarouselHolder = document.createElement('div');
     imageCarouselHolder.id = 'image-carousel-holder';
-    imageCarouselHolder.style.display = 'flex';
-    imageCarouselHolder.style.flexDirection = 'row';
+    
 
     let mainImageHolder = document.createElement('div');
     mainImageHolder.id = 'main-image';
 
     let sourceImagesHolder = document.createElement('div');
     sourceImagesHolder.id = 'source-images';
-    sourceImagesHolder.style.display = 'flex';
-    sourceImagesHolder.style.flexDirection = 'column';
+
 
     let mainImage = document.createElement('img');
     mainImage.src = promise[0].image.mainImage;
@@ -68,5 +66,17 @@ export function insertParameters(promise, previewContainer) {
     imageCarouselHolder.appendChild(mainImageHolder);
     imageCarouselHolder.appendChild(sourceImagesHolder);
     imageCarousel.appendChild(imageCarouselHolder);
-    console.log(imageCarousel);
+    
+}
+export function imagePreviewSwitcher(mainContainer, sourceImagesContainer){
+    console.log(mainContainer)
+    
+    sourceImagesContainer.forEach((elem)=>{
+        console.log(elem.querySelector('img'))
+        elem.addEventListener('click', (target)=>{
+            let buffer = mainContainer.src
+            mainContainer.src = elem.querySelector('img').src;
+            elem.querySelector('img').src = buffer
+        })
+    })
 }

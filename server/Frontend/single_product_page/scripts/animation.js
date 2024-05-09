@@ -26,3 +26,17 @@ function subHardMenuSwitcher(event, tabId){
     }
     document.querySelector(`#${tabId}`).classList.toggle('active');
 }
+
+$(document).ready(()=>{
+    $('.burger-button').click(function(event) {
+        $('.burger-button, .burger-list-container').toggleClass('active');
+        console.log('open')
+    })
+    $('.burger-list-container .close').click(function(event) {
+        $('.burger-list-container, .burger-button').removeClass('active');
+    })
+    $('#burger-menu-show-btn').click((event)=>{
+        $('.accordion-list-items').toggleClass('active');
+    })
+    
+})

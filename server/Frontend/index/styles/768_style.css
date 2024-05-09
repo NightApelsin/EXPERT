@@ -7,7 +7,7 @@
     padding-bottom: 12px;
     
 }
-@media (min-width: 1599px) {
+@media (min-width: 1200px) {
     header{
         height: 935px;
     }
@@ -21,7 +21,7 @@
         margin-top: 140px;
     }
 }
-@media (min-width: 990px) and (max-width: 1598px) {
+@media (min-width: 990px) and (max-width: 1200px) {
     header{
         height: 600px;
     }

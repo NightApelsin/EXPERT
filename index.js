@@ -59,4 +59,5 @@ const httpsOptions = {
     key: fs.readFileSync('./cert.key'),
     cert: fs.readFileSync('./cert.pem')
 }
+console.log('https://localhost:5001')
 https.createServer(httpsOptions, app).listen(PORT)

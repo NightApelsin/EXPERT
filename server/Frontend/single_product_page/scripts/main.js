@@ -1,11 +1,12 @@
 import {createHistoryCookie, getSingleProduct} from "./requests.js";
-import {insertParameters} from "../components/insertParameters.js";
+import {insertParameters, imagePreviewSwitcher} from "../components/insertParameters.js";
+
 
 
 document.addEventListener('DOMContentLoaded',async () => {
     await createInterface()
     await createHistoryCookie()
-    
+    imagePreviewSwitcher(document.querySelector('#image-carousel-holder #main-image img'), document.querySelectorAll('#image-carousel-holder #source-images .source-image-holder'))
 })
     //TODO: сделать динамичную подборку рекомендуемых на основе cookie и принимаемых параметров из запросов на их основе 
      
