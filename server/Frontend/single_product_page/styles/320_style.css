@@ -127,7 +127,7 @@ header {
         & .invalid {
             display: flex;
             flex-direction: column-reverse;
-
+            row-gap: 30px;
             & #image-carousel-container {
                 & #image-carousel-holder {
                     margin-top: 40px;
@@ -368,30 +368,36 @@ header {
         }
     }
     
-    & .privileges{
+    & .privileges {
         background-color: #f2f2f2;
         margin-top: 100px;
-        & .bread{
-        padding: 30px 10px 0 10px;
+
+        & .bread {
+            padding: 30px 10px 0 10px;
             margin-bottom: 30px;
         }
-        & .privileges-container{
-        padding: 30px 10px 0 10px;
-            & .privileges-item{
+
+        & .privileges-container {
+            padding: 30px 10px 0 10px;
+
+            & .privileges-item {
                 padding: 30px 0;
-        
+
                 border-top: 1px solid #C7C7C7;
-                & .description{
+
+                & .description {
                     display: flex;
                     flex-direction: column;
                     row-gap: 10px;
                     margin-bottom: 10px;
-                    & .item-title{
+
+                    & .item-title {
                         font-size: 18px;
                         line-height: 130%;
                         letter-spacing: 0.02em;
                     }
-                    & .item-description{
+
+                    & .item-description {
                         font-weight: 400;
                         font-size: 12px;
                         line-height: 130%;
@@ -401,59 +407,531 @@ header {
                 }
             }
         }
-        
-        & #so-hard-menu-container{
+
+        & #so-hard-menu-container {
             background-color: #fff;
-            padding: 30px 10px 0 10px;
-            & .main-hard-menu-container{
+            padding: 30px 0;
+
+            & .main-hard-menu-container {
                 & .top-bar-btn-container {
                     display: flex;
                     align-items: stretch;
+                    padding: 0 10px;
 
                     & .top-bar-btn {
                         display: flex;
                         flex-direction: column;
-                        align-items: center;
+                        align-items: stretch;
                         flex: 1;
                         font-size: 11px;
                         line-height: 130%;
                         letter-spacing: 0.04em;
                         text-align: center;
-                         
-                        & .btn-primary{
-                            margin: 5px 0;
+                        font-family: "SF Pro Display 400", sans-serif;
+
+                        & .btn-primary {
+                            padding: 10px 10px;
+
+                            &.active {
+                                color: #e6e6e6;
+                                background-color: #222;
+                            }
                         }
+
                         &:not(:last-child) {
                             border-right: 1px solid #000;
                         }
-                        & .horizontal-divider{
+
+                        & .horizontal-divider {
                             border-top: 1px solid #000;
                             width: 100%;
-                            margin: 5px 0;
+
                         }
                     }
                 }
-                & .menu-display{
-                    & .hard-item{
+
+                & .menu-display {
+                    & .hard-item {
                         display: none;
-                        &.hard-active{
+
+                        &.hard-active {
                             display: flex;
                             flex-direction: column;
                         }
                     }
-                    & #parameters{
-                        & .links-buttons{
+
+                    & #parameters {
+                        padding: 0 10px;
+
+                        & .links-buttons {
                             display: flex;
                             flex-direction: row;
-                            border-bottom: 1px solid #C7C7C7;
+
                             overflow: scroll;
                             font-size: 10px;
                             line-height: 130%;
                             letter-spacing: 0.04em;
                             font-family: "SF Pro Display 400", sans-serif;
-                            & .param-category-link{
-                                & span{
-                                    width: -webkit-fill-availabe;
+
+                            & .param-category-link {
+                                border-bottom: 1px solid #C7C7C7;
+
+                                & span {
+                                    display: inline-block;
+                                    width: max-content;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    padding: 10px 10px;
+                                }
+
+                                &.active {
+                                    border-bottom: 1px solid #222;
+                                }
+                            }
+                        }
+
+                        & .context-display {
+                            & .param-category-display {
+                                display: none;
+
+                                &.active {
+                                    display: flex;
+                                    flex-direction: column;
+                                    margin-top: 10px;
+
+                                    & li {
+                                        padding: 5px 0;
+
+                                        & .item-container {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: flex-start;
+                                            row-gap: 5px;
+                                            align-items: stretch;
+
+                                        }
+
+                                        &:nth-child(odd) {
+                                            background-color: #e6e6e6;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & #warranty {
+                        padding: 0 10px;
+
+                        & .warranty-container {
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 20px;
+
+                            & .title-container {
+                                & .title {
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    line-height: 130%;
+                                    letter-spacing: 0.02em;
+                                }
+
+                                & .title-text {
+                                    display: none;
+                                }
+                            }
+
+                            & .warranty-description {
+                                display: flex;
+                                flex-direction: column;
+
+                                & .description-item {
+                                    display: flex;
+                                    flex-direction: column;
+
+                                    & .title {
+                                        color: #0222A5;
+                                        font-size: 14px;
+                                        margin-bottom: 10px;
+                                    }
+
+                                    & .items-container {
+                                        display: flex;
+                                        flex-direction: column;
+
+                                        & .item {
+                                            padding: 10px 0;
+                                            border-top: 1px solid #e6e6e6;
+                                            font-size: 10px;
+                                            line-height: 130%;
+                                            letter-spacing: 0.04em;
+
+                                            &:nth-child(first-child) {
+                                                border: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & #delivery {
+                        margin-top: 20px;
+
+                        & .delivery-top-container {
+                            background-color: #010101;
+                            color: #fff;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: stretch;
+                            justify-content: center;
+
+                            & .text-info {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: stretch;
+                                padding: 0 0 0 40px;
+
+                                & .title {
+                                    font-weight: 400;
+                                    font-size: 14px;
+                                    line-height: 130%;
+                                    letter-spacing: 0.02em;
+                                    font-family: "SF Pro Display 400", sans-serif;
+                                }
+
+                                & .description {
+                                    margin-top: 10px;
+                                    font-family: "SF Pro Display 400", sans-serif;
+                                    font-size: 12px;
+                                    line-height: 130%;
+                                    letter-spacing: 0.04em;
+                                    color: #727272
+                                }
+
+                                & .consult-btn {
+                                    font-size: 14px;
+                                    line-height: 130%;
+                                    letter-spacing: 0.02em;
+                                    margin-top: 50px;
+                                    position: relative;
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    width: 85%;
+                                    border-bottom: 1px solid #fff;
+                                    padding-bottom: 10px;
+
+                                    & .main-arrow {
+
+                                        width: 5px;
+                                        height: 5px;
+                                        right: 0;
+                                        bottom: -3px;
+                                        border-bottom: 1px solid #fff;
+                                        border-right: 1px solid #fff;
+                                        transform: rotateZ(-45deg);
+                                        position: absolute;
+
+                                        &:after {
+                                            content: "";
+                                            position: absolute;
+                                            width: 50px;
+                                            height: 50px;
+                                            border: 1px solid #fff;
+                                            border-radius: 50%;
+                                            top: -22px;
+                                            left: -22px;
+                                            transform: rotateZ(45deg);
+                                        }
+
+                                    }
+                                }
+                            }
+
+                            & .img-holder {
+                                overflow: hidden;
+                                display: grid;
+                                width: -webkit-fill-available;
+
+                                & img {
+                                    width: auto;
+                                    height: 340px;
+                                    max-width: max-content;
+                                    max-height: 100%;
+                                }
+                            }
+                        }
+
+                        & .delivery-bottom-container {
+                            padding: 0 10px;
+                            margin-top: 40px;
+
+                            & .content {
+                                display: flex;
+                                flex-direction: column;
+
+                                & .title {
+                                    font-size: 14px;
+                                    line-height: 130%;
+                                    letter-spacing: 0.02em;
+                                    padding-bottom: 20px;
+                                }
+
+                                & .info {
+                                    border-top: 1px solid #e6e6e6;
+                                    border-bottom: 1px solid #e6e6e6;
+                                    padding: 10px 0;
+                                    font-size: 12px;
+                                    line-height: 130%;
+                                    letter-spacing: 0.04em;
+                                    margin-bottom: 10px;
+                                }
+
+                                & .price-for-km {
+                                    display: flex;
+                                    flex-direction: column;
+
+                                    & .price-info {
+                                        font-size: 12px;
+                                        line-height: 130%;
+                                        letter-spacing: 0.04em;
+                                    }
+
+                                    & .price-btn {
+                                        text-align: center;
+                                        background-color: #e6e6e6;
+                                        padding: 10px 0;
+                                        font-size: 14px;
+                                        line-height: 130%;
+                                        letter-spacing: 0.02em;
+                                        margin: 15px 0;
+                                    }
+
+                                    & .info-delivery {
+                                        color: #0222A5;
+                                        font-size: 12px;
+                                        line-height: 130%;
+                                        letter-spacing: 0.04em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+
+        & .extensions-container {
+            margin-top: 30px;
+            padding-bottom: 40px;
+                padding: 0 10px;
+            & .extensions-title {
+                font-size: 20px;
+                line-height: 120%;
+                letter-spacing: 0.02em;
+
+            }
+
+            & .extensions-catalogs {
+                display: flex;
+                flex-direction: row;
+                overflow: scroll;
+                column-gap: 10px;
+                margin-top: 40px;
+                & .extensions-catalog-item {
+                    display: flex;
+                    flex-direction: column;
+                    flex: none;
+
+                    & .locks-catalog {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 10px;
+
+                        & .catalog-btn {
+                            overflow: hidden;
+                            position: relative;
+
+                            & .decor-btn {
+
+                                position: absolute;
+                                width: 40px;
+                                height: 40px;
+                                background-color: #0222A5;
+                                left: 0;
+                                bottom: 0;
+
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    width: 10px;
+                                    height: 10px;
+                                    border-bottom: 1px solid #fff;
+                                    border-right: 1px solid #fff;
+                                    transform: rotateZ(-45deg);
+                                    bottom: 15px;
+                                    left: 12px;
+                                }
+                            }
+
+                            &:active {
+                                & .decor-btn {
+                                    background-color: #010101
+                                }
+                            }
+
+                            &:hover {
+                                & img {
+                                    transition: all 0.3s ease-in-out;
+                                    transform: scale(120%, 120%);
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            & .more-extensions {
+                margin-top: 40px;
+                padding: 0 10px;
+
+                & .title {
+                    font-size: 18px;
+                    line-height: 130%;
+                    letter-spacing: 0.02em;
+                }
+
+                & .more-extensions-container {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 20px;
+
+                    & div {
+                        display: flex;
+                        flex-direction: column;
+
+                        & .item {
+                            padding: 10px 0;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+
+                            &:not(:last-child) {
+                                border-bottom: 1px solid #e6e6e6;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & .how-work{
+            background-color: #fff;
+            padding: 80px 10px 100px 10px;
+            & .how-work-title{
+                font-size: 20px;
+                line-height: 120%;
+                letter-spacing: 0.02em;
+            }
+            & .road-map{
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                row-gap: 15px;
+                & .road-map-item {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid #e6e6e6;
+                        padding-bottom: 15px;
+                    }
+                    & .number{
+                        color: #0222A5;
+                        font-size: 12px;
+                        line-height: 130%;
+                        letter-spacing: 0.04em;
+                    }
+                    & .container{
+                        display:flex;
+                        flex-direction: column;
+                        row-gap: 10px;
+                        & .title{
+                            font-size: 12px;
+                            line-height: 130%;
+                            letter-spacing: 0.04em;
+                        }
+                        & .item-text{
+                            font-size: 10px;
+                            line-height: 130%;
+                            letter-spacing: 0.04em;
+                        }
+                    }
+                }
+            }
+        }
+        & .visualization{
+            background-color: #010101;
+            padding: 0 10px;
+            & .visualisation-container {
+                display: flex;
+                flex-direction: column-reverse;
+                row-gap: 20px;
+                & .visualisation-text{
+                    
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 20px;
+                    width: 80%;
+                    padding-bottom: 80px;
+                    & .title{
+                        font-size: 20px;
+                        line-height: 120%;
+                        letter-spacing: 0.02em;
+                        color: #f2f2f2;
+                    }
+                    & .text{
+                        font-size: 12px;
+                        line-height: 130%;
+                        letter-spacing: 0.04em;
+                        font-family: "SF Pro Display 100", sans-serif;
+                        color:#C7C7C7;
+                    }
+                    & .visualization-consult-btn{
+                        margin-top: 30px;
+                        & .consult-but.text{
+                            font-size: 16px;
+                            line-height: 130%;
+                            letter-spacing: 0.02em;
+                        }
+                        & .main-arrow-item{
+                            border-bottom: 1px solid #c7c7c7;
+                            width: 70%;
+                            padding-top: 10px;
+                            position: relative;
+                            & .circle{
+                                width: 40px;
+                                height: 40px;
+                                border: 1px solid #c7c7c7;
+                                border-radius: 50%;
+                                position: absolute;
+                                right: -20px;
+                                bottom:-20px;
+                                &:after{
+                                    content:'';
+                                    position:absolute;
+                                    width: 10px;
+                                    height: 10px;
+                                    border-bottom: 1px solid #c7c7c7;
+                                    border-right: 1px solid #c7c7c7;
+                                    transform: rotateZ(-45deg);
+                                    top: 40%;
+                                    right: 50%;
                                 }
                             }
                         }
@@ -461,6 +939,142 @@ header {
                 }
             }
         }
+        & .road-map.payment{
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            background-color: #fff;
+            padding-bottom: 100px;
+            & .title{
+                font-size: 20px;
+                line-height: 120%;
+                letter-spacing: 0.02em;
+            }
+            & .road-map.container{
+                display: flex;
+                flex-direction: column;
+                row-gap: 15px;
+                & .road-map-item {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 20px;
+                    & .number {
+                        color: #0222A5;
+                    }
+
+                    & .item-text {
+                        width: 80%;
+                    }
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid #C7C7C7;
+                        padding-bottom: 15px;
+                    }
+                }
+            }
+        }
     }
-    
+}
+
+footer {
+    background-color: #010101;
+    padding: 0 10px;
+
+    & .content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        row-gap: 20px;
+
+        & .f {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+
+            & .company-name {
+                font-family: 'Robodron', sans-serif;
+                font-size: 14px;
+                line-height: 100%;
+                letter-spacing: 0.1em;
+                color: #222;
+            }
+
+            & .mobile-phone {
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                row-gap: 10px;
+                line-height: 130%;
+                letter-spacing: 0.04em;
+                font-family: 'SF Pro Display 400', sans-serif;
+                color: #f2f2f2;
+
+                & span {
+                    font-size: 12px;
+                    line-height: 130%;
+                    letter-spacing: 0.04em;
+                    color: #727272;
+
+                }
+            }
+
+            & .social-club {
+                & a {
+                    color: #F64646;
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        height: 10px;
+                        border-right: 1px solid #F64646;
+                        transform: rotateZ(45deg);
+                        bottom: 0;
+                        right: -15px;
+                    }
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        height: 10px;
+                        width: 10px;
+                        border-right: 1px solid #F64646;
+                        border-top: 1px solid #F64646;
+                        bottom: 4px;
+                        right: -23px;
+                    }
+                }
+            }
+        }
+    }
+
+    & .footer-navigation {
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+        line-height: 130%;
+        letter-spacing: 0.04em;
+
+        & ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+
+            & a {
+                color: #c7c7c7;
+            }
+        }
+    }
+
+    & .documentation {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        & a {
+            color: #727272;
+        }
+    }
 }

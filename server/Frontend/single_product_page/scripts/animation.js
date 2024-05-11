@@ -12,13 +12,13 @@ function soHardMenuTopBarSwitch(event, tabId) {
     }
     document.querySelector(`${tabId}`).classList.toggle('hard-active');
 }
-function subHardMenuSwitcher(event, tabId){
+function subHardMenuSwitcher(primBtn, tabId){
     let tablinks = document.getElementsByClassName("param-category-link");
 
     for (let i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    event.target.classList.toggle('active')
+        document.querySelector(`#${primBtn}`).classList.toggle('active')
 
     let tabs = document.getElementsByClassName("param-category-display");
     for (let i = 0; i < tabs.length; i++){

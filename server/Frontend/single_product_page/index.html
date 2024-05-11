@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles/null-stile.css">
     <link rel="stylesheet" media="screen and (min-width:320px) and (max-width:479px)" href="./styles/320_style.css">
-    <link rel="stylesheet" media="screen and (min-width:480px) and (max-width:768px)" href="./styles/480_style.css">
+    <link rel="stylesheet" media="screen and (min-width:480px) and (max-width:767px)" href="./styles/480_style.css">
     <link rel="stylesheet" media="screen and (min-width:768px) and (max-width:999px)" href="./styles/768_style.css">
     <link rel="stylesheet" media="screen and (min-width:1000px) and (max-width:1599px)" href="./styles/1000_style.css">
     <link rel="stylesheet" media="screen and (min-width:1600px)" href="./styles/1600_style.css">
@@ -168,11 +168,11 @@
                 <div class="main-hard-menu-container">
                     <div class="top-bar-btn-container">
                         <div class="top-bar-btn">
-                            <div class="btn-primary active" onclick="soHardMenuTopBarSwitch(event, '#parameters')">
+                            <div class="btn-primary " onclick="soHardMenuTopBarSwitch(event, '#parameters')">
                                 Характеристики
                             </div>
                             <div class="horizontal-divider"></div>
-                            <div class="btn-primary" onclick="soHardMenuTopBarSwitch(event, '#delivery')">
+                            <div class="btn-primary active" onclick="soHardMenuTopBarSwitch(event, '#delivery')">
                                 Доставка и установка
                             </div>
                             <div class="horizontal-divider"></div>
@@ -192,15 +192,15 @@
                         </div>
                     </div>
                     <div class="menu-display">
-                        <div id="parameters" class="hard-item hard-active">
+                        <div id="parameters" class="hard-item ">
                             <div class="links-buttons">
-                                <div class="param-category-link active" onclick="subHardMenuSwitcher(event, 'main-parameters')"><span>Общие характеристики</span></div>
-                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'security-parameters')"><span>Защита от взлома и вскрытия</span></div>
-                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'decor-parameters')"><span>Декоративная отделка</span></div>
-                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'furniture-parameters')"><span>Фурнитура</span></div>
-                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'sound-and-temp-isolation-parameters')"><span>Тепло и звукоизоляция</span></div>
-                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'isolation-parameters')"><span>Герметичность</span></div>
-                                <div class="param-category-link" onclick="subHardMenuSwitcher(event, 'easy-of-use-parameters')"><span>Удобство эксплуатации</span></div>
+                                <div class="param-category-link active" id="param-1" onclick="subHardMenuSwitcher('param-1', 'main-parameters')"><span>Общие характеристики</span></div>
+                                <div class="param-category-link" id="param-2" onclick="subHardMenuSwitcher('param-2', 'security-parameters')"><span>Защита от взлома и вскрытия</span></div>
+                                <div class="param-category-link" id="param-3" onclick="subHardMenuSwitcher('param-3', 'decor-parameters')"><span>Декоративная отделка</span></div>
+                                <div class="param-category-link" id="param-4" onclick="subHardMenuSwitcher('param-4', 'furniture-parameters')"><span>Фурнитура</span></div>
+                                <div class="param-category-link" id="param-5" onclick="subHardMenuSwitcher('param-5', 'sound-and-temp-isolation-parameters')"><span>Тепло и звукоизоляция</span></div>
+                                <div class="param-category-link" id="param-6" onclick="subHardMenuSwitcher('param-6', 'isolation-parameters')"><span>Герметичность</span></div>
+                                <div class="param-category-link" id="param-7" onclick="subHardMenuSwitcher('param-7', 'easy-of-use-parameters')"><span>Удобство эксплуатации</span></div>
                             </div>
                             <div class="context-display">
                                 <div class="param-category-display active" id="main-parameters">
@@ -490,7 +490,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="delivery" class="hard-item">
+                        <div id="delivery" class="hard-item hard-active">
                             <div class="delivery-top-container">
                                 <div class="text-info">
                                     <span class="title">Доставка и установка входных дверей Expert осуществяется в Мосвке и МО</span>
@@ -530,6 +530,7 @@
                             
                         </div>
                         <div id="refund" class="hard-item">
+                            <!--TODO: переделать refund-->
                             <div class="refund-container">
                                 <div class="titles">
                                     <span>Вы можете оформить возврат двери Expert в следующих случаях:</span>
@@ -777,8 +778,8 @@
                 </div>
             </div>
             <div class="road-map payment">
-                    <span class="title">Как оплатить двери в Expert?</span>
-                    <div class="road-map container">
+                <span class="title">Как оплатить двери в Expert?</span>
+                <div class="road-map container">
                     <div class="road-map-item">
                         <span class="number">01</span>
                         <span class="item-text">Доставка и установка осуществляется после частичной предоплаты (10-30% в зависимости от категории и стоимости изделия, подробную информацию можно уточнить у менеджера)</span>
@@ -807,7 +808,7 @@
             </div>
             <div class="footer-navigation">
                 <ul>
-                    <li><a href="#">Каталог</a></li>
+                    <li><a href="/catalog">Каталог</a></li>
                     <li><a href="#">Как выбрать двери</a></li>
                     <li><a href="#">Акции</a></li>
                     <li><a href="#">О производстве</a></li>
