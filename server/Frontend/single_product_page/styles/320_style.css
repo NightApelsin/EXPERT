@@ -527,7 +527,7 @@ header {
                             display: flex;
                             flex-direction: column;
                             row-gap: 20px;
-
+                            margin-top: 30px;
                             & .title-container {
                                 & .title {
                                     font-weight: 400;
@@ -578,7 +578,6 @@ header {
 
                     & #delivery {
                         margin-top: 20px;
-
                         & .delivery-top-container {
                             background-color: #010101;
                             color: #fff;
@@ -720,7 +719,40 @@ header {
                             }
                         }
                     }
+                    
+                    & #refund{
+                        padding: 0 10px;
+                        & .description{
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 20px;
+                            & div{
+                                display: flex;
+                                flex-direction: column;
+                                & .title{
+                                    font-size: 14px;
+                                    line-height: 130%;
+                                    letter-spacing: 0.02em;
+                                    color: #0222A5;
+                                }
+                                & .items-container{
+                                    display: flex;
+                                    flex-direction: column;
+                                    row-gap: 20px;
+                                    & .item {
+                                        font-size: 10px;
+                                        line-height: 130%;
+                                        letter-spacing: 0.04em;
+                                        &:not(:last-child) {
+                                            padding: 10px 0;
+                                            border-bottom: 1px solid #C7C7C7;
 
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -1045,6 +1077,10 @@ footer {
                         right: -23px;
                     }
                 }
+            }
+            & .copyright{
+                color: #C7C7C7;
+                font-family: "SF Pro Display 400", sans-serif;
             }
         }
     }
