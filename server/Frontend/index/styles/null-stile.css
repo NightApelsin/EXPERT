@@ -187,3 +187,25 @@ body::-webkit-scrollbar{
     height: 0px;
     background-color: transparent;
 }
+.ui-state-hover{
+    background-color: #fff;
+}
+
+.ui-accordion .ui-accordion-header{
+    padding: 1em 5.5em 0.5em 0em;
+}
+.ui-accordion .ui-accordion-content{
+    padding: 0;
+    border: 0;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+    background-color: #fff;
+    border: none;
+}
+.ui-icon{
+    display: none;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
+    background: #fff;
+    border: none;
+}

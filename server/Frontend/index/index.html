@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="../source/images/icon/favicon.svg">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="./styles/null-stile.css">
     <link rel="stylesheet" type="text/css" media="screen and (max-width:320px)" href="./styles/320_style.css">
     <link rel="stylesheet" type="text/css" media="screen and (min-width:321px) and (max-width:480px)" href="./styles/480_style.css">
@@ -17,6 +18,7 @@
     
 </head>
 <body>
+
 <div class="wrapper">
     <header class="header">
         <div class="content">
@@ -57,8 +59,8 @@
                         <li><a href="#">Акции</a></li>
                         <li><a href="#">О производителе</a></li>
                         <li><a href="#">Контакты</a></li>
-                        <li>
-                            <a href="#">Получить консультацию</a>
+                        <li class="openModalBtn">
+                            <a>Получить консультацию</a>
                             <div class="main-arrow-item">
                                 <div class="circle"></div>
                             </div>
@@ -69,7 +71,7 @@
             <div class="main-name">
                 <span class="main-name">EXPERT</span>
             </div>
-            <div class="consult-but">
+            <div class="consult-but openModalBtn">
                 <span class="consult-but text">Получить консультацию</span>
                 <div class="main-arrow-item">
                     <div class="circle"></div>
@@ -165,8 +167,8 @@
                         <div class="catalog-item-text">
                             <span class="item-text">Стильные решения для тех, кто предпочитает жить в городе</span>
                         </div>
-                        <div class="catalog-transporter-button">
-                            <a href="#">Получить консультацию</a>
+                        <div class="catalog-transporter-button openModalBtn">
+                            <a>Получить консультацию</a>
                             <div class="main-arrow-item">
                                 <div class="circle"></div>
                             </div>
@@ -185,8 +187,8 @@
                     <div class="catalog-item-text">
                         <span class="item-text">Тёплые двери с термразрывом, созданы чтобы согревать и радовать эстетикой </span>
                     </div>
-                    <div class="catalog-transporter-button">
-                        <a href="#">Получить консультацию</a>
+                    <div class="catalog-transporter-button openModalBtn">
+                        <a>Получить консультацию</a>
                         <div class="main-arrow-item">
                             <div class="circle"></div>
                         </div>
@@ -462,9 +464,50 @@
         </div>
     </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script type="application/javascript" src="./scripts/main_page_script.js"></script>
+<div id="myModal" class="modal-content" >
+    <div class="content">
+        <span>Наш менеджер перезвонит вам в течение короткого времени, подберет лучший вариант и ответит на любые вопросы </span>
+        <div class="phone">
+            <div class="input">
+                <input type="text" placeholder="Телефон" class="" onfocus="(()=>{
+                    try {
+                    this.classList.remove('error')
+                    document.querySelector('#error-phone-placeholder').classList.remove('enabled');
+                    }catch (error){
+                        console.log(error)
+                    }
+                    if(this.value.length===0){
+                        this.value='+7'
+                    }else{
+                        return 0
+                    }
+                })()" onfocusout="(()=>{
+                    if(this.value.length===12){
+                        return 0
+                    } else{
+                        document.querySelector('#error-phone-placeholder').classList.add('enabled')
+                        this.classList.add('error')
+                        console.log(this.value.length)
+                    }
+                })()">
+                <div id="error-phone-placeholder">Неправильный формат ввода</div>
+                <span>Нажимая на кнопку отправить вы соглашаетесь с условиями обработки <span>персональных данных</span></span>
+            </div>
+
+            <div class="circle-btn" >
+                <div class="text" onclick="addFetch()">Отправить</div>
+            </div>
+        </div>
+        <div id="complete">
+            <div class="title">Спасибо за обращение!</div>
+            <div class="text">Мы получили вашу заявку и перезвоним в ближайшее время</div>
+            <div class="check"></div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script  src="./scripts/main_page_script.js"></script>
 <script type="module" src="./scripts/main.js"></script>
 <script src="https://unpkg.com/cookielib/src/cookie.min.js"></script>
 </body>
