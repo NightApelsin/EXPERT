@@ -433,7 +433,44 @@
         </div>
         
         <div class="reviews"></div>
-        <div class="make-order"></div>
+        <div class="make-order">
+            <div id="order-content">
+                <span id="order-title">Мы перезвоним вам в течение короткого времени</span>
+                <span id="order-text">Поможем выбрать двери и ответим на любые вопросы</span>
+                <div class="phone">
+                    <div class="input">
+                        <input type="text" placeholder="Номер телефона" class="" onfocus="(()=>{
+                    try {
+                        this.classList.remove('error')
+                        document.querySelector('#order-error-phone-placeholder').classList.remove('enabled');
+                    }catch (error){
+                        console.log(error)
+                    }
+                    if(this.value.length===0){
+                        this.value='+7'
+                    }else{
+                        return 0
+                    }
+                })()" onfocusout="(()=>{
+                    if(this.value.length===12){
+                        return 0
+                    } else{
+                        document.querySelector('#order-error-phone-placeholder').classList.add('enabled')
+                        this.classList.add('error')
+                        console.log(this.value.length)
+                    }
+                })()">
+                        <div id="order-error-phone-placeholder">Неправильный формат ввода</div>
+                        <span class="bottom">Нажимая на кнопку отправить вы соглашаетесь с условиями обработки <a href="#">персональных данных</a></span>
+                    </div>
+
+                    <div class="circle-btn" >
+                        <div class="text" id="orderSendBtn" onclick="addFetch('view')">Отправить</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </main>
     <footer>
         <div class="content">
@@ -507,8 +544,55 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script  src="./scripts/main_page_script.js"></script>
+<script type="module" src="./scripts/main_page_script.js"></script>
 <script type="module" src="./scripts/main.js"></script>
 <script src="https://unpkg.com/cookielib/src/cookie.min.js"></script>
+<div id="auth-modal">
+    <div class="content">
+        <div class="title">
+            <span>Авторизация</span>
+            <span>Введите свою электронную почту для авторизации</span>
+        </div>
+        <div class="input">
+            <label>
+                <span>эл.почта:</span>
+                <input type="text" id="email-placeholder">
+            </label>
+        </div>
+        <span class="info">Не волнуйтесь! Если вы раньше не посещали наш сайт, то запись о том что вы посетили
+            наш сайт будет создана автоматически.
+            Вы так же можете закрыть это окно чтобы не создавать запись или авторизовываться. 
+            Это окно можно вызвать повторно при заказе визуализации или замеров.</span>
+        <div class="access-btn" id="login-btn"><span>Войти</span></div>
+    </div>
+    <div class="auth-access-pin">
+        <div class="title">
+            <span>Авторизация</span>
+            <span>Введите пин код, который пришёл вам на почту для продолжения</span>
+        </div>
+        <div class="input">
+            <label>
+                <span>Код:</span>
+                <input type="text" id="pin-placeholder">
+            </label>
+        </div>
+        <div class="accessBtn"><span>Продолжить</span></div>
+    </div>
+    <div class="access-granted">
+        <div class="title">
+            <span>Авторизация успешна</span>
+            <span>Приятных покупок</span>
+        </div>
+    </div>
+    <div class="access-denied">
+        <div class="title">
+            <span>Авторизация отклонена</span>
+            <span>Неверный пинкод</span>
+        </div>
+        <div class="back-btn">
+            Назад
+        </div>
+    </div>
+</div>
 </body>
 </html>

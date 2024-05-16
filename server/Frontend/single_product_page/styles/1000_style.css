@@ -952,118 +952,159 @@ header {
     }
 }
 
-footer {
-    background-color: #010101;
-    padding: 0 30px;
+footer{
+    background:#010101;
+    margin-top: 50px;
+    position: relative;
+}
+footer .content{
+    padding: 30px 10px 0 10px;
+}
+footer .content .company-name{
+    color: #222;
+    font-family: 'Robodron', serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 14px */
+    letter-spacing: 1.4px;
 
-    & .content {
-        display: flex;
-        flex-direction: row;
-        padding-top: 30px;
-        column-gap: 20px;
-        position: relative;
-        & .f {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            position: absolute;
-            row-gap: 20px;
-            align-items: center;
-            justify-content: space-between;
-            &:last-child{
-                padding: 0 30px 0 0;
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: space-between;
-                bottom: 0;
-            }
-            & .company-name {
-                font-family: 'Robodron', sans-serif;
-                font-size: 16px;
-                line-height: 100%;
-                letter-spacing: 0.1em;
-                color: #222;
-            }
+}
+footer .content .mobile-phone{
+    color: #FEFEFE;
 
-            & .mobile-phone {
-                display: flex;
-                flex-direction: column;
-                font-size: 18px;
-                row-gap: 10px;
-                line-height: 130%;
-                letter-spacing: 0.04em;
-                font-family: 'SF Pro Display 400', sans-serif;
-                color: #f2f2f2;
+    /* Txt / extra small light */
+    font-family: "SF Pro Display 300", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 18.2px */
+    letter-spacing: 0.56px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+footer .content .mobile-phone span{
+    color: #727272;
 
-                & span {
-                    font-size: 14px;
-                    line-height: 130%;
-                    letter-spacing: 0.04em;
-                    color: #727272;
+    /* Txt / 12 */
+    font-family: "SF Pro Display 400";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 15.6px */
+    letter-spacing: 0.48px;
+    margin-top: 5px;
+}
+.footer-navigation a{
+    color: #C7C7C7;
+    font-family: "SF Pro Display 100";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 15.6px */
+    letter-spacing: 0.48px;
+}
+.footer-navigation ul{
+    margin-top: 55px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.footer-navigation li{
+    margin-bottom: 10px;
+}
+.documentation{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    column-gap: 30px;
+    left: 250px;
+}
+.documentation a{
+    color: #727272;
+    text-align: center;
+    font-family: "SF Pro Display 400";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 13px */
+    letter-spacing: 0.4px;
 
-                }
-            }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.social-club{
+    position: relative;
+    margin-right: 30px;
+}
 
-            & .social-club {
-                & a {
-                    color: #F64646;
-                    position: relative;
+.social-club a{
+    color: #F64646;
 
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        height: 10px;
-                        border-right: 1px solid #F64646;
-                        transform: rotateZ(45deg);
-                        bottom: 0;
-                        right: -15px;
-                    }
+    /* Txt / extra small light */
+    font-family: "SF Pro Display 300";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 18.2px */
+    letter-spacing: 0.56px;
+    position: relative;
+    width: max-content;
+}
+.social-club:before{
+    content: '';
+    position: absolute;
+    height: 16px;
+    right: -17px;
+    bottom: 0;
+    border-right: 1px solid #F64646;
+    transform: rotate(38deg);
+}
 
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        height: 10px;
-                        width: 10px;
-                        border-right: 1px solid #F64646;
-                        border-top: 1px solid #F64646;
-                        bottom: 4px;
-                        right: -23px;
-                    }
-                }
-            }
-            & .copyright{
-                color: #C7C7C7;
-                font-family: "SF Pro Display 400", sans-serif;
-            }
-        }
-    }
+.social-club:after{
+    content: '';
+    position: absolute;
+    height: 11px;
+    width: 11px;
+    right: -22px;
+    bottom: 4px;
+    border-bottom: 1px solid #F64646;
+    border-right: 1px solid #F64646;
+    transform: rotate(270deg);
+}
+.copyright{
+    color: #727272;
+    font-family: "SF Pro Display 400";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 11.7px */
+    letter-spacing: 0.36px;
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+.f{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.f:last-child{
+    flex-direction: row-reverse;
+}
 
-    & .footer-navigation {
-        display: flex;
-        flex-direction: column;
-        font-size: 14px;
-        line-height: 130%;
-        letter-spacing: 0.04em;
-
-        & ul {
-            display: flex;
-            flex-direction: column;
-            row-gap: 10px;
-
-            & a {
-                color: #c7c7c7;
-            }
-        }
-    }
-
-    & .documentation {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-        row-gap: 10px;
-
-        & a {
-            color: #727272;
-        }
-    }
+#hi-width-block{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: all 0.5s ease;
 }

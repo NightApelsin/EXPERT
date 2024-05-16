@@ -7,6 +7,26 @@ document.addEventListener('DOMContentLoaded',async () => {
     await createInterface()
     await createHistoryCookie()
     imagePreviewSwitcher(document.querySelector('#image-carousel-holder #main-image img'), document.querySelectorAll('#image-carousel-holder #source-images .source-image-holder'))
+    console.log(document.querySelectorAll('.openModalBtn'))
+    document.querySelectorAll(".openModalBtn").forEach(e => {
+        console.log(e)
+        e.addEventListener('click', function () {
+            console.log('a')
+            $("#myModal").dialog({
+                modal: true,
+                height: 340,
+                width: 600,
+                reliable: false,
+                draggable: false,
+                beforeClose: function (event, ui) {
+                    document.querySelector('body').style.overflow = 'scroll'
+                },
+                open: function (event, ui) {
+                    document.querySelector('body').style.overflow = 'hidden';
+                }
+            })
+        })
+    })
 })
     //TODO: сделать динамичную подборку рекомендуемых на основе cookie и принимаемых параметров из запросов на их основе 
      
@@ -43,3 +63,4 @@ function soHardMenuInsert(prodFromBack) {
     })
     
 }
+

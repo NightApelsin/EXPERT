@@ -70,7 +70,7 @@ div[aria-labelledby="ui-id-19"] {
                         outline: none;
                     }
                     &.error{
-                        border: 1px solid red;
+                        border-color:red;
                     }
                 }
                 & span{
@@ -1399,4 +1399,114 @@ footer .content .mobile-phone span{
     letter-spacing: 0.36px;
     margin-top: 25px;
     padding-bottom: 10px;
+}
+
+
+.make-order{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 200px;
+    padding: 0 200px 0 0;
+    & #order-content{
+        padding: 0 200px 0 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        &.complete{
+            & .phone {
+                & .input {
+                    & input {
+                        border-bottom: 1px solid #c7c7c7;
+                        color: #c7c7c7;
+                        font-family: "SF Pro Display 400", sans-serif;
+                        padding-bottom: 5px;
+
+                    }
+                }
+                & .circle-btn{
+                    & .text {
+                        background: transparent;
+                        border: 1px solid #c7c7c7;
+                        color: #c7c7c7
+                    }}
+            }
+            & span{
+                & a{
+                    color: #c7c7c7;
+                }
+            }
+        }
+        & span{
+            width: 60%;
+            color: #000;
+            font-size: 18px;
+            &:nth-child(2){
+                color: #727272;
+                font-size: 12px;
+                width: 100%;
+            }
+            & a{
+                color: #0222A5;
+            }
+        }
+        & span.bottom{
+            color: #C7C7C7;
+            font-size: 12px;
+            width: 100%;
+            & span{
+                color: #0222A5;
+                font-size: 12px;
+            }
+        }
+        & .phone{
+            display: flex;
+            flex-direction: row;
+            & .input {
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                & input {
+                    border-bottom: 1px solid #222;
+                    font-size: 14px;
+                    font-family: "SF Pro Display 400", sans-serif;
+                    padding-bottom: 5px;
+                    &.error{
+                        border-color: red;
+                    }
+                }
+
+                & #order-error-phone-placeholder {
+                    display: none;
+
+                    &.enabled {
+                        display: block;
+                        color: red;
+                        font-family: "SF Pro Display 400", sans-serif;
+                    }
+                }
+            }
+            & .circle-btn{
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                top: -30px;
+                right: 0;
+                & .text {
+                    color: #fff;
+                    width: 150px;
+                    height: 150px;
+                    background-color: #20a;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    font-family: "SF Pro Display 400", sans-serif;
+                    flex-wrap: wrap;
+                    align-content: center;
+                }
+            }
+        }
+
+    }
 }

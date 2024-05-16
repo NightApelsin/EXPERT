@@ -40,3 +40,42 @@ $(document).ready(()=>{
     })
     
 })
+async function addFetch(){
+    if
+    (document.querySelector(`input[placeholder='Телефон']`).classList.contains('error') ||
+        document.querySelector(`input[placeholder='Телефон']`).value.length !== 12)
+    {
+        console.log('wrong argument')
+    }
+    else
+    {
+
+        let formData = {phoneNumber: document.querySelector(`input[placeholder='Телефон']`).value}
+        console.log(formData)
+        try {
+            let response = await fetch('/api/addPersonOnConsultQueue/', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (!response.ok) {
+                console.log('something failed')
+            } else {
+                document.querySelector('#complete').classList.add('enabled')
+                document.querySelector('.ui-resizable-handle.ui-resizable-s').classList.add('width-0');
+                setTimeout(() => {
+                    document.querySelector('#complete').classList.remove('enabled')
+                    document.querySelector('.ui-resizable-handle.ui-resizable-s').classList.remove('width-0');
+                    $('#myModal').dialog('close')
+                }, 5000)
+            }
+
+        } catch (e) {
+            console.error('There has been a problem with your fetch operation:', e);
+        }
+        return
+
+    }
+}
