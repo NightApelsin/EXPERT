@@ -61,6 +61,10 @@ app.get('/warranty', (req, res)=>{
 //home page
 app.get('/', (req, res) => {
     res.sendFile(path.join(FrontendPages, '/index/index.html'));
+    let crypto = require('crypto')
+    exports.index((req, res)=>{
+        res.render('index/index.html', {module: crypto})
+    })
 });
 //policy page
 app.get('/policy', (req, res)=>{

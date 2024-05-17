@@ -292,7 +292,7 @@ div[aria-labelledby="ui-id-1"] {
         display: flex;
         justify-content: center;
         align-items: center;
-        & .access-granted, .access-denied, .auth-access-pin{
+        & .access-granted, .access-denied, .auth-access-pin, .content{
             display: none;
             &.open{
                 display: flex;
@@ -300,8 +300,7 @@ div[aria-labelledby="ui-id-1"] {
             }
         }
         & .content{
-            display: flex;
-            flex-direction: column;
+           
             align-items: center;
             row-gap: 10px;
             & .title{
@@ -325,11 +324,17 @@ div[aria-labelledby="ui-id-1"] {
                     display: flex;
                     flex-direction: row;
                     column-gap: 5px;
+                    align-items: center;
                     & input{
                         width:100%;
                         border-bottom: 1px solid #222;
                         padding-bottom: 5px;
                         text-align: center;
+                        &[type="checkbox"]{
+                            width: 20%;
+                            height: 20%;
+                           
+                        }
                     }
                     & span{
                         font-size: 18px;

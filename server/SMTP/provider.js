@@ -14,7 +14,12 @@ class SMTP {
         let hash = SHA256.createHash('sha256').update(randomCode).digest('hex');
         console.log(hash)
         console.log(req.body.email)
-        
+        res.cookie('sha', hash,{
+            maxAge: 2*60*1000,
+            httponly: true,
+            path: '/',
+        })
+        res.send('code send');
         let info = await transponder.sendMail({
             from: '"EXPERT" <EXPERT@gmail.com>',
             to: req.body.email,

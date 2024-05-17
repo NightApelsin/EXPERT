@@ -1,5 +1,4 @@
 ﻿
-
 document.addEventListener('DOMContentLoaded',function() {
     //modal window
     console.log(document.querySelectorAll('.openModalBtn'))
@@ -41,19 +40,53 @@ document.addEventListener('DOMContentLoaded',function() {
     
     $('#login-btn').click(async () => {
         const emailPlaceholder = document.querySelector('#email-placeholder')
-        if (emailPlaceholder.value !== '' && emailPlaceholder.value.includes('@')) {
-            let getCode = await fetch('/api/SMTP/getVerificationCode',{
-                method: 'POST',
-                headers:{
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({'email': emailPlaceholder.value})
+        const passwordPlaceholder = document.querySelector('#password-placeholder')
+        if (emailPlaceholder.value !== '' && emailPlaceholder.value.includes('@') && passwordPlaceholder.value.length > 6) {
+            try {
+                let getCode = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({'email': emailPlaceholder.value, 'password': passwordPlaceholder.value})
+
+                })
+                // document.querySelector('#auth-modal .content').classList.remove('open')
+                // document.querySelector('#auth-modal .auth-access-pin').classList.add('open')
                 
-            })
+            }catch (e){
+                document.querySelector('#auth-modal .content').classList.remove('open')
+                document.querySelector('#auth-modal .access-denied').classList.add('open')
+                document.querySelector('#auth-modal .access-denied .title span:last-child').textContent = e.message
+            }
         }
     })
-    
-    
+    $('#accessBtn').click(async ()=>{
+        
+        let verifyFetch = await fetch('/api/verifyAccess',{
+            method: 'POST',
+            body: JSON.stringify({code:document.querySelector('#pin-placeholder').value,
+                                        hash:getCookie('sha')}),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if(verifyFetch.ok){
+            document.querySelector('.auth-access-pin').classList.remove('open')
+            document.querySelector('.access-granted').classList.add('open')
+        }
+        else{
+            document.querySelector('.auth-access-pin').classList.remove('open')
+            document.querySelector('.access-denied').classList.add('open')
+        }
+    })
+
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
     //nav-bar menu
     $('.burger-button').click(function(event) {
         $('.burger-button, .burger-list-container').toggleClass('active');
