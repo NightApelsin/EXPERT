@@ -32,7 +32,7 @@ class AccessVerification{
         }
     }
     createUser(req,res) {
-        
+        res.send(req.body)
     }
 }
 

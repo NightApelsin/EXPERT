@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EXPERT - Созданрие аккаунта</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="create-window">
+        <div class="title"><span>Создание аккаунта</span></div>
+        <div class="inputs">
+            <div id="main-info-page" class="open">
+                <span class="title">Введите свои учётные данные</span>
+                <form name="signUpInfo" id="signUpInfo">
+                    <label class="input">
+                        Имя<span class="important">*</span>:
+                        <input type="text" id="name-placeholder" name="name">
+                    </label>
+                    <label class="input">
+                        Фамилия (не обязательно):
+                        <input type="text" id="surname-placeholder" name="surname">
+                    </label>
+                    <label class="input">
+                        эл.почта <span class="important">*</span>
+                        <input type="email" id="email-placeholder" name="email">
+                    </label>
+                    <label class="input">
+                        пароль <span class="important">*</span>
+                        <input type="password" id="password-placeholder" name="password">
+                    </label>
+                    <label class="submit">
+                        Зарегистрироваться
+                        <input type="submit">
+                    </label>
+                </form>
+            </div>
+            <div id="email-verification">
+                <span class="title">Подтвердите свой адрес электронной почты</span>
+                <form method="post" action="/api/verifyAccess" name="emailCodeVerification">
+                    <label>
+                        Код подтверждения с эл.почты:
+                        <input type="text" id="verifyCode">
+                    </label>
+                </form>
+            </div>
+            <div id="creation-successful">
+                <span class="title">Создание учётной записи успешно</span>
+                <div class="checked"></div>
+            </div>
+            <div id="creation-failed">
+                <span class="title">При создании учётной записи произошла ошибка</span>
+                <div class="checked"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module" src="./scripts/main.js"></script>
+<script src="./scripts/animations.js"></script>
+</body>
+</html>

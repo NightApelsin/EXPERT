@@ -61,11 +61,11 @@ app.get('/warranty', (req, res)=>{
 //home page
 app.get('/', (req, res) => {
     res.sendFile(path.join(FrontendPages, '/index/index.html'));
-    let crypto = require('crypto')
-    exports.index((req, res)=>{
-        res.render('index/index.html', {module: crypto})
-    })
 });
+//create account page
+app.get('/createAccount', (req, res) => {
+    res.sendFile(path.join(FrontendPages, '/createAccount/index.html'));
+})
 //policy page
 app.get('/policy', (req, res)=>{
     res.sendFile(path.join(FrontendPages, '/policy/index.html'))
