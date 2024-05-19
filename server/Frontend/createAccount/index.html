@@ -5,44 +5,70 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/1600_style.css">
+    <link rel="stylesheet" href="./styles/null-stile.css">
     <title>EXPERT - Созданрие аккаунта</title>
 </head>
 <body>
 <div class="wrapper">
     <div class="create-window">
-        <div class="title"><span>Создание аккаунта</span></div>
-        <div class="inputs">
+        <div class="box-shadow">
+            <div class="title"><span>Создание аккаунта</span></div>
+            <div class="inputs">
             <div id="main-info-page" class="open">
                 <span class="title">Введите свои учётные данные</span>
                 <form name="signUpInfo" id="signUpInfo">
                     <label class="input">
-                        Имя<span class="important">*</span>:
+                        <span class="label-title">Имя<span class="important">*</span>:</span>
                         <input type="text" id="name-placeholder" name="name">
                     </label>
                     <label class="input">
-                        Фамилия (не обязательно):
+                        <span class="label-title">Фамилия:</span>
                         <input type="text" id="surname-placeholder" name="surname">
                     </label>
                     <label class="input">
-                        эл.почта <span class="important">*</span>
+                        <span class="label-title">эл.почта <span class="important">*</span>:</span>
                         <input type="email" id="email-placeholder" name="email">
                     </label>
                     <label class="input">
-                        пароль <span class="important">*</span>
+                        <span class="label-title">пароль <span class="important">*</span>:</span>
                         <input type="password" id="password-placeholder" name="password">
                     </label>
                     <label class="submit">
-                        Зарегистрироваться
-                        <input type="submit">
+                        <input type="submit" value="Зарегестрироваться">
+                        <svg
+                                id="ring"
+                                width="180"
+                                height="180">
+                            <circle
+                                    id="ring__circle"
+                                    stroke="#0222A5"
+                                    stroke-width="1"
+                                    fill="transparent"
+                                    r="90"
+                                    cx="90"
+                                    cy="90"/>
+                        </svg>
+                        <svg 
+                                id="arrow" 
+                                width="80px" 
+                                height="30px"
+                        fill="#0222A5" stroke="#0222A5">
+                            <path d="M 0 15 L 80 15 M 65 24 L 80 15 M 65 7 L 80 15"/>
+                        </svg>
                     </label>
                 </form>
             </div>
             <div id="email-verification">
                 <span class="title">Подтвердите свой адрес электронной почты</span>
-                <form method="post" action="/api/verifyAccess" name="emailCodeVerification">
+                <form name="emailCodeVerification" id="emailCodeVerification">
                     <label>
-                        Код подтверждения с эл.почты:
-                        <input type="text" id="verifyCode">
+                        <span class="label-title">Код подтверждения с эл.почты:</span>
+                        <input type="text" name="verifyCode">
+                    </label>
+                    <label>
+                        <span class="label-title">Проверить</span>
+                        <input type="submit">
                     </label>
                 </form>
             </div>
@@ -54,6 +80,7 @@
                 <span class="title">При создании учётной записи произошла ошибка</span>
                 <div class="checked"></div>
             </div>
+        </div>
         </div>
     </div>
 </div>
