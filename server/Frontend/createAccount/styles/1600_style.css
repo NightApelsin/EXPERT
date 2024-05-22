@@ -91,6 +91,59 @@
                         }
                     }
                 }
+                & #email-verification{
+                    row-gap: 40px;
+                    & .title{
+                        font-size: 25px;
+                    }
+                    & #emailCodeVerification{
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 20px;
+                        width: 100%;
+                        align-items: stretch;
+                        & label{
+                            width: 100%;
+                            font-family: "SF Pro Display 400", sans-serif;
+                            text-align: center;
+                            & input[type="text"]{
+                                border-bottom: 1px solid #c7c7c7;
+                                padding-bottom: 5px;
+                            }
+                            &:last-child{
+                                margin-top: 100px;
+                                position: relative;
+                                & #ring {
+                                    position: absolute;
+                                    top: -66px;
+                                    left: 236px;
+                                    width: 150px;
+                                    height: 150px;
+                                    overflow: visible;
+                                    transform: rotateZ(15deg);
+
+                                    & #ring__circle {
+                                        r: 75px;
+                                        cx: 75px;
+                                        cy: 75px;
+                                        stroke-dasharray: calc(75* 2* 3.14);
+                                        stroke-dashoffset: calc((75* 2* 3.14) - (90 / 100*(75* 2* 3.14)));
+                                        transition: all 0.5s ease;
+
+                                        &:hover {
+                                            stroke-dashoffset: calc((75 * 2 * 3.14) - (0 / 100 * (75 * 2 * 3.14)));
+                                        }
+                                    }
+                                }
+                                & #arrow{
+                                    position: absolute;
+                                    left: 380px;
+                                    top: -5px;
+                                }
+                            }
+                        }
+                    }
+                }
                 & div{
                     display: none;
                 }

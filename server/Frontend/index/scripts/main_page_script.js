@@ -48,12 +48,17 @@ document.addEventListener('DOMContentLoaded',function() {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({'email': emailPlaceholder.value, 'password': passwordPlaceholder.value})
+                    body: JSON.stringify({'userEmail': emailPlaceholder.value, 'userPassword': passwordPlaceholder.value})
 
                 })
-                // document.querySelector('#auth-modal .content').classList.remove('open')
-                // document.querySelector('#auth-modal .auth-access-pin').classList.add('open')
-                
+                if(!getCode.ok){
+                    document.querySelector('#auth-modal .content').classList.remove('open')
+                    document.querySelector('#auth-modal .access-denied').classList.add('open')
+                }
+                else {
+                    document.querySelector('#auth-modal .content').classList.remove('open')
+                    document.querySelector('#auth-modal .auth-access-pin').classList.add('open')
+                }
             }catch (e){
                 document.querySelector('#auth-modal .content').classList.remove('open')
                 document.querySelector('#auth-modal .access-denied').classList.add('open')
@@ -122,6 +127,7 @@ document.addEventListener('DOMContentLoaded',function() {
 
 
 async function addFetch(param){
+    console.log(window.sessionStorage.getItem('isAuth'))
     switch (param) {
         case 'modal':
         if

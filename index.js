@@ -6,11 +6,11 @@ const router = require('./server/Routers/router.js')
 const cookieParser = require('cookie-parser');
 const fs = require('fs')
 const https = require('https')
-
+const session = require('express-session')
 const PORT = process.env.PORT || 5001;
 const server = path.join(__dirname, '/server')
 const FrontendPages = path.join(server,'/Frontend');
-
+const varMiddleware = require('./server/Middleware/variables')
 
 const app = express();
 
@@ -32,6 +32,12 @@ app.use('/catalog', express.static(path.join(FrontendPages, '/catalog')));
 app.use('/catalog/:id', express.static(path.join(FrontendPages, '/single_product_page')));
 app.use('/api/', router);
 app.use('/SMTP/', express.static(path.join(server, '/SMTP')))
+app.use(session({
+    secret: '2d6+8',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(varMiddleware)
 
 // Обработчики GET запросов
 //about page

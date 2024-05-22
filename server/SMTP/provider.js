@@ -12,6 +12,10 @@ class SMTP {
         while (randomCode.length < 6) {
             randomCode = '0' + randomCode
         }
+        if(!req.body.email){
+            res.sendStatus(400)
+            return
+        }
         if (req.body.state === 'creation' && !await auth.findUser(req.body.email)) {
             let hash = SHA256.createHash('sha256').update(randomCode).digest('hex');
             console.log(hash)
@@ -40,7 +44,7 @@ class SMTP {
             console.log(hash)
             console.log(req.body.email)
             res.cookie('sha', hash, {
-                maxAge: 2 * 60 * 1000,
+                maxAge: 30 * 60 * 1000,
                 httponly: true,
                 path: '/',
             })

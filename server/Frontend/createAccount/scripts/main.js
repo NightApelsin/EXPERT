@@ -39,12 +39,12 @@
             body: JSON.stringify({code: data.verifyCode, hash: getCookie('sha')})
         })
         if(!verStatus.ok){
-            document.querySelector('#main-info-page').classList.remove('open');
+            document.querySelector('#email-verification').classList.remove('open');
             document.querySelector('#creation-failed').classList.add('open');
         }else{
             let accountData = getFormData('#signUpInfo')
             try {
-                let createrdAccount = await fetch('/api/signUp', {
+                let createdAccount = await fetch('/api/signUp', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -56,6 +56,14 @@
                         surname: accountData.surname
                     })
                 })
+                if(!createdAccount.ok){
+                    document.querySelector('#email-verification').classList.remove('open');
+                    document.querySelector('#creation-failed').classList.add('open');
+                }
+                else{
+                    document.querySelector('#email-verification').classList.remove('open');
+                    document.querySelector('#creation-successful').classList.add('open');
+                }
             } catch (error){
                 document.querySelector('#main-info-page').classList.remove('open');
                 document.querySelector('#creation-failed').classList.add('open');
