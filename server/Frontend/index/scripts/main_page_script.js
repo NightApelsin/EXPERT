@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded',function() {
     //auth modal
     $('#auth-modal').dialog({
         modal: true,
-        height: 340,
+        height: 540,
         width: 600,
         reliable: false,
         draggable: false,
@@ -48,8 +48,7 @@ document.addEventListener('DOMContentLoaded',function() {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({'userEmail': emailPlaceholder.value, 'userPassword': passwordPlaceholder.value})
-
+                    body: JSON.stringify({'userEmail': emailPlaceholder.value, 'userPassword': passwordPlaceholder.value}),
                 })
                 if(!getCode.ok){
                     document.querySelector('#auth-modal .content').classList.remove('open')

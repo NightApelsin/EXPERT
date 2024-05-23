@@ -24,7 +24,8 @@ class AuthentificationController{
                     const user = await db.query("SELECT * FROM users WHERE email = ($1)", [userEmail])
                     let hashedPassword = crypto.createHash('sha256').update(userPassword).digest('hex');
                     if (hashedPassword === user.rows[0].password) {
-                        req.sessionStorage.isAuthenticated = true
+                        console.log(req.session)
+                        req.session.userEmail = userEmail
                         res.sendStatus(200)
                     } else {
                         res.sendStatus(403)

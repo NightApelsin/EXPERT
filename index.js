@@ -1,21 +1,37 @@
-﻿
-const express = require('express');
+﻿const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const router = require('./server/Routers/router.js')
 const cookieParser = require('cookie-parser');
 const fs = require('fs')
 const https = require('https')
-const session = require('express-session')
 const PORT = process.env.PORT || 5001;
 const server = path.join(__dirname, '/server')
 const FrontendPages = path.join(server,'/Frontend');
-const varMiddleware = require('./server/Middleware/variables')
-
 const app = express();
 
 
+const Session = require('express-session');
+const pool = require('./server/Database/db_sessionStorage.js')
+const PgStore = require('connect-pg-simple')(Session);
+app.use(Session({
+    store: new PgStore({
+        pool,
+        createTableIfMissing: true,
+        schemaName: 'public',
+        tableName: 'sessions'
+    }),
+    secret: 'yups',
+    resave: true,
+    saveUninitialized: true
+}));
+
+
+
+
+
 app.use(cookieParser());
+app.use(express.urlencoded({extended: true}));
 // Используем CORS middleware
 app.use(cors());
 
@@ -32,12 +48,8 @@ app.use('/catalog', express.static(path.join(FrontendPages, '/catalog')));
 app.use('/catalog/:id', express.static(path.join(FrontendPages, '/single_product_page')));
 app.use('/api/', router);
 app.use('/SMTP/', express.static(path.join(server, '/SMTP')))
-app.use(session({
-    secret: '2d6+8',
-    resave: false,
-    saveUninitialized: false
-}))
-app.use(varMiddleware)
+
+
 
 // Обработчики GET запросов
 //about page
