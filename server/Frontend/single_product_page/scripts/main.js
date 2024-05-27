@@ -1,4 +1,4 @@
-import {createHistoryCookie, getSingleProduct} from "./requests.js";
+import {createHistoryCookie, getSingleProduct, addToCart, getCookie} from "./requests.js";
 import {insertParameters, imagePreviewSwitcher} from "../components/insertParameters.js";
 
 
@@ -6,6 +6,11 @@ import {insertParameters, imagePreviewSwitcher} from "../components/insertParame
 document.addEventListener('DOMContentLoaded',async () => {
     await createInterface()
     await createHistoryCookie()
+    document.querySelector('#profile').addEventListener('click',()=>{window.location.replace('/profile')})
+    if(getCookie('productsCart')){
+        let cartIcon = document.querySelector('#cart-indicator')
+        cartIcon.classList.add('full')
+    }
     imagePreviewSwitcher(document.querySelector('#image-carousel-holder #main-image img'), document.querySelectorAll('#image-carousel-holder #source-images .source-image-holder'))
     console.log(document.querySelectorAll('.openModalBtn'))
     document.querySelectorAll(".openModalBtn").forEach(e => {
@@ -39,7 +44,10 @@ async function createInterface() {
     insertParameters(prodFromBack, document.querySelector('#preview-container', 
         document.querySelector('#so-hard-menu-container')))
     soHardMenuInsert(prodFromBack)
-    console.log(prodFromBack)
+    console.log(prodFromBack[0])
+    document.querySelector('#add-to-cart').addEventListener('click',()=>{
+        addToCart(prodFromBack[0])
+    })
 }
 
 

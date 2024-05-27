@@ -21,7 +21,7 @@ app.use(Session({
         schemaName: 'public',
         tableName: 'sessions'
     }),
-    secret: 'yups',
+    secret: '2d6+8',
     resave: true,
     saveUninitialized: true
 }));
@@ -78,6 +78,7 @@ app.get('/warranty', (req, res)=>{
 })
 //home page
 app.get('/', (req, res) => {
+    res.cookies
     res.sendFile(path.join(FrontendPages, '/index/index.html'));
 });
 //create account page
@@ -100,6 +101,10 @@ app.get('/catalog', (req, res) => {
 app.get('/catalog/:id', (req, res) => {
     res.sendFile(path.join(FrontendPages, '/single_product_page/index.html')); 
 });
+//profile page
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(FrontendPages, '/profile/index.html'))
+})
 
 // Обработчик для несуществующих маршрутов
 app.use((req, res, next) => {

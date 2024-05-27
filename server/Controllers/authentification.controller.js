@@ -1,13 +1,36 @@
 ﻿const crypto = require('crypto');
 const db = require('../Database/db.js')
+const {httpOnly} = require("express-session/session/cookie");
+
 class AuthentificationController{
     
+    async isRememberMe(req, res) {
+        
+        let result = await db.query('select * from users where session = $1', [new RegExp('s:([\\s\\S]*)\\.[\\s\\S]').exec(req.cookies['connect.sid'])[1]])
+        console.log(result.rowCount)
+        if(result.rowCount>0) {
+            res.sendStatus(200)
+        }else{
+            res.sendStatus(404)
+        }
+    }
     verifyEmailCode(req, res){
+        let notModSess = req.cookies['connect.sid']
+        let matchSessionSid = new RegExp('s:([\\s\\S]*)\\.[\\s\\S]').exec(notModSess)
         let code = req.body.code;
         let hash = req.body.hash;
+        let isRemember = req.body.isRemember
+        console.log(isRemember)
         let hashedCode = crypto.createHash('sha256').update(code).digest('hex');
         if(hashedCode===hash){
-            res.sendStatus(200)
+            db.query('update users set session = $1 where users.email = $2', [matchSessionSid[1], req.session.userEmail])
+            if(isRemember){
+                res.cookie('connect.sid', notModSess, {expires: new Date(Date.now()+ (30*24*60*60*1000)), httpOnly: true, path: '/'})
+                
+                res.sendStatus(200)
+            }else {
+                res.sendStatus(200)
+            }
         }
         else{
             res.sendStatus(403)
@@ -24,7 +47,6 @@ class AuthentificationController{
                     const user = await db.query("SELECT * FROM users WHERE email = ($1)", [userEmail])
                     let hashedPassword = crypto.createHash('sha256').update(userPassword).digest('hex');
                     if (hashedPassword === user.rows[0].password) {
-                        console.log(req.session)
                         req.session.userEmail = userEmail
                         res.sendStatus(200)
                     } else {

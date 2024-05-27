@@ -1,89 +1,34 @@
 ﻿
-document.addEventListener('DOMContentLoaded',function() {
+document.addEventListener('DOMContentLoaded',async function () {
     //modal window
     console.log(document.querySelectorAll('.openModalBtn'))
-    document.querySelectorAll(".openModalBtn").forEach(e=>{
+    document.querySelectorAll(".openModalBtn").forEach(e => {
         console.log(e)
-        e.addEventListener('click',function() {
-        console.log('a')
-        $("#myModal").dialog({
-            modal: true,
-            height: 340,
-            width: 600,
-            reliable: false,
-            draggable: false,
-            beforeClose: function( event, ui ) {
-                document.querySelector('body').style.overflow = 'scroll'
-            },
-            open: function( event, ui ) {
-                document.querySelector('body').style.overflow = 'hidden';
-            }
-        });
-
-        
+        e.addEventListener('click', function () {
+            console.log('a')
+            $("#myModal").dialog({
+                modal: true,
+                height: 340,
+                width: 600,
+                reliable: false,
+                draggable: false,
+                beforeClose: function (event, ui) {
+                    document.querySelector('body').style.overflow = 'scroll'
+                },
+                open: function (event, ui) {
+                    document.querySelector('body').style.overflow = 'hidden';
+                }
+            });
         })
     });
     //auth modal
-    $('#auth-modal').dialog({
-        modal: true,
-        height: 540,
-        width: 600,
-        reliable: false,
-        draggable: false,
-        beforeClose: function( event, ui){
-            document.querySelector('body').style.overflow = 'scroll'
-        },
-        open: function( event, ui ) {
-            document.querySelector('body').style.overflow = 'hidden';
+    let isRemember = await fetch('/api/isRemember',{
+        method: 'POST',
+        headers:{
+            'content-type': 'application/json',
         }
     })
     
-    $('#login-btn').click(async () => {
-        const emailPlaceholder = document.querySelector('#email-placeholder')
-        const passwordPlaceholder = document.querySelector('#password-placeholder')
-        if (emailPlaceholder.value !== '' && emailPlaceholder.value.includes('@') && passwordPlaceholder.value.length > 6) {
-            try {
-                let getCode = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({'userEmail': emailPlaceholder.value, 'userPassword': passwordPlaceholder.value}),
-                })
-                if(!getCode.ok){
-                    document.querySelector('#auth-modal .content').classList.remove('open')
-                    document.querySelector('#auth-modal .access-denied').classList.add('open')
-                }
-                else {
-                    document.querySelector('#auth-modal .content').classList.remove('open')
-                    document.querySelector('#auth-modal .auth-access-pin').classList.add('open')
-                }
-            }catch (e){
-                document.querySelector('#auth-modal .content').classList.remove('open')
-                document.querySelector('#auth-modal .access-denied').classList.add('open')
-                document.querySelector('#auth-modal .access-denied .title span:last-child').textContent = e.message
-            }
-        }
-    })
-    $('#accessBtn').click(async ()=>{
-        
-        let verifyFetch = await fetch('/api/verifyAccess',{
-            method: 'POST',
-            body: JSON.stringify({code:document.querySelector('#pin-placeholder').value,
-                                        hash:getCookie('sha')}),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        if(verifyFetch.ok){
-            document.querySelector('.auth-access-pin').classList.remove('open')
-            document.querySelector('.access-granted').classList.add('open')
-        }
-        else{
-            document.querySelector('.auth-access-pin').classList.remove('open')
-            document.querySelector('.access-denied').classList.add('open')
-        }
-    })
 
     function getCookie(name) {
         let matches = document.cookie.match(new RegExp(
@@ -91,37 +36,121 @@ document.addEventListener('DOMContentLoaded',function() {
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
+
     //nav-bar menu
-    $('.burger-button').click(function(event) {
+    $('.burger-button').click(function (event) {
         $('.burger-button, .burger-list-container').toggleClass('active');
     })
-    $('.burger-list-container .close').click(function(event) {
+    $('.burger-list-container .close').click(function (event) {
         $('.burger-list-container, .burger-button').removeClass('active');
     })
-    $('#burger-menu-show-btn').click((event)=>{
+    $('#burger-menu-show-btn').click((event) => {
         $('.accordion-list-items').toggleClass('active');
     })
     //accordion description
-    
+
     $("#accordion-description").accordion({
         heightStyle: "content",
-        icons: { "activeHeader": ".accordion-item-title:after.active" }
+        icons: {"activeHeader": ".accordion-item-title:after.active"}
     });
-    
-    $('#anti-srez-sb').click((event)=>{
+
+    $('#anti-srez-sb').click((event) => {
         $('.anti-srez .text-content').toggleClass("active");
     })
-    
-    $('#anti-thief-sb').click((event)=>{
+
+    $('#anti-thief-sb').click((event) => {
         $('.anti-thief .text-content').toggleClass("active");
     })
-    $('#more-security-sb').click((event)=>{
+    $('#more-security-sb').click((event) => {
         $('.more-security .text-content').toggleClass("active");
     })
-    
-    
+
+
+    if(isRemember.ok){
+        return
+    }
+    else {
+        $('#auth-modal').dialog({
+            modal: true,
+            height: 540,
+            width: 600,
+            reliable: false,
+            draggable: false,
+            beforeClose: function (event, ui) {
+                document.querySelector('body').style.overflow = 'scroll'
+            },
+            open: function (event, ui) {
+                document.querySelector('body').style.overflow = 'hidden';
+            }
+        })
+
+        $('#login-btn').click(async () => {
+
+            const emailPlaceholder = document.querySelector('#email-placeholder')
+            const passwordPlaceholder = document.querySelector('#password-placeholder')
+
+            if (emailPlaceholder.value !== '' && emailPlaceholder.value.includes('@') && passwordPlaceholder.value.length > 6) {
+                try {
+                    let getCode = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            'userEmail': emailPlaceholder.value,
+                            'userPassword': passwordPlaceholder.value,
+
+                        }),
+                    })
+                    if (!getCode.ok) {
+                        document.querySelector('#auth-modal .content').classList.remove('open')
+                        document.querySelector('#auth-modal .access-denied').classList.add('open')
+                    } else {
+                        document.querySelector('#auth-modal .content').classList.remove('open')
+                        document.querySelector('#auth-modal .auth-access-pin').classList.add('open')
+                        try {
+                            await fetch('api/SMTP/getVerificationCode', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({email: emailPlaceholder.value, state: 'login'})
+                            })
+                        } catch (e) {
+                            console.error(e)
+                        }
+                    }
+                } catch (e) {
+                    document.querySelector('#auth-modal .content').classList.remove('open')
+                    document.querySelector('#auth-modal .access-denied').classList.add('open')
+                    document.querySelector('#auth-modal .access-denied .title span:last-child').textContent = e.message
+                }
+            }
+        })
+        $('#accessBtn').click(async () => {
+            const isRemember = document.querySelector('#remember-me-placeholder')
+            let verifyFetch = await fetch('/api/verifyAccess', {
+                method: 'POST',
+                body: JSON.stringify({
+                    code: document.querySelector('#pin-placeholder').value,
+                    hash: getCookie('sha'),
+                    isRemember: !!(isRemember.checked)
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (verifyFetch.ok) {
+                document.querySelector('.auth-access-pin').classList.remove('open')
+                document.querySelector('.access-granted').classList.add('open')
+            } else {
+                document.querySelector('.auth-access-pin').classList.remove('open')
+                document.querySelector('.access-denied').classList.add('open')
+            }
+        })
+    }
     //РАБОТА С СЕРВЕРОМ
-    
+
 })
 
 
@@ -206,49 +235,3 @@ async function addFetch(param){
             break;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

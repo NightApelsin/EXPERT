@@ -16,6 +16,7 @@ router.post('/cookie/history', coockieSetter.coockieSetHistory)
 router.post('/addPersonOnConsultQueue', addQController.addConsulQ)
 router.post('/SMTP/getVerificationCode', SMTP.sendEmail)
 router.post('/verifyAccess', authentication.verifyEmailCode)
+router.post('/isRemember', authentication.isRememberMe)
 router.post('/login', authentication.login)
 router.post('/signUp', authentication.createUser)
 module.exports = router;
