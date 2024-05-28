@@ -2,6 +2,9 @@
 import {logOut} from "../components/logOut.js";
 
 document.addEventListener('DOMContentLoaded',async () => {
+    document.querySelector('.cart-is-empty').addEventListener('click', () =>{
+        window.location.replace('/catalog')
+    })
     let cartMenu = document.querySelector('#cart')
     let ordersMenu = document.querySelector('#orders')
     let commentsMenu = document.querySelector('#comments')
@@ -46,8 +49,8 @@ document.addEventListener('DOMContentLoaded',async () => {
     //adding the cart item
     try {
         let cartCookie = JSON.parse(getCookie('productsCart'))
-        careIsEmpty()
-        if (!cartCookie){
+        
+        if (cartIsEmpty()){
             console.log('Корзина пуста')
         }else {
 
@@ -63,14 +66,17 @@ document.addEventListener('DOMContentLoaded',async () => {
                     if (target) {
                         
                         let removeIndex = JSON.parse(getCookie('productsCart')).doorsId.indexOf(parseInt(event.target.closest('.delete-btn').classList[1]))
-                        let newArray = JSON.parse(getCookie('productsCart')).doorsId
-                            .filter((e)=>{
-                                return e?e !== JSON.parse(getCookie('productsCart')).doorsId[removeIndex]:false
-                            })
-                        console.log(newArray)
-                        console.log(removeIndex)
-                        console.log(JSON.parse(getCookie('productsCart')).doorsId)
+                        let {doorsId, optionalProducts} = JSON.parse(getCookie('productsCart'))
+                        
+                        console.log(doorsId)
+                        doorsId.splice(doorsId.indexOf(parseInt(removeIndex)), 1)
+                        console.log(doorsId)
+                        
+                        document.cookie = 'productsCart='+JSON.stringify({doorsId, optionalProducts})+`;expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)}`+';path=/'
                         target.remove();
+                        if(cartIsEmpty()){
+                            document.querySelector('.cart-is-empty').classList.add('empty')
+                        }
                         
                     }
                     
@@ -93,6 +99,7 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-function careIsEmpty(){
-    console.log(document.getElementsByClassName('cart-item-container'))
+function cartIsEmpty(){
+    console.log(JSON.parse(getCookie('productsCart')).doorsId.length)
+    return JSON.parse(getCookie('productsCart')).doorsId.length <= 0;
 }
