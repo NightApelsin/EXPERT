@@ -1,16 +1,13 @@
 import {createHistoryCookie, getSingleProduct, addToCart, getCookie} from "./requests.js";
 import {insertParameters, imagePreviewSwitcher} from "../components/insertParameters.js";
+import {openAuthModal} from "../components/authModal.js";
 
 
 
 document.addEventListener('DOMContentLoaded',async () => {
     await createInterface()
     await createHistoryCookie()
-    document.querySelector('#profile').addEventListener('click',()=>{window.location.replace('/profile')})
-    if(getCookie('productsCart')){
-        let cartIcon = document.querySelector('#cart-indicator')
-        cartIcon.classList.add('full')
-    }
+    
     imagePreviewSwitcher(document.querySelector('#image-carousel-holder #main-image img'), document.querySelectorAll('#image-carousel-holder #source-images .source-image-holder'))
     console.log(document.querySelectorAll('.openModalBtn'))
     document.querySelectorAll(".openModalBtn").forEach(e => {
@@ -31,6 +28,23 @@ document.addEventListener('DOMContentLoaded',async () => {
                 }
             })
         })
+    })
+    if(getCookie('productsCart')){
+        let cartIcon = document.querySelector('#cart-indicator')
+        cartIcon.classList.add('full')
+    }
+    document.querySelector('#profile').addEventListener('click',async ()=>{
+        let isRemember = await fetch('/api/isRemember',{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json',
+            }
+        })
+        if(isRemember.ok){
+            window.location.replace('/profile')
+        }else{
+            await openAuthModal()
+        }
     })
 })
     //TODO: сделать динамичную подборку рекомендуемых на основе cookie и принимаемых параметров из запросов на их основе 

@@ -36,6 +36,10 @@
                         <li></li>
                     </ul>
                 </nav>
+                <div id="profile">
+                    <span>Профиль</span>
+                    <div id="cart-indicator"><!-- icon666.com - MILLIONS vector ICONS FREE --><svg id="Layer_1" enable-background="new 0 0 64 64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="m8.5 10.2c-.8 0-1.4-.6-1.4-1.4s.6-1.4 1.4-1.4h2.7c2.9 0 5.4 2.2 5.8 5.1l.2 1.7h38.2c.9.1 1.5.7 1.3 1.7l-4.5 19.2c-.7 3.1-3.4 5.2-6.5 5.2h-25.2l.2 1.7c.2 1.6 1.5 2.7 3.1 2.7h20.9c.8 0 1.4.6 1.4 1.4s-.6 1.4-1.4 1.4h-20.9c-2.9 0-5.4-2.2-5.8-5.1l-3.7-29.6c-.2-1.6-1.5-2.7-3.1-2.7zm9.1 6.9 2.6 20.6h25.6c1.9 0 3.5-1.2 3.9-3.1l4.1-17.6c0 .1-36.2.1-36.2.1z"/><path d="m22.7 49c2.1 0 3.8 1.7 3.8 3.8s-1.7 3.8-3.8 3.8-3.8-1.7-3.8-3.8 1.7-3.8 3.8-3.8zm0 2.7c-.6 0-1.1.5-1.1 1 0 .6.5 1 1.1 1s1-.5 1-1c0-.6-.4-1-1-1z"/><path d="m43.1 49c2.1 0 3.8 1.7 3.8 3.8s-1.7 3.8-3.8 3.8-3.8-1.7-3.8-3.8 1.7-3.8 3.8-3.8zm0 2.7c-.6 0-1 .5-1 1 0 .6.5 1 1 1 .6 0 1-.5 1-1 0-.6-.5-1-1-1z"/></svg></div>
+                </div>
             </div>
             <div class="burger-menu">
                 <div class="burger-button">
@@ -532,7 +536,7 @@
             </div>
 
             <div class="circle-btn" >
-                <div class="text" onclick="addFetch()">Отправить</div>
+                <div class="text" onclick="addFetch('modal')">Отправить</div>
             </div>
         </div>
         <div id="complete">
@@ -544,8 +548,9 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script  src="./scripts/main_page_script.js"></script>
+<script type="module" src="./scripts/main_page_script.js"></script>
 <script type="module" src="./scripts/main.js"></script>
+<script  src="./scripts/fetch.js"></script>
 <script src="https://unpkg.com/cookielib/src/cookie.min.js"></script>
 <div id="auth-modal">
     <div class="content open">

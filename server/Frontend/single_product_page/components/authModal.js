@@ -1,10 +1,4 @@
-export function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
-        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-}
-
+﻿
 
 export async function openAuthModal() {
     $('#auth-modal').dialog({
@@ -46,7 +40,7 @@ export async function openAuthModal() {
                     document.querySelector('#auth-modal .content').classList.remove('open')
                     document.querySelector('#auth-modal .auth-access-pin').classList.add('open')
                     try {
-                        await fetch('api/SMTP/getVerificationCode', {
+                        await fetch('/api/SMTP/getVerificationCode', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -85,4 +79,10 @@ export async function openAuthModal() {
             document.querySelector('.access-denied').classList.add('open')
         }
     })
+}
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
 }
