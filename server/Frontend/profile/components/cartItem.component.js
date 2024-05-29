@@ -11,83 +11,92 @@
 *      <br><h3>delete-btn</h3> - delete cart item
 * 
 * */
-export async function addCartItem(index){
+export async function addCartItem(index) {
 
     //fetching db
-    
-    let fetchProdFromDB = await fetch(`/api/catalog/${index}`,{
+
+    let fetchProdFromDB = await fetch(`/api/catalog/${index}`, {
         method: "GET"
     })
     let productJSON = await fetchProdFromDB.json()
     let regularProduct = productJSON[0]
-    
+
     //create DOM element
-    
+
     //main container
-    
+
     let content = document.createElement('div')
     content.classList.add('cart-item-container')
-    
+
     //product information
-    
+
     let productInformation = document.createElement('div')
     productInformation.classList.add('cart-product-information')
-    
+
     //image holder
-    
+
     let imageHolder = document.createElement('div')
     imageHolder.classList.add('cart-image-holder')
-    
+
     //image
-    
+
     let image = document.createElement('img')
     image.src = regularProduct.image.mainImage
     imageHolder.append(image)
     productInformation.append(imageHolder)
-    
+
     //text information holder
-    
+
     let productNameHolder = document.createElement('div')
     productNameHolder.classList.add('cart-product-text-info')
-    
+
     //main name and description parsing
-    
+
     let mainName = document.createElement('span')
     mainName.classList.add('title')
     mainName.textContent = regularProduct.name
     let mainDescription = document.createElement('span')
     mainDescription.classList.add('description')
     mainDescription.textContent = regularProduct.description
-    
+
     //adding description and main name to information holder
-    
-    productNameHolder.append(mainName,mainDescription)
+
+    productNameHolder.append(mainName, mainDescription)
     productInformation.append(productNameHolder)
-    
+
     //price parsing and adding to product information
-    
+
     let priceHolder = document.createElement('div')
     priceHolder.classList.add('cart-price')
-    if(regularProduct.filters.sale) {
+    if (regularProduct.filters.sale) {
         let priceSale = document.createElement('span')
         priceSale.classList.add('sale')
         priceSale.textContent = regularProduct.price + '₽'
         let price = document.createElement('span')
-        price.textContent = Math.floor(regularProduct.price-(regularProduct.price*(regularProduct.filters.sale/100)))+'₽'
-        priceHolder.append(priceSale,price)
-    }else{
+        price.classList.add('current-price')
+        price.textContent = Math.floor(regularProduct.price - (regularProduct.price * (regularProduct.filters.sale / 100))) + '₽'
+        priceHolder.append(priceSale, price)
+    } else {
         let price = document.createElement('span')
         price.textContent = regularProduct.price + '₽'
+        price.classList.add('current-price')
         priceHolder.append(price)
     }
-        productInformation.append(priceHolder)
-        content.append(productInformation)
-    
+    productInformation.append(priceHolder)
+    productNameHolder.addEventListener('click', () => {
+        window.location.replace(`/catalog/${regularProduct.id}`)
+    })
+    let toOrderCheckbox = document.createElement('input')
+    toOrderCheckbox.classList.add('to-order-checkbox')
+    toOrderCheckbox.type = 'checkbox'
+    productInformation.append(toOrderCheckbox)
+    content.append(productInformation)
+
     //create option buttons 
-    
+
     let buttonsHolder = document.createElement('div')
     buttonsHolder.classList.add('buttons-holder')
-    
+
     let deleteBtn = document.createElement('div')
     deleteBtn.classList.add('delete-btn')
     deleteBtn.innerHTML = '<?xml version="1.0" encoding="utf-8"?>\n' +
@@ -101,13 +110,12 @@ export async function addCartItem(index){
         '\tv-21.3C512,94.9,502.5,85.3,490.7,85.3z M320,85.3H192V42.7h128V85.3z"/>\n' +
         '</svg>'
     deleteBtn.classList.add(regularProduct.id)
-    
-    
+
+
     buttonsHolder.append(deleteBtn)
     content.append(buttonsHolder)
-    
-    
-    
+
+
     return content
     //TODO: ТЕОРИЯ: получится ли удалить позицию из cookie корзины при обращении к массиву позиций визуала корзины а именно индексов основных контейнеров
 }

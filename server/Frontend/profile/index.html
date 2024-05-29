@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles/null-stile.css">
     <link rel="stylesheet" href="./styles/1600_style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="icon" href="../source/images/icon/favicon.svg">
     <title>EXPERT - Профиль/</title>
 </head>
@@ -71,6 +72,7 @@
                 <div id="profile-nickname">
                     <span></span>
                 </div>
+                
             </div>
             <div class="options-list">
                 <div id="log-out">
@@ -97,6 +99,9 @@
                 </div>
                 <div class="menu-display">
                     <div id="cart" class="open">
+                        <div id="cart-holder">
+                            
+                        </div>
                         <div class="cart-is-empty empty">
                             <div class="sizing-button-container">
                                 <div class="button-text">
@@ -118,6 +123,10 @@
                                 <div id="arrow"></div>
                             </div>
                         </div>
+                        <div class="total-price-block">
+                            <div class="text"><span>Итого к оплате:</span> <span id="total-price"></span></div>
+                            <div id="order-btn"><span>Заказать</span></div>
+                        </div>
                     </div>
                     <div id="orders"></div>
                     <div id="comments"></div>
@@ -126,6 +135,22 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div id="add-order-modal">
+    <div class="information">
+        <div class="title"><span>Заказ сформирован</span></div>
+        <div class="text-info">
+            <span>Ваш заказ был сформирован и принят в обработку. В ближайшее время с вами свяжутся для уточнения деталей</span>
+        </div>
+        <div class="checkmark"></div>
+    </div>
+    <div class="information-failed">
+        <div class="title"><span>Ошибка</span></div>
+        <div class="text-info">
+            <span>При попытке сформировать заказ возникла ошибка<br>Попробуйте повторить позже позже</span>
+        </div>
+        <div class="checkmark"></div>
     </div>
 </div>
 <script type="module" src="./scripts/main.js"></script>

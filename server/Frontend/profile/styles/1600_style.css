@@ -1,6 +1,7 @@
 ﻿header {
     & .content {
-        padding: 50px 0 200px 200px;
+        /*padding: 50px 0 50px 200px;*/
+        padding: 50px 0 100px 200px;
 
         & .burger-menu {
             display: none;
@@ -22,6 +23,7 @@
                 }
             }
         }
+       
     }
 }
 
@@ -45,7 +47,7 @@
                 & #profile-nickname{
                     text-align: center;
                     font-size: 22px;
-                }
+                }   
             }
             & .options-list{
                 display: flex;
@@ -57,7 +59,7 @@
                     height:40px;
                     position: absolute;
                     right: 0;
-                    top: -50px;
+                    top: -145px;
                     cursor: pointer;
                     transition: all 0.3s ease;
                     &:hover{
@@ -73,6 +75,7 @@
                     font-family: "SF Pro Display 400", sans-serif;
                     font-size: 18px;
                     border-bottom: 1px solid #e6e6e6;
+                    cursor: pointer;
                     & div.open{
                         border-bottom: 1px solid black;
                         padding-bottom: 5px;
@@ -152,69 +155,126 @@
                                 }
                             }
                         }
-                        &.open{
+                        &.open {
                             display: flex;
                             flex-direction: column;
-                            row-gap: 50px;
-                        }
-                        & .cart-item-container{
-                            display:flex;
-                            flex-direction: row;
-                            justify-content: space-between;
-                            & .cart-product-information{
-                                display: flex;
-                                flex-direction: row;
-                                column-gap: 50px;
-                                & .cart-image-holder{
-                                    width:100px;
-                                    height: 150px;
-                                    overflow: visible;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    background-color: #e6e6e6;
-                                    & img{
-                                        max-height: 100%;
-                                        max-width: 100%;
-                                        width: auto;
-                                        height: auto;
-                                    }
-                                }
-                                & .cart-product-text-info{
-                                    display: flex;
-                                    flex-direction: column;
-                                    row-gap: 30px;
-                                    & .title{
-                                        font-size: 20px;
-                                    }
-                                }
-                                & .cart-price{
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;
-                                    & span{
-                                        font-size: 18px;
-                                        &.sale{
-                                            font-size: 14px;
-                                            text-decoration: line-through;
-                                            color: #C7C7C7;
-                                        }
-                                    }
-                                }
-                            }
-                            & .buttons-holder{
-                                width: 50px;
+                            row-gap: 10px;
+                            padding-bottom: 200px;
+                            & #cart-holder {
                                 display: flex;
                                 flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                & .delete-btn{
-                                    width: 25px;
-                                    height: 25px;
+                                row-gap: 25px;
+                                & .cart-item-container {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    transition: all 0.3s ease;
+                                    border-radius: 10px;
+
+                                    &:hover {
+                                        box-shadow: 5px 5px 20px;
+                                    }
+
+                                    & .cart-product-information {
+                                        display: flex;
+                                        flex-direction: row;
+                                        column-gap: 50px;
+                                        & #to-order-checkbox{
+                                            margin-right: 10px;
+                                            margin-left: -20px
+                                        }
+                                        & .cart-image-holder {
+                                            width: 100px;
+                                            height: 150px;
+                                            overflow: visible;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            background-color: #e6e6e6;
+                                            border-radius: 10px;
+
+                                            & img {
+                                                border-radius: 10px;
+                                                max-height: 100%;
+                                                max-width: 100%;
+                                                width: auto;
+                                                height: auto;
+                                            }
+                                        }
+
+                                        & .cart-product-text-info {
+                                            cursor: pointer;
+                                            display: flex;
+                                            flex-direction: column;
+                                            row-gap: 30px;
+
+                                            & .title {
+                                                font-size: 20px;
+                                            }
+                                        }
+
+                                        & .cart-price {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;
+
+                                            & span {
+                                                font-size: 18px;
+
+                                                &.sale {
+                                                    font-size: 14px;
+                                                    text-decoration: line-through;
+                                                    color: #C7C7C7;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    & .buttons-holder {
+                                        width: 50px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center;
+
+                                        & .delete-btn {
+                                            width: 25px;
+                                            height: 25px;
+                                            cursor: pointer;
+                                            transition: all 0.3s ease;
+
+                                            &:hover {
+                                                transform: scale(120%);
+                                            }
+                                        }
+                                    }
+
                                 }
                             }
-                            
+                            & .total-price-block{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                padding-top: 20px;
+                                margin-top: 20px;
+                                width: 100%;
+                                border-top: 1px solid #C7C7C7;
+                                & #order-btn{
+                                    margin-right: 20px;
+                                    padding: 10px 40px;
+                                    background-color: #0222A5;
+                                    color: #fff;
+                                    border-radius: 10px;
+                                    transition: all 0.3s ease;
+                                    cursor: pointer;
+                                    &:hover{
+                                        background-color: transparent;
+                                        border: 1px solid #0222a5;
+                                        color: #C7C7C7;
+                                    }
+                                }
+                            }
                         }
                     }
                     
@@ -222,4 +282,7 @@
             }
         }
     }
+}
+#add-order-modal{
+    display: none;
 }

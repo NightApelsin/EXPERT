@@ -103,6 +103,7 @@ app.get('/catalog/:id', (req, res) => {
 });
 //profile page
 app.get('/profile', (req, res) => {
+    
     res.sendFile(path.join(FrontendPages, '/profile/index.html'))
 })
 

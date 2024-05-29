@@ -1,11 +1,16 @@
 ﻿import {addCartItem} from "../components/cartItem.component.js";
 import {logOut} from "../components/logOut.js";
+import {openOrderModal} from "../components/orderModal.component.js";
 
+
+let priceCounter = 0
 document.addEventListener('DOMContentLoaded',async () => {
+    document.querySelector('#total-price').textContent = priceCounter+'₽'
     document.querySelector('.cart-is-empty').addEventListener('click', () =>{
         window.location.replace('/catalog')
     })
     let cartMenu = document.querySelector('#cart')
+    let cartMenuHolder = document.querySelector('#cart-holder')
     let ordersMenu = document.querySelector('#orders')
     let commentsMenu = document.querySelector('#comments')
     let reportsMenu = document.querySelector('#reports')
@@ -56,7 +61,7 @@ document.addEventListener('DOMContentLoaded',async () => {
 
             document.querySelector('.cart-is-empty').classList.remove('empty')
             for (let i = 0; i < cartCookie.doorsId.length; i++) {
-                await addCartItem(cartCookie.doorsId[i]).then(r => cartMenu.append(r))
+                await addCartItem(cartCookie.doorsId[i]).then(r => cartMenuHolder.append(r))
             }
             let deleteBtns = document.getElementsByClassName('delete-btn');
             for (let i = 0; i < deleteBtns.length; i++) {
@@ -65,14 +70,17 @@ document.addEventListener('DOMContentLoaded',async () => {
                     
                     if (target) {
                         
-                        let removeIndex = JSON.parse(getCookie('productsCart')).doorsId.indexOf(parseInt(event.target.closest('.delete-btn').classList[1]))
+                        let removeIndex = JSON.parse(getCookie('productsCart'))
+                            .doorsId.indexOf(parseInt(event.target.closest('.delete-btn').classList[1]))
                         let {doorsId, optionalProducts} = JSON.parse(getCookie('productsCart'))
                         
-                        console.log(doorsId)
                         doorsId.splice(doorsId.indexOf(parseInt(removeIndex)), 1)
-                        console.log(doorsId)
+                        priceCounter -= parseInt(event.target.closest('.cart-item-container')
+                            .querySelector('.cart-price .current-price').textContent.split('₽')[0])
+                        document.querySelector('#total-price').textContent = priceCounter+'₽'
                         
-                        document.cookie = 'productsCart='+JSON.stringify({doorsId, optionalProducts})+`;expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)}`+';path=/'
+                        document.cookie = 'productsCart='+JSON.stringify({doorsId, optionalProducts})+
+                            `;expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)}`+';path=/'
                         target.remove();
                         if(cartIsEmpty()){
                             document.querySelector('.cart-is-empty').classList.add('empty')
@@ -89,6 +97,39 @@ document.addEventListener('DOMContentLoaded',async () => {
     document.querySelector('#log-out').addEventListener('click', async () => {
         await logOut()
     })
+    document.querySelectorAll('.to-order-checkbox').forEach(e=> {
+        e.addEventListener('change', async (event) => {
+            let price = parseInt(event.target.closest('.cart-product-information')
+                .querySelector('.cart-price .current-price').textContent.split('₽')[0])
+            if(event.target.checked === true) {
+                priceCounter += price
+                document.querySelector('#total-price').textContent = priceCounter+'₽'
+            }else{
+                priceCounter -= price
+                document.querySelector('#total-price').textContent = priceCounter+'₽'
+            }
+        })
+    })
+    document.querySelector('#order-btn').addEventListener('click',async ()=>{
+        let addedProducts = []
+        let cartList = document.querySelectorAll('.cart-item-container')
+        cartList.forEach(e=>{
+            if(e.querySelector('.cart-product-information .to-order-checkbox').checked){
+                addedProducts.push(parseInt(e.querySelector('.buttons-holder .delete-btn').classList[1]))
+            }
+        })
+        console.log(addedProducts)
+        let creationOrderResult = await fetch('/api/createOrder',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({addedProducts:addedProducts})
+        })
+        if(creationOrderResult.ok){
+            openOrderModal('success',)
+        }else{
+            openOrderModal('error')
+        }
+    })
 })
 
 //cookies parsing
@@ -100,6 +141,5 @@ function getCookie(name) {
 }
 
 function cartIsEmpty(){
-    console.log(JSON.parse(getCookie('productsCart')).doorsId.length)
     return JSON.parse(getCookie('productsCart')).doorsId.length <= 0;
 }

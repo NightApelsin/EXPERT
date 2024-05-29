@@ -6,7 +6,7 @@ const coockieSetter = require('../CookieSetter/setter.js')
 const addQController = require('../Controllers/addConsultQ.controller.js')
 const SMTP = require('../SMTP/provider.js')
 const authentication = require('../Controllers/authentification.controller.js')
-
+const orderController = require('../Controllers/orders.controller.js')
 
 
 router.get('/catalog', productController.getAllProducts)
@@ -21,4 +21,5 @@ router.post('/login', authentication.login)
 router.post('/signUp', authentication.createUser)
 router.post('/getUser', authentication.getUser)
 router.post('/logOut', authentication.logOut)
+router.post('/createOrder', orderController.createOrder)
 module.exports = router;
