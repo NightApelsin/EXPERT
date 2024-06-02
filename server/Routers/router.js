@@ -22,4 +22,5 @@ router.post('/signUp', authentication.createUser)
 router.post('/getUser', authentication.getUser)
 router.post('/logOut', authentication.logOut)
 router.post('/createOrder', orderController.createOrder)
+router.post('/getAllOrders', orderController.getAllOrders)
 module.exports = router;

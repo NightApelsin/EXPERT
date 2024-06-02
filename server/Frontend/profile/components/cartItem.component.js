@@ -1,4 +1,7 @@
 ﻿/*
+*
+* <br><h3 style="text-align:center;">Метод для создания отдельного элемента корзины</h3>
+* 
 * <br><h1>CSS classes:</h1>
 * <br><h3>cart-item-container</h3> - main container and ${regularProduct.id}-product - main container id
 *   <br><h3>cart-product-information</h3> - container for full product information

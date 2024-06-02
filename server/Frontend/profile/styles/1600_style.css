@@ -54,6 +54,7 @@
                 flex-direction: column;
                 row-gap: 30px;
                 position: relative;
+                width: 60%;
                 & #log-out{
                     width: 40px;
                     height:40px;
@@ -119,7 +120,7 @@
                                     height: 180px;
                                     overflow: visible;
                                     transform: rotateZ(15deg);
-
+                                    cursor: pointer;
                                     & #ring__circle {
                                         r: 90px;
                                         cx: 90px;
@@ -137,7 +138,7 @@
                                 & #arrow {
                                     position: absolute;
                                     top: 50%;
-                                    left: 100%;
+                                    right:300px;
                                     width: 50px;
                                     border-bottom: 1px solid #0222A5;
 
@@ -285,4 +286,87 @@
 }
 #add-order-modal{
     display: none;
+}
+div[aria-labelledby="ui-id-1"] {
+    & .ui-dialog-titlebar{
+        display: none;
+    }
+    & .ui-resizable-handle.ui-resizable-s{
+        width:100%;
+        transition: all 3s linear;
+        border-bottom: 3px solid #C7C7C7;
+        &.open{
+            width: 0;
+        }
+    }
+    #add-order-modal {
+        display: flex;
+        flex-direction: column;
+
+        & .information {
+            display: none;
+
+            &.open {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                row-gap: 80px;
+                
+                & .title {
+                    font-size: 28px;
+                }
+
+                & .text-info {
+                    font-size: 18px;
+                    color: #c7c7c7;
+                    text-align: center;
+                }
+                
+                &.failed {
+                    & .checkmark {
+                        position: relative;
+                        width: 100px;
+                        height: 100px;
+
+                        &:before {
+                            content: "";
+                            display: block;
+                            top: 50%;
+                            left: 0;
+                            position: absolute;
+                            width: 110px;
+                            border-bottom: 5px solid #F64646;
+                            border-radius: 10px;
+                            transform: rotateZ(40deg);
+                        }
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            width: 110px;
+                            border-bottom: 5px solid #F64646;
+                            border-radius: 10px;
+                            transform: rotateZ(-40deg)
+                        }
+                    }
+                }
+                &.success {
+                    & .checkmark {
+                        display: block;
+                        width: 100px;
+                        height: 40px;
+                        transform: rotateZ(-45deg);
+                        border-bottom: 5px solid #0222A5;
+                        border-left: 5px solid #0222A5;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+        }
+    }
 }

@@ -209,3 +209,6 @@ body::-webkit-scrollbar{
     background: #fff;
     border: none;
 }
+#auth-modal{
+    display: none;
+}

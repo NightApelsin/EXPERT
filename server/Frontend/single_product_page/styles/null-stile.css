@@ -143,3 +143,7 @@ input[type=radio]{
     width: 15px;
     accent-color: #010101;
 }
+
+#auth-modal{
+    display: none;
+}
