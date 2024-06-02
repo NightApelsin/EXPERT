@@ -278,7 +278,144 @@
                             }
                         }
                     }
-                    
+                    & #order-container{
+                        display: none;
+                        &.open{
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        & .table-description{
+                            display:flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            border-bottom: 1px solid #e6e6e6;
+                            padding-bottom: 20px;
+                            color: #727272;
+                        }
+                        & #orders{
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 30px;
+                            margin-top: 30px;
+                            padding-bottom: 200px;
+                            transition: all 0.5s ease;
+                            & .order-item-container {
+                                display: flex;
+                                flex-direction: column;
+                                overflow: hidden;
+                                height: fit-content;
+                                align-items: stretch;
+                                justify-content: center;
+                                border-radius: 20px;
+                                padding: 20px 5px;
+                                cursor: pointer;
+                                transition: all 0.3s ease;
+                                &:hover {
+                                    box-shadow: 0 0 6px black;
+                                }
+                                & .order-item-hidden-info{
+                                    display: none;
+                                }
+                                &.open{
+                                   height: 100%;
+                                    & .order-item-hidden-info {
+                                        display: flex;
+                                        flex-direction: column;
+                                        
+                                        & .buttons-holder {
+                                            display: none;
+                                        }
+                                        & .cart-item-container {
+                                            border-radius: 10px;
+                                            margin-top: 20px;
+                                            transition: all 0.3s ease;
+                                            & .cart-product-information {
+                                                display: flex;
+                                                flex-direction: row;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                padding: 10px 20px;
+
+                                                & .to-order-checkbox {
+                                                    display: none;
+                                                }
+
+                                                & .cart-image-holder {
+                                                    width: 100px;
+                                                    height: 150px;
+                                                    overflow: visible;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    background-color: #e6e6e6;
+                                                    border-radius: 10px;
+
+                                                    & img {
+                                                        border-radius: 10px;
+                                                        max-height: 100%;
+                                                        max-width: 100%;
+                                                        width: auto;
+                                                        height: auto;
+                                                    }
+                                                }
+
+                                                & .cart-product-text-info {
+                                                    cursor: pointer;
+                                                    display: flex;
+                                                    flex-direction: column;
+                                                    row-gap: 30px;
+
+                                                    & .title {
+                                                        font-size: 20px;
+                                                    }
+                                                }
+
+                                                & .cart-price {
+                                                    display: flex;
+                                                    flex-direction: column;
+                                                    justify-content: center;
+                                                    align-items: center;
+
+                                                    & span {
+                                                        font-size: 18px;
+
+                                                        &.sale {
+                                                            font-size: 14px;
+                                                            text-decoration: line-through;
+                                                            color: #C7C7C7;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            &:hover{
+                                                box-shadow:  0 0 20px black;
+                                            }
+                                        }
+                                    }
+                                }
+                                & .order-item-visible-info {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    
+                                    & .order-item-price {
+                                        display: flex;
+                                        flex-direction: row;
+                                        & .open-order-icon {
+                                            width: 20px;
+                                            height: 20px;
+                                            display: block;
+                                            border-bottom: 1px solid #C7C7C7;
+                                            border-left: 1px solid #C7C7C7;
+                                            transform: rotateZ(-45deg);
+                                            margin-right: 30px;
+                                            margin-left: 30px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

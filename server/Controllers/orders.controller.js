@@ -22,7 +22,7 @@ class OrdersController{
             
             try {
                 await db.query('insert into orders (user_id, ordered_products, time_of_creation, total_price)  values ($1,$2, $3, $4)',
-                    [user.id, {"orderedProducts":orderedProducts.addedProducts}, new Date(Date.now()), orderedProducts.totalPrice])
+                    [user.id, JSON.stringify(orderedProducts.addedProducts), new Date(Date.now()), orderedProducts.totalPrice])
             }catch (e){
                 console.log(e)
             }

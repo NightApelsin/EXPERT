@@ -93,7 +93,7 @@
                 </div>
                 <div class="top-btns">
                     <div class="cart open">Корзина</div>
-                    <div class="orders">Заказы</div>
+                    <div class="order-container">Заказы</div>
                     <div class="comments">Комментарии</div>
                     <div class="reports">Сообщения об ошибках</div>
                 </div>
@@ -128,7 +128,14 @@
                             <div id="order-btn"><span>Заказать</span></div>
                         </div>
                     </div>
-                    <div id="orders"></div>
+                    <div id="order-container">
+                        <div class="table-description">
+                            <span>Номер заказа</span>
+                            <span>Дата создания</span>
+                            <span style="margin-right: 60px;">Итоговая цена</span>
+                        </div>
+                        <div id="orders"></div>
+                    </div>
                     <div id="comments"></div>
                     <div id="deliveries"></div>
                     <div id="reports"></div>

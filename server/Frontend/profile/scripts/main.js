@@ -17,6 +17,24 @@ document.addEventListener('DOMContentLoaded',async () => {
     if(!isAuth.ok) {
         window.location.replace('/')
     }
+
+    //adding orders 
+
+    try{
+        let orders = await (await fetch('/api/getAllOrders', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+        })).json()
+
+        for (const e of orders) {
+            await createOrderItem(e).then(r => document.querySelector('#orders').append(r))
+           
+        }
+
+    }
+    catch (e){
+        console.log(e)
+    }
     
     
     document.querySelector('#total-price').textContent = priceCounter+'₽'
@@ -25,7 +43,7 @@ document.addEventListener('DOMContentLoaded',async () => {
     })
     let cartMenu = document.querySelector('#cart')
     let cartMenuHolder = document.querySelector('#cart-holder')
-    let ordersMenu = document.querySelector('#orders')
+    let ordersMenu = document.querySelector('#order-container')
     let commentsMenu = document.querySelector('#comments')
     let reportsMenu = document.querySelector('#reports')
     
@@ -115,22 +133,9 @@ document.addEventListener('DOMContentLoaded',async () => {
         console.log('ERROR:Корзина отсутствует')
     }
     
-    //adding orders 
     
-    try{
-        let orders = await (await fetch('/api/getAllOrders', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-        })).json()
-        
-        for (const e of orders) {
-           await createOrderItem(e).then(r => ordersMenu.append(r))
-        }
-
-    }
-    catch (e){
-        console.log(e)
-    }
+    
+    //logOut
     document.querySelector('#log-out').addEventListener('click', async () => {
         await logOut()
     })
