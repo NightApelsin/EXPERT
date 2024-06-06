@@ -67,7 +67,7 @@
                         document.querySelector(`input[placeholder='Номер телефона']`).readOnly = true
                         document.querySelector("#orderSendBtn").onclick = ()=>{}
                         document.querySelector("#order-title").textContent="Спасибо за обращение!"
-                        document.querySelector("#order-text").textContent="Мы получили вашу заявку и перезвоним в близжайшее время"
+                        document.querySelector("#order-text").textContent="Мы получили вашу заявку и перезвоним в ближайшее время"
                     }
 
                 } catch (e) {

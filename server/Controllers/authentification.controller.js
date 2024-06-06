@@ -2,6 +2,7 @@
 const db = require('../Database/db.js')
 const {httpOnly} = require("express-session/session/cookie");
 const {Cookies} = require("nodemailer/lib/fetch");
+const User = require('../Models/User.model.js')
 
 class AuthentificationController{
     
@@ -44,7 +45,7 @@ class AuthentificationController{
         try{
             let {userEmail, userPassword} = req.body
             try {
-                if(!await AuthentificationController.findUser(userEmail)){
+                if(!await User.findUser(userEmail)){
                     res.sendStatus(403)
                 }
                 else {
@@ -74,7 +75,7 @@ class AuthentificationController{
         let hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
         try{
             
-            if(await AuthentificationController.findUser(email)){
+            if(await User.findUser(email)){
                 res.sendStatus(409)
             }else {
                 await db.query('INSERT INTO users (email,password,name,surname) values ($1,$2,$3,$4) returning *', [email, hashedPassword, name, surname])
@@ -84,14 +85,8 @@ class AuthentificationController{
             console.log(err)
         }
     }
-    static async findUser(email){
-        let user = await db.query('SELECT email from users where email = $1',[email])
-        return user.rows.length > 0
-    }
-    async findUser(email){
-        let user = await db.query('SELECT email from users where email = $1',[email])
-        return user.rows.length > 0
-    }
+    
+    
     async logOut(req,res){
         let cookie = req.cookies
         let notModSess = cookie['connect.sid']
@@ -111,16 +106,7 @@ class AuthentificationController{
             res.sendStatus(504)
         }
     }
-    async getUser(req,res){
-        try{
-            let notModSess = req.cookies['connect.sid']
-            let matchSessionSid = new RegExp('s:([\\s\\S]*)\\.[\\s\\S]').exec(notModSess)
-            let user = await db.query('SELECT * from users where session = $1',[matchSessionSid[1]])
-            res.send(user.rows)
-        }catch (err){
-            res.send(err.message)
-        }
-    }
+    
 }
 
 module.exports = new AuthentificationController()
