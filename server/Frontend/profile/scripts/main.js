@@ -25,12 +25,10 @@ document.addEventListener('DOMContentLoaded',async () => {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
         })).json()
-
+        console.log(orders)
         for (const e of orders) {
             await createOrderItem(e).then(r => document.querySelector('#orders').append(r))
-           
         }
-
     }
     catch (e){
         console.log(e)

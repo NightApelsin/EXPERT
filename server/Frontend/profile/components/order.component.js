@@ -27,7 +27,7 @@ export async function createOrderItem(order){
     
     let idContainer = document.createElement('span');
     idContainer.classList.add('order-item-id')
-    idContainer.textContent = order.id + '.'
+    idContainer.textContent = '№ ' + order.id 
     infoContainer.append(idContainer);
     
     let dateOfCreation = document.createElement('span');

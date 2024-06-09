@@ -1,8 +1,8 @@
 {
-  "main": "./index.js",
+  "main": "./app.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon --inspect --trace-warnings index.js"
+    "start": "node app.js",
+    "dev": "nodemon --inspect --trace-warnings app.js"
   },
   "dependencies": {
     "boring-webcrypto-sha256": "^1.0.0",

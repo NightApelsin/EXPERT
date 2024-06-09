@@ -1,7 +1,11 @@
-﻿export async function getAllProducts() {
+﻿
+
+
+export async function getAllProducts() {
     try {
         const response = await fetch('/api/catalog/', {
-            method: 'GET',
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'}
         });
 
         if (!response.ok) {

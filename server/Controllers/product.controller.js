@@ -1,5 +1,5 @@
 ﻿const db = require('../Database/db.js');
-
+const User = require('../Models/User.model.js')
 class ProductController{
     async createProduct(req, res){
         const {name, description, images, price, filters} = req.body;
@@ -21,6 +21,8 @@ class ProductController{
         const deleteProduct = await db.query(`DELETE FROM product_table WHERE id = $1`, [req.params.id]);
         res.json(deleteProduct.rows);
     }
+    
+    
 }
 
 module.exports = new ProductController();

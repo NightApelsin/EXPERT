@@ -802,7 +802,40 @@
                     </div>
                 </div>
             </div>
-            <div class="wish-maybe"></div>
+            <div class="comments">
+                <div class="send-comment">
+                    <span class="title">Оставте комментарий</span>
+                    <span class="description">Оставленные вами комментарии будут модерироваться согласно <a href="/policy">пользовательскому соглашению</a></span>
+                    <div class="input-block">
+                        <label>
+                            <textarea id="comment-input" placeholder="комментарий пишите здесь..."></textarea>
+                        </label>
+                        <div class="grade-and-submit">
+                            <label>
+                                <span>Оценка товару:</span>
+                                <select id="grade-selector">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </label>
+                            <label id="send-comment">
+                                <span>Отправить</span>
+                                <input id="send-comment-btn" type="button">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <span style="font-size: 20px; margin-top: 40px;">Комментарии пользователей</span>
+                <div id="users-comments"></div>
+            </div>
         </div>
     </div>
     <footer>

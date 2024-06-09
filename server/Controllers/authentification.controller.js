@@ -7,6 +7,7 @@ const User = require('../Models/User.model.js')
 class AuthentificationController{
     
     async isRememberMe(req, res) {
+        console.log(req)
         try {
             let result = await db.query('select * from users where session = $1', [new RegExp('s:([\\s\\S]*)\\.[\\s\\S]').exec(req.cookies['connect.sid'])[1]])
             console.log(result.rowCount)
@@ -15,11 +16,13 @@ class AuthentificationController{
             } else {
                 res.sendStatus(404)
             }
+            console.log(result)
         }catch (e){
             res.sendStatus(403)
         }
     }
     verifyEmailCode(req, res){
+        console.log(req)
         let notModSess = req.cookies['connect.sid']
         let matchSessionSid = new RegExp('s:([\\s\\S]*)\\.[\\s\\S]').exec(notModSess)
         let code = req.body.code;
@@ -42,6 +45,7 @@ class AuthentificationController{
         }
     }
     async login(req,res){
+        console.log(req)
         try{
             let {userEmail, userPassword} = req.body
             try {
@@ -71,6 +75,7 @@ class AuthentificationController{
         }
     }
     async createUser(req,res) {
+        console.log(req)
         let {email,password,name,surname} = req.body;
         let hashedPassword = crypto.createHash('sha256').update(password).digest('hex');
         try{
@@ -88,6 +93,7 @@ class AuthentificationController{
     
     
     async logOut(req,res){
+        console.log(req)
         let cookie = req.cookies
         let notModSess = cookie['connect.sid']
         let matchSessionSid = new RegExp('s:([\\s\\S]*)\\.[\\s\\S]').exec(notModSess)

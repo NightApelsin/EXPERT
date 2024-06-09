@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>app.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a626a4; font-style: italic;}
+.s1 { color: #383a42;}
+.s2 { color: #4078f2;}
+.s3 { color: #383a42;}
+.s4 { color: #50a14e;}
+.s5 { color: #986801;}
+.s6 { color: #a0a1a7; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#fafafa">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+app.js</font>
+</center></td></tr></table>
+<pre><span class="s0">const </span><span class="s1">express </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'express'</span><span class="s3">);</span>
+<span class="s0">const </span><span class="s1">cors </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'cors'</span><span class="s3">);</span>
+<span class="s0">const </span><span class="s1">router </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'./server/Routers/router.js'</span><span class="s3">)</span>
+<span class="s0">const </span><span class="s1">cookieParser </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'cookie-parser'</span><span class="s3">);</span>
+<span class="s0">const </span><span class="s1">fs </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'fs'</span><span class="s3">)</span>
+<span class="s0">const </span><span class="s1">https </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'https'</span><span class="s3">)</span>
+<span class="s0">const </span><span class="s1">PORT </span><span class="s2">= </span><span class="s1">process</span><span class="s3">.</span><span class="s1">env</span><span class="s3">.</span><span class="s1">PORT </span><span class="s2">|| </span><span class="s5">5001</span><span class="s3">;</span>
+<span class="s0">const </span><span class="s1">path </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'path'</span><span class="s3">);</span>
+<span class="s0">const </span><span class="s1">server </span><span class="s2">= </span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">__dirname</span><span class="s3">, </span><span class="s4">'/server'</span><span class="s3">)</span>
+<span class="s0">const </span><span class="s1">FrontendPages </span><span class="s2">= </span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">server</span><span class="s3">,</span><span class="s4">'/Frontend'</span><span class="s3">);</span>
+
+<span class="s0">const </span><span class="s1">app </span><span class="s2">= </span><span class="s1">express</span><span class="s3">();</span>
+<span class="s0">const </span><span class="s1">Session </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'express-session'</span><span class="s3">);</span>
+<span class="s0">const </span><span class="s1">pool </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'./server/Database/db_sessionStorage.js'</span><span class="s3">)</span>
+<span class="s0">const </span><span class="s1">PgStore </span><span class="s2">= </span><span class="s1">require</span><span class="s3">(</span><span class="s4">'connect-pg-simple'</span><span class="s3">)(</span><span class="s1">Session</span><span class="s3">);</span>
+
+
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s1">Session</span><span class="s3">({</span>
+    <span class="s1">store</span><span class="s2">: </span><span class="s0">new </span><span class="s1">PgStore</span><span class="s3">({</span>
+        <span class="s1">pool</span><span class="s3">,</span>
+        <span class="s1">createTableIfMissing</span><span class="s2">: </span><span class="s0">true</span><span class="s3">,</span>
+        <span class="s1">schemaName</span><span class="s2">: </span><span class="s4">'public'</span><span class="s3">,</span>
+        <span class="s1">tableName</span><span class="s2">: </span><span class="s4">'sessions'</span>
+    <span class="s3">}),</span>
+    <span class="s1">secret</span><span class="s2">: </span><span class="s4">'2d6+8'</span><span class="s3">,</span>
+    <span class="s1">resave</span><span class="s2">: </span><span class="s0">true</span><span class="s3">,</span>
+    <span class="s1">saveUninitialized</span><span class="s2">: </span><span class="s0">true</span>
+<span class="s3">}));</span>
+
+
+
+
+
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s1">cookieParser</span><span class="s3">());</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s1">express</span><span class="s3">.</span><span class="s1">urlencoded</span><span class="s3">({</span><span class="s1">extended</span><span class="s2">: </span><span class="s0">true</span><span class="s3">}));</span>
+<span class="s6">// Используем CORS middleware</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s1">cors</span><span class="s3">());</span>
+
+<span class="s6">// Поддержка JSON-парсинга для запросов</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s1">express</span><span class="s3">.</span><span class="s1">json</span><span class="s3">());</span>
+
+<span class="s6">// Раздача статических файлов</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s1">express</span><span class="s3">.</span><span class="s1">static</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">));</span>
+
+<span class="s6">// Маршруты для различных страниц</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s4">'/source'</span><span class="s3">, </span><span class="s1">express</span><span class="s3">.</span><span class="s1">static</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/source'</span><span class="s3">)));</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s4">'/'</span><span class="s3">, </span><span class="s1">express</span><span class="s3">.</span><span class="s1">static</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/index'</span><span class="s3">)));</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s4">'/catalog'</span><span class="s3">, </span><span class="s1">express</span><span class="s3">.</span><span class="s1">static</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/catalog'</span><span class="s3">)));</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s4">'/catalog/:id'</span><span class="s3">, </span><span class="s1">express</span><span class="s3">.</span><span class="s1">static</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/single_product_page'</span><span class="s3">)));</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s4">'/api/'</span><span class="s3">, </span><span class="s1">router</span><span class="s3">);</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">(</span><span class="s4">'/SMTP/'</span><span class="s3">, </span><span class="s1">express</span><span class="s3">.</span><span class="s1">static</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">server</span><span class="s3">, </span><span class="s4">'/SMTP'</span><span class="s3">)))</span>
+
+
+
+<span class="s6">// Обработчики GET запросов</span>
+<span class="s6">//about page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/about'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">,</span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/about/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//contacts page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/contacts'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">,</span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/contacts/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//pay-road-map page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/pay-road-map'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">,</span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/pay-road-map/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//site-map page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/site-map'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/site-map/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//stocks page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/stocks'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/stocks/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//warranty page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/warranty'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/warranty/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//home page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">) </span><span class="s2">=&gt; </span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">cookies</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/index/index.html'</span><span class="s3">));</span>
+<span class="s3">});</span>
+<span class="s6">//create account page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/createAccount'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">) </span><span class="s2">=&gt; </span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/createAccount/index.html'</span><span class="s3">));</span>
+<span class="s3">})</span>
+<span class="s6">//policy page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/policy'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/policy/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//privacy page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/privacy'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">)</span><span class="s2">=&gt;</span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/privacy/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+<span class="s6">//catalog page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/catalog'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">) </span><span class="s2">=&gt; </span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/catalog/index.html'</span><span class="s3">));</span>
+<span class="s3">});</span>
+<span class="s6">//single product page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/catalog/:id'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">) </span><span class="s2">=&gt; </span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/single_product_page/index.html'</span><span class="s3">)); </span>
+<span class="s3">});</span>
+<span class="s6">//profile page</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">get</span><span class="s3">(</span><span class="s4">'/profile'</span><span class="s3">, (</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">) </span><span class="s2">=&gt; </span><span class="s3">{</span>
+    
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/profile/index.html'</span><span class="s3">))</span>
+<span class="s3">})</span>
+
+<span class="s6">// Обработчик для несуществующих маршрутов</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">((</span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">, </span><span class="s1">next</span><span class="s3">) </span><span class="s2">=&gt; </span><span class="s3">{</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">status</span><span class="s3">(</span><span class="s5">404</span><span class="s3">).</span><span class="s1">sendFile</span><span class="s3">(</span><span class="s1">path</span><span class="s3">.</span><span class="s1">join</span><span class="s3">(</span><span class="s1">FrontendPages</span><span class="s3">, </span><span class="s4">'/errors/404.html'</span><span class="s3">));</span>
+<span class="s3">});</span>
+
+<span class="s6">// Обработчик ошибок</span>
+<span class="s1">app</span><span class="s3">.</span><span class="s1">use</span><span class="s3">((</span><span class="s1">err</span><span class="s3">, </span><span class="s1">req</span><span class="s3">, </span><span class="s1">res</span><span class="s3">, </span><span class="s1">next</span><span class="s3">) </span><span class="s2">=&gt; </span><span class="s3">{</span>
+    <span class="s1">console</span><span class="s3">.</span><span class="s1">error</span><span class="s3">(</span><span class="s1">err</span><span class="s3">.</span><span class="s1">stack</span><span class="s3">);</span>
+    <span class="s1">res</span><span class="s3">.</span><span class="s1">status</span><span class="s3">(</span><span class="s5">500</span><span class="s3">).</span><span class="s1">send</span><span class="s3">(</span><span class="s4">'Something broke!'</span><span class="s3">);</span>
+<span class="s3">});</span>
+
+<span class="s0">const </span><span class="s1">httpsOptions </span><span class="s2">= </span><span class="s3">{</span>
+    <span class="s1">key</span><span class="s2">: </span><span class="s1">fs</span><span class="s3">.</span><span class="s1">readFileSync</span><span class="s3">(</span><span class="s4">'./cert.key'</span><span class="s3">),</span>
+    <span class="s1">cert</span><span class="s2">: </span><span class="s1">fs</span><span class="s3">.</span><span class="s1">readFileSync</span><span class="s3">(</span><span class="s4">'./cert.pem'</span><span class="s3">)</span>
+<span class="s3">}</span>
+<span class="s1">console</span><span class="s3">.</span><span class="s1">log</span><span class="s3">(</span><span class="s4">'https://localhost:5001'</span><span class="s3">)</span>
+<span class="s1">https</span><span class="s3">.</span><span class="s1">createServer</span><span class="s3">(</span><span class="s1">httpsOptions</span><span class="s3">, </span><span class="s1">app</span><span class="s3">).</span><span class="s1">listen</span><span class="s3">(</span><span class="s1">PORT</span><span class="s3">)</span>
+
+</pre>
+</body>
+</html>

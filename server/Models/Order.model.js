@@ -2,13 +2,17 @@
 const User = require("../Models/User.model.js")
 class Order {
     async getAllOrders(req, res) {
-        let user = await User.getUser(req, res);
+        console.log(req)
         try {
-            let orders = await db.query('select * from orders where orders.user_id = $1', [user.id])
+            let user = await User.getUser(req)
+            
+            console.log(user)
+            let orders = await db.query('select * from orders where orders.user_id = $1', [user[0].id])
+            console.log(orders.rows)
+            res.status(200).send(orders.rows)
 
-            res.send(orders.rows)
-
-        } catch (e) {
+        } catch (e) {   
+            console.log(e)
             res.status(502).send('something went wrong')
         }
     }

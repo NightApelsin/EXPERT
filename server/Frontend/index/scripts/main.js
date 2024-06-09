@@ -11,6 +11,7 @@ export async function openAuthModal() {
         modal: true,
         height: 540,
         width: 600,
+        position: { my: "top top", at: "top top", of: window },
         reliable: false,
         draggable: false,
         beforeClose: function (event, ui) {

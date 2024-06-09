@@ -1,7 +1,6 @@
 ﻿const nodemailer = require("nodemailer");
 const SHA256 = require("crypto");
-const auth = require("../Controllers/authentification.controller.js");
-// Import NodeMailer (after npm install)
+const auth = require("../Models/User.model.js");
 
 
 class SMTP {
@@ -12,6 +11,7 @@ class SMTP {
         while (randomCode.length < 6) {
             randomCode = '0' + randomCode
         }
+        console.log(randomCode)
         if(!req.body.email){
             res.sendStatus(400)
             return

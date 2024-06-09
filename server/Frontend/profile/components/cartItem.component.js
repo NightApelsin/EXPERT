@@ -19,7 +19,10 @@ export async function addCartItem(index) {
     //fetching db
 
     let fetchProdFromDB = await fetch(`/api/catalog/${index}`, {
-        method: "GET"
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
     let productJSON = await fetchProdFromDB.json()
     let regularProduct = productJSON[0]
@@ -120,5 +123,4 @@ export async function addCartItem(index) {
 
 
     return content
-    //TODO: ТЕОРИЯ: получится ли удалить позицию из cookie корзины при обращении к массиву позиций визуала корзины а именно индексов основных контейнеров
 }

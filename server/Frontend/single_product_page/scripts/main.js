@@ -1,6 +1,14 @@
-import {createHistoryCookie, getSingleProduct, addToCart, getCookie} from "./requests.js";
+import {
+    createHistoryCookie,
+    getSingleProduct,
+    addToCart,
+    getCookie,
+    getAllComments,
+    sendProductComments
+} from "./requests.js";
 import {insertParameters, imagePreviewSwitcher} from "../components/insertParameters.js";
 import {openAuthModal} from "../components/authModal.js";
+import {createCommentComponent} from "../components/comment.component.js";
 
 
 
@@ -46,8 +54,19 @@ document.addEventListener('DOMContentLoaded',async () => {
             await openAuthModal()
         }
     })
+    let productID = window.location.pathname.split('/');
+    productID.pop()
+    let comments = await getAllComments(productID.pop())
+    console.log(comments)
+    for(const e of comments){
+        createCommentComponent(e).then(r=>document.querySelector('#users-comments').append(r))
+    }
+    document.querySelector('#send-comment-btn').addEventListener('click', (event) =>{
+        sendProductComments({textMessage:event.target.closest('.input-block').querySelector('#comment-input').value, 
+                                    grade:event.target.closest('.input-block').querySelector('#grade-selector').value})
+    })
 })
-    //TODO: сделать динамичную подборку рекомендуемых на основе cookie и принимаемых параметров из запросов на их основе 
+
      
 async function createInterface() {
     let productID = window.location.pathname.split('/');

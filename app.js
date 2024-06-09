@@ -1,22 +1,23 @@
 ﻿const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const router = require('./server/Routers/router.js')
 const cookieParser = require('cookie-parser');
 const fs = require('fs')
 const https = require('https')
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 51897;
+const path = require('path');
 const server = path.join(__dirname, '/server')
 const FrontendPages = path.join(server,'/Frontend');
+
 const app = express();
-
-
 const Session = require('express-session');
-const pool = require('./server/Database/db_sessionStorage.js')
+const SessionStorage = require('./server/Database/db_sessionStorage.js')
 const PgStore = require('connect-pg-simple')(Session);
+
+
 app.use(Session({
     store: new PgStore({
-        pool,
+        pool: SessionStorage,
         createTableIfMissing: true,
         schemaName: 'public',
         tableName: 'sessions'
@@ -25,9 +26,6 @@ app.use(Session({
     resave: true,
     saveUninitialized: true
 }));
-
-
-
 
 
 app.use(cookieParser());
@@ -41,10 +39,11 @@ app.use(express.json());
 // Раздача статических файлов
 app.use(express.static(FrontendPages));
 
-// Маршруты для различных страниц
+// Маршруты до папок различных страниц
 app.use('/source', express.static(path.join(FrontendPages, '/source')));
 app.use('/', express.static(path.join(FrontendPages, '/index')));
 app.use('/catalog', express.static(path.join(FrontendPages, '/catalog')));
+
 app.use('/catalog/:id', express.static(path.join(FrontendPages, '/single_product_page')));
 app.use('/api/', router);
 app.use('/SMTP/', express.static(path.join(server, '/SMTP')))
@@ -112,7 +111,7 @@ app.use((req, res, next) => {
     res.status(404).sendFile(path.join(FrontendPages, '/errors/404.html'));
 });
 
-// Обработчик ошибок
+// Обработчик внутренних ошибок сервера
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
@@ -122,6 +121,6 @@ const httpsOptions = {
     key: fs.readFileSync('./cert.key'),
     cert: fs.readFileSync('./cert.pem')
 }
-console.log('https://localhost:5001')
+console.log('https://localhost:51897')
 https.createServer(httpsOptions, app).listen(PORT)
 

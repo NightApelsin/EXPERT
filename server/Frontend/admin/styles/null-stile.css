@@ -1,0 +1,211 @@
+﻿@font-face {
+    font-family: "Robodron";
+    src: url('/source/fonts/logo-font/RobodronMedium.ttf');
+}
+/*@font-face {*/
+/*    font-family: "SF Pro Display";*/
+/*    src: url(/EXPERT.ru/source/fonts/main-font/SFPRODISPLAYMEDIU.otf);*/
+/*}*/
+
+@font-face {
+    font-family: "SF Pro Display 300";
+    src : url("/source/fonts/main-font/SF Pro Display/SF-Pro-Display-Light.otf ");
+}
+@font-face {
+    font-family: "SF Pro Display 400";
+    src : url("/source/fonts/main-font/SF Pro Display/SF-Pro-Display-Regular.otf");
+}
+@font-face {
+    font-family: "SF Pro Display 100";
+    src : url("/source/fonts/main-font/SF Pro Display/SF-Pro-Display-Thin.otf");
+}
+
+
+/* Reset and base styles  */
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+    text-decoration: none;
+    color: #222;
+    font-family: "SF Pro Display 400";
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: "SF Pro Display 400";
+}
+span{
+    font-family: "SF Pro Display 400";
+}
+
+ul, ul li {
+    list-style: none;
+    font-family: "SF Pro Display 400";
+}
+
+img {
+    vertical-align: top;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+address {
+    font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background: transparent none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+label {
+    cursor: pointer;
+}
+
+legend {
+    display: block;
+}
+
+.main-name{
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    margin-top: 90px;
+    font-family: 'Robodron';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 113px */
+    letter-spacing: 0.1em;
+}
+@media(min-width:767px) {
+.main-name{
+    font-size: calc(28px + 85 * (100vw / 1600));
+}
+}
+@media(max-width:767px){
+    .main-name{
+        font-size: calc(28px + (85 + 85 * 0.7) * ((100vw - 329px) / 1600));
+    }
+}
+.consult-but.text{
+    color:  #FEFEFE;
+
+    /* Txt / light */
+    font-family: "SF Pro Display 400";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%; /* 23.4px */
+    letter-spacing: 0.36px;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+}
+
+.anti-srez .catalog-transporter-button,
+.anti-thief .catalog-transporter-button,
+.more-security .catalog-transporter-button{
+    @media screen and (max-width:481px){
+        display: none;
+    }
+    @media screen and (min-width: 482px){
+        display: block;
+    }
+}
+@media screen and (max-width: 480px){
+    .anti-thief {
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+    }
+    .anti-thief .title{
+        position: absolute;
+        top: 0;
+    }
+    .anti-thief .bottom-box{
+        margin-top: 40px;
+    }
+}
+
+body::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+.ui-state-hover{
+    background-color: #fff;
+}
+
+.ui-accordion .ui-accordion-header{
+    padding: 1em 5.5em 0.5em 0em;
+}
+.ui-accordion .ui-accordion-content{
+    padding: 0;
+    border: 0;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+    background-color: #fff;
+    border: none;
+}
+.ui-icon{
+    display: none;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{
+    background: #fff;
+    border: none;
+}

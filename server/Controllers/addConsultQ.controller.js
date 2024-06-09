@@ -2,6 +2,7 @@
 
 class ConsultQ {
     async addConsulQ(req, res) {
+        console.log(req)
         const phone = req.body
         let cookies = req.cookies.historyPath || {path: []};
         let time = new Date()
@@ -19,3 +20,5 @@ class ConsultQ {
     
 }
 module.exports = new ConsultQ()
+
+

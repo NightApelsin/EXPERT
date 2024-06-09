@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded',async function () {
                 modal: true,
                 height: 340,
                 width: 600,
-                reliable: false,
+                resizeable: false,
                 draggable: false,
                 beforeClose: function (event, ui) {
                     document.querySelector('body').style.overflow = 'scroll'

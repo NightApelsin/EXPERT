@@ -2,6 +2,7 @@
 
 class Product {
     async getAllProducts(req, res) {
+        console.log(req)
         const products = await db.query(`SELECT id, name, description, image, price, filters
                                          FROM product_table
                                          order by price desc `);
@@ -9,7 +10,7 @@ class Product {
     }
 
     async getOneProduct(req, res) {
-
+        console.log(req)
         let regularId = req.params.id.replace(/\D/g, '')
         console.log(regularId);
         const product = await db.query(`select *
