@@ -1,4 +1,5 @@
 ﻿.idea
 cert.key
 cert.pem
+**/Database/.js
 .consoleLog.txt
