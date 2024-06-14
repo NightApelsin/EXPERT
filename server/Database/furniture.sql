@@ -1,0 +1,14 @@
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (1, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (2, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (3, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (4, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (5, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (6, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (7, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (8, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (9, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (10, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (11, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (12, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (13, 'чёрный', 'рычаг', false, true, false);
+INSERT INTO public.furniture (id, furniture_color, handle_type, closer, doorstep, hinge_decoration) VALUES (14, 'чёрный', 'рычаг', false, true, false);

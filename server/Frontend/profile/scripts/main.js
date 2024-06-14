@@ -110,7 +110,6 @@ document.addEventListener('DOMContentLoaded',async () => {
                             
                             priceCounter -= parseInt(event.target.closest('.cart-item-container')
                                 .querySelector('.cart-price .current-price').textContent.split('₽')[0])
-                            
                         }
                         document.querySelector('#total-price').textContent = priceCounter+'₽'
                         

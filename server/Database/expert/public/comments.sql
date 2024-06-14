@@ -6,6 +6,9 @@ create table if not exists comments
     comment_text text,
     doors_id     integer,
     constraint comments_user_id__fk
+        foreign key (user_id) references users,
+    constraint user_id
         foreign key (user_id) references users
+            on delete cascade
 );
 

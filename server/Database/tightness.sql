@@ -1,0 +1,14 @@
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (1, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (2, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (3, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (4, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (5, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (6, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (7, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (8, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (9, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (10, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (11, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (12, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (13, 1, 'силикон');
+INSERT INTO public.tightness (id, seal_count, seal_material) VALUES (14, 1, 'силикон');

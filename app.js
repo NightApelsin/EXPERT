@@ -4,7 +4,7 @@ const router = require('./server/Routers/router.js')
 const cookieParser = require('cookie-parser');
 const fs = require('fs')
 const https = require('https')
-const PORT = process.env.PORT || 51897;
+const PORT = process.env.PORT || 3000;
 const path = require('path');
 const server = path.join(__dirname, '/server')
 const FrontendPages = path.join(server,'/Frontend');
@@ -13,6 +13,12 @@ const app = express();
 const Session = require('express-session');
 const SessionStorage = require('./server/Database/db_sessionStorage.js')
 const PgStore = require('connect-pg-simple')(Session);
+
+
+let http = require('http');
+let servere = http.createServer();
+
+
 
 
 app.use(Session({
@@ -117,10 +123,15 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
-const httpsOptions = {
-    key: fs.readFileSync('./cert.key'),
-    cert: fs.readFileSync('./cert.pem')
-}
-console.log('https://localhost:51897')
-https.createServer(httpsOptions, app).listen(PORT)
+// const httpsOptions = {
+//     key: fs.readFileSync('./cert.key'),
+//     cert: fs.readFileSync('./cert.pem')
+// }
+// console.log('https://localhost:5001')
+// https.createServer(httpsOptions, app).listen(PORT)
+
+
+app.listen(PORT,()=>{
+    console.log(`Server started on port ${PORT}\nsite link http://localhost:${PORT}`);
+})
 

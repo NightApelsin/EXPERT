@@ -1,0 +1,2 @@
+INSERT INTO public.qforconsultation ("clientPhone", "clientCookie", date_registration, status) VALUES ('+79532222323', '{"path": [["/catalog/5/"], ["/catalog/4/"], ["/catalog/3/"], ["/catalog/3/"], ["/catalog/3/"]]}', '2024-05-28', 'unchecked');
+INSERT INTO public.qforconsultation ("clientPhone", "clientCookie", date_registration, status) VALUES ('+79532222323', '{"path": [["/catalog/3/"], ["/catalog/3/"], ["/catalog/3/"], ["/catalog/3/"], ["/catalog/2/"]]}', '2024-05-28', 'unchecked');

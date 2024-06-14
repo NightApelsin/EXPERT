@@ -1,0 +1,14 @@
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (1, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (2, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (3, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (4, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (5, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (6, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (7, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (8, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (9, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (10, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (11, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (12, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (13, null, null, null, null, null);
+INSERT INTO public.insulation (id, filler_type, filler_thickness, filler_fire_class, filler_using_temperature, door_frame_insulation) VALUES (14, null, null, null, null, null);

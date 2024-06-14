@@ -1,0 +1,14 @@
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (1, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (2, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (3, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (4, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (5, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (6, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (7, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (8, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (9, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (10, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (11, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (12, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (13, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);
+INSERT INTO public.decoration (id, coating_type, coating_color, exterior_finish, interior_finish, decorative_threshold) VALUES (14, 'порошковая краска', 'чёрный', 'порошковая краска', 'порошковая краска', true);

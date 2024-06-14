@@ -1,0 +1,132 @@
+.wrapper{
+    font-family: "SF Pro Display 400" , sans-serif;
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    & .right-side-menu{
+        display: flex;
+        flex-direction: column;
+        row-gap: 50px;
+        & .label{
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        & .menu{
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            & div {
+                padding: 10px 20px;
+                text-align: center;
+                &.open {
+                    background-color: #727272;
+                    color: #fff;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+    & .main-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        & div {
+            display: none;
+            &.open {
+                display: flex;
+                flex-direction: column;
+                row-gap: 40px;
+                padding: 5px 200px;
+            }
+            &#users {
+
+                & .user-container {
+                    height: 15vh;
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    transition: all 0.3s ease;
+                    border-radius: 20px;
+                    padding: 5px 20px;
+
+                    &:hover {
+                        box-shadow: 0 0 20px #222;
+                    }
+
+                    &.redact {
+                        height: 70vh;
+                    }
+
+                    & .user-visible-container {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        & .avatar-holder {
+                            display: flex;
+                            width: 150px;
+                            height: 150px;
+
+                            & img {
+                                width: auto;
+                                height: auto;
+                                max-width: 100%;
+                                max-height: 100%;
+                            }
+                        }
+
+                        & .user-name-span {
+                            font-family: 'SF Pro Display 400', sans-serif;
+                            width: 100%;
+                            text-align: start;
+                            margin-left: 50px;
+                        }
+
+                        & .button-holder {
+                            width: 150px;
+                            height: 150px;
+                            display: block;
+                            & .delete-btn {
+                                display: block;
+                                & svg {
+                                    width: 25px;
+                                    height: 25px;
+                                }
+                            }
+                        }
+                    }
+
+                    & .user-hiden-container {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 50px;
+                        & div{
+                            display: block;
+                        }
+                        & .update-btn {
+                            margin-left: 10px;
+                            margin-bottom: 10px;
+                            margin-top: -20px;
+                            padding: 10px 20px;
+                            background: #0222A5;
+                            color: #fff;
+                            width: min-content;
+                            border-radius: 20px;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: #0222A5;
+                                background: #fff;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

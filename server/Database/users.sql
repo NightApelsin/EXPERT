@@ -1,0 +1,1 @@
+INSERT INTO public.users (email, password, name, surname, session, cart) VALUES ('izmsasha58@gmail.com', 'd6ebd6e997b94b0b87069dae04bce1efc696417c53fae8262f3c494aed119249', 'Александр', 'Изместьев', '1M-8obA-6m9iGFy9TnXhu1cDqFMKIeAe', '{"doorsId": [3, 3], "optionalProducts": {"locks": [], "handles": [], "armorShield": [], "videoSecurity": []}}');

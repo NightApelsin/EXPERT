@@ -35,3 +35,4 @@
     mainContainer.append(userInformation, commentText, commentGrade)
     return mainContainer
 }
+
