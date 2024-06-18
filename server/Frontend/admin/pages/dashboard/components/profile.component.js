@@ -65,7 +65,7 @@ export async function createProfileComponent(obj){
 
     let userSurnameHolder = document.createElement('div')
     let userSurnameLabel = document.createElement('span')
-    userSurnameLabel.textContent = 'Имя: '
+    userSurnameLabel.textContent = 'Фамилия: '
     let userSurnameInput = document.createElement('input')
     userSurnameInput.type = 'text'
     userSurnameInput.classList.add('user-surname-input')

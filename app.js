@@ -54,7 +54,8 @@ app.use('/catalog/:id', express.static(path.join(FrontendPages, '/single_product
 app.use('/api/', router);
 app.use('/SMTP/', express.static(path.join(server, '/SMTP')))
 
-
+//подключение картинок с сервера
+app.use('/image/', express.static(path.join(FrontendPages, '/source/product-images')))
 
 // Обработчики GET запросов
 //about page

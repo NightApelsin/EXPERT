@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
         let productsJson = await products.json()
         console.log(productsJson)
         for(const product of productsJson){
-            console.log(await createProductComponent(product))
+            
             await createProductComponent(product).then(r=>document.querySelector('#products').append(r))
         }
     }catch (error){

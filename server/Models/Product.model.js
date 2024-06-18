@@ -33,5 +33,34 @@ class Product {
             [regularId]);
         res.json(product.rows);
     }
+    
+    async getDecoration(id){
+        let result = await db.query(`SELECT * FROM decoration where id = $1`,[id])
+        return result.rows[0]        
+    }
+    async getFurniture(id){
+        let result = await db.query(`SELECT * FROM furniture where id = $1`,[id])
+        return result.rows[0]
+    }
+    async getGeneralCharacteristics(id){
+        let result = await db.query(`SELECT * FROM general_characteristics where id = $1`,[id])
+        return result.rows[0]
+    }
+    async getInsulation(id){
+        let result = await db.query(`SELECT * FROM insulation where id = $1`,[id])
+        return result.rows[0]
+    }
+    async getSecurity(id){
+        let result = await db.query(`SELECT * FROM security where id = $1`,[id])
+        return result.rows[0]
+    }
+    async getTightness(id){
+        let result = await db.query(`SELECT * FROM tightness where id = $1`,[id])
+        return result.rows[0]   
+    }
+    async getUsability(id){
+        let result = await db.query(`SELECT * FROM usability where id = $1`,[id])
+        return result.rows[0]
+    }
 }
 module.exports = new Product

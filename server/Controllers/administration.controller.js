@@ -1,6 +1,7 @@
 ﻿let dbSess = require('../Database/db_sessionStorage.js')
 let db = require('../Database/db.js')
 let crypto = require('crypto')
+let PRODUCT = require('../Models/Product.model.js')
 class administrationController{
     async logIn(req,res){
         
@@ -85,18 +86,18 @@ class administrationController{
     async getProductParameters(req,res){
         let productId = req.body.id
         try{
-            let result = []
-            let mainParameters = await db.query(`SELECT * FROM general_characteristics where id = $1`, [productId])
-            let decoration = await db.query(`SELECT * FROM decoration where id = $1`, [productId])
-            let furniture = await db.query(`SELECT * FROM furniture where id = $1`, [productId])
-            let insulation = await db.query(`SELECT * FROM insulation where id = $1`, [productId])
-            let security = await db.query(`SELECT * FROM security where id = $1`, [productId])
-            let tightness = await db.query(`SELECT * FROM tightness where id = $1`, [productId])
-            let usability = await db.query(`SELECT * FROM usability where id = $1`, [productId])
-            result = [mainParameters, decoration, tightness, usability, furniture, insulation, security]
-            res.send(result)
+            let decor = await PRODUCT.getDecoration(productId)
+            let furn = await PRODUCT.getFurniture(productId)
+            let insul = await PRODUCT.getInsulation(productId)
+            let general = await PRODUCT.getGeneralCharacteristics(productId)
+            let secur = await PRODUCT.getSecurity(productId)
+            let ting = await PRODUCT.getTightness(productId)
+            let useabil = await PRODUCT.getUsability(productId)
+            
+            res.send(JSON.stringify([{decoration:decor}, {furniture:furn}, {insulation:insul}, {general: general}, {security:secur},
+                    {tightness: ting}, {usability: useabil}]))
         }catch (e){
-            res.status(502).send(e)
+            res.status(502).send(e.message)
         }
     }
 }
