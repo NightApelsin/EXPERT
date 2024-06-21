@@ -1,9 +1,0 @@
-﻿ErrorDocument 404 EXPERT.ru/error/404.html
-PassengerNodejs /home/v/valkeru/.local/bin/node
-PassengerAppRoot /home/v/valkeru/node/HelloWorld
-PassengerAppType node
-PassengerStartupFile app.js
-PassengerNodejs /home/b/b95369bn/.local/bin/node
-PassengerAppRoot /home/b/b95369bn//название_проекта
-PassengerAppType node
-PassengerStartupFile app.js
