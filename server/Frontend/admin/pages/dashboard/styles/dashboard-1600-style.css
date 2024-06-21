@@ -1,4 +1,6 @@
+
 .wrapper{
+   
     font-family: "SF Pro Display 400" , sans-serif;
     display: flex;
     flex-direction: row;
@@ -33,7 +35,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        & div {
+        & .page {
             display: none;
             &.open {
                 display: flex;
@@ -128,18 +130,28 @@
 
             }
             &#products{
+                
                 & .product-category-container{
                     display: flex;
                     flex-direction: column;
                     height: 150px;
                     overflow: hidden;
+                    border: 1px solid #727272;
+                    border-radius: 20px;
+                    padding: 20px;
+                    &:hover{
+                        box-shadow: 0px 0px 20px #000;
+                    }
+                    &::-webkit-scrollbar{
+                        width: 0px;
+                        height: 0px;
+                        background-color: transparent;
+                    }
                     & .visible-product-content{
                         display: flex;
                         flex-direction: row;
                         column-gap: 100px;
-                        &:hover{
-                            box-shadow: 0px 0px 20px #000;
-                        }
+                        
                         & .main-image-holder{
                             display: block;
                             width: 150px;
@@ -155,8 +167,80 @@
                     & .hiden-product-content{
                         display: flex;
                         flex-direction: column;
-                        & div{
+                        margin-top: 20px;
+                        row-gap: 20px;
+                        & .input-holder{
+                           display: flex;
+                            flex-direction: row;
+                            column-gap: 20px;
+                            width: 50%;
+                            & input, & textarea {
+                                width: 100%;
+                            }
+                            
+                        }
+                        & .parameters{
                             display: flex;
+                            flex-direction: column;
+                            row-gap: 10px;
+                            height: 40px;
+                            overflow: hidden;
+                            transition: all 0.2s ease;
+                            margin: 0 20px;
+                            &:hover{
+                                box-shadow: 0 0 20px #000;
+                                border-radius: 10px;
+                            }
+                            &.redact{
+                                height: -webkit-fill-available;
+                            }
+                            & .visible-content{
+                                padding: 10px 10px;
+                            }
+                            & .hiden-container{
+                                display: flex;
+                                flex-direction: column;
+                                row-gap: 20px;
+                                padding: 10px 10px;
+                                & div{
+                                    width: 50%;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    &.filters{
+                                        display: flex;
+                                        flex-direction: column;
+                                        height: 30px;
+                                        overflow: hidden;
+                                        &.redact{
+                                            & input{
+                                                width: 50%;
+                                            }
+                                            & div {
+                                                width: 80%;
+                                                display: flex;
+                                                justify-content: space-between;
+                                                padding-left: 10px;
+                                                row-gap: 10px;
+                                                &.visible-content{
+                                                    padding: 10px;
+                                                }
+                                            }
+                                            height: -webkit-fill-available;
+                                            row-gap: 20px;
+                                        }
+                                    }
+                                    & input{
+                                        width: 50%;
+                                    }
+                                }
+                            }
+                            &.input-holder{
+                                & .hiden-container{
+                                    display: flex;
+                                    flex-direction: row;
+                                    column-gap: 10px;
+                                }
+                            }
                         }
                     }
                     &.redact{

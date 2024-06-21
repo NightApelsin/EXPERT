@@ -91,7 +91,6 @@ export async function createProfileComponent(obj){
     let userPassword = document.createElement('span')
     userPassword.classList.add('user-password')
     userPassword.textContent = 'Пароль: '+ obj.password
-    console.log(id, userNameHolder, userSurnameHolder, userEmailHolder, userPassword, userSession)
     
     hidenContainer.append(id, userNameHolder, userSurnameHolder, userEmailHolder, userPassword, userSession)
     

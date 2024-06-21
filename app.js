@@ -55,7 +55,7 @@ app.use('/api/', router);
 app.use('/SMTP/', express.static(path.join(server, '/SMTP')))
 
 //подключение картинок с сервера
-app.use('/image/', express.static(path.join(FrontendPages, '/source/product-images')))
+app.use('/image/', express.static(path.join(FrontendPages, '/source/productImage')))
 
 // Обработчики GET запросов
 //about page

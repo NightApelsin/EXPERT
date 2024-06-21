@@ -12,7 +12,6 @@ function FilterProduct(products){
    
     let filteredProduct = products.filter(product =>{
         if (colors.length > 0 && !colors.includes(product.filters.filters.color)){
-            
             return false
         }
         if (materials.length > 0 && !materials.includes(product.filters.filters.material)) return false;
