@@ -1,5 +1,15 @@
 ﻿const Router = require('express');
 const router = Router();
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '../EXPERT/server/Frontend/source/productImage'); // Укажите путь для сохранения файлов
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname); // Уникальное имя файла
+    }
+});
+const upload = multer({ storage: storage });
 
 const User = require('../Models/User.model.js')
 const Product = require('../Models/Product.model.js')
@@ -33,9 +43,14 @@ router.post('/createOrder', orderController.createOrder)
 router.post('/getAllOrders', Order.getAllOrders)
 router.post('/getProductComments/:id', commentController.getProductComments)
 router.post('/addComment', commentController.addComment)
+
+router.put('/admin/saveMainImage', upload.single('file'), productController.saveMainImage)
+router.put('/admin/saveSourceImage', upload.single('file'), productController.saveSourceImage)
 router.post('/admin/createProduct', productController.createProduct)
 router.put('/admin/updateProduct', productController.updateProduct)
 router.delete('/admin/deleteProduct', productController.deleteProduct)
+
+
 router.post('/admin/isVerified', administrationController.isVerified)
 router.post('/admin/login', administrationController.logIn)
 router.post('/admin/getUsers', administrationController.getAllProfiles)
