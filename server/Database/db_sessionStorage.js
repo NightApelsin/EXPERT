@@ -1,7 +1,7 @@
 ﻿const { Pool } = require('pg');
 
 const pool = new Pool({
-    connectionString: 'postgres://postgres:root@46.252.127.232:5432/session_storage',
+	connectionString: 'postgres://postgres:1423@92.255.223.244:5432/EXPERTSESSIONSTORAGE',
 
 });
 
