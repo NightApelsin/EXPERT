@@ -5,7 +5,9 @@ export async function createProductComponent(product){
     
     let fetchResult = await getParameters(product)
     
-    
+    let form = document.createElement('form')
+	form.classList.add('product-form-container')
+
     mainContainer = document.createElement('div')
     mainContainer.classList.add('product-category-container')
     let visibleContent = document.createElement('div')
@@ -24,7 +26,35 @@ export async function createProductComponent(product){
     productName.classList.add('product-name')
     productName.textContent = product.name
     visibleContent.append(productName)
-    
+    visibleContent.style.display = 'flex'
+	visibleContent.style.justifyContent = 'space-between'
+	visibleContent.style.alignItems = 'center'
+
+    let saveBtn = document.createElement('button')
+	saveBtn.classList.add('save-product-btn')
+	saveBtn.textContent = 'Сохранить'
+	saveBtn.style.height = '50px'
+	saveBtn.style.display = 'flex'
+	saveBtn.addEventListener('click', async (event)=>{
+		
+		event.preventDefault()
+		let mainComponent = event.target.closest('.product-form-container')
+		
+		let formData = new FormData(mainComponent, mainComponent.querySelector('button.save-product-btn'))
+		for (let [key, val] of formData){
+			console.log(`key:${key}::val:${val}`)
+		}
+
+		let saveProductFetch = await fetch('/api/admin/updateProduct',{
+			method:'POST',
+			headers:{'Content-Type':'application/json'},
+			body: JSON.stringify({'window':'open'})	
+			
+		})
+	})
+	visibleContent.append(saveBtn)
+
+
     let arrow = document.createElement('div')
     arrow.classList.add('open-product-arrow')
     
@@ -100,8 +130,8 @@ export async function createProductComponent(product){
     visibleContent.addEventListener('click', (event)=>{
         mainContainer.classList.toggle('redact')
     })
-    
-   return mainContainer
+   form.append(mainContainer) 
+   return form
 }
 
 
@@ -181,6 +211,7 @@ function createInputs(name, value){
         let paramInput = document.createElement('input')
         paramInput.value = value
         paramInput.classList.add('sub-category-parameter-input', name)
+	paramInput.name = name
         
         
         container.append(paramName, paramInput)

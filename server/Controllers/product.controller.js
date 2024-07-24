@@ -11,10 +11,10 @@ class ProductController{
     }
     
     async updateProduct(req, res){
-        const {id, name, description, images, price, filters} = req.body;
-        const updatedProduct = await db.query(`UPDATE product_table SET name = $1, description =$2, price=$3,
-        image = $4, filters = $5 WHERE id = $6`, [name, description, price, images, filters, id]);
-        res.json(updatedProduct.rows);
+       
+     console.log(req.body) 
+     res.sendStatus(200)
+       
     }
     
     async deleteProduct(req, res){

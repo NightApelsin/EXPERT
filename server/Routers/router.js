@@ -47,7 +47,7 @@ router.post('/addComment', commentController.addComment)
 router.put('/admin/saveMainImage', upload.single('file'), productController.saveMainImage)
 router.put('/admin/saveSourceImage', upload.single('file'), productController.saveSourceImage)
 router.post('/admin/createProduct', productController.createProduct)
-router.put('/admin/updateProduct', productController.updateProduct)
+router.post('/admin/updateProduct', productController.updateProduct)
 router.delete('/admin/deleteProduct', productController.deleteProduct)
 
 
